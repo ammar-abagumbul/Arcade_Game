@@ -16,10 +16,6 @@ class GameObject {
 public:
     GameObject(ObjectType type) : type(type), pickedUp(false) {}
 
-    void pickUp() {
-        pickedUp = true;
-    }
-
     bool isPickedUp() const {
         return pickedUp;
     }
@@ -36,6 +32,7 @@ public:
 
         //replace object with '.' in map
         gameMap[x][y] = '.';
+        pickedUp = true;
     }
 }
 
