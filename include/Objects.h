@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <utility>
+#include <vector>
 
 #ifndef OBJECTS_H_
 #define OBJECTS_H_
