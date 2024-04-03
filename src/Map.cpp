@@ -41,45 +41,52 @@ Map::Map(std::string f, int w, int h)
 		}
 		line++;
 	}
+
+	mapfile.close();
 }
-//function to open map file and add the map in a vector for each object map 
+// function to open map file and add the map in a vector for each object map
 void Map::renderMap()
 {
-		std::ifstream file;
-		file.open(filename.c_str());
-		if (file.fail()){
-			std::cout << "Error in file opening" << std::endl;
-			exit(1);
+	std::ifstream file;
+	file.open(filename.c_str());
+	if (file.fail())
+	{
+		std::cout << "Error in file opening" << std::endl;
+		exit(1);
+	}
+	std::string line;
+	while (std::getline(file, line))
+	{
+		std::vector<char> col;
+		for (char c : line)
+		{
+			col.push_back(c);
 		}
-		std::string line;
-		while(std::getline(file, line)){
-			std::vector<char> col;
-			for (char c: line){
-				col.push_back(c);
-			}
-			map.push_back(col);	
-		}
-		file.close();
+		map.push_back(col);
+	}
+	file.close();
 };
 
 void Map::printMap()
 {
-	for (int i = 0; i < map.size(); i++){
-		for (int j = 0; j < map[i].size(); i++){
-			std::cout <<  map[i][j];
+	for (int i = 0; i < map.size(); i++)
+	{
+		for (int j = 0; j < map[i].size(); i++)
+		{
+			std::cout << map[i][j];
 		}
 		std::cout << std::endl;
 	}
 }
 
-	/*
-	open file first
-	iterate line by line (points to exlude first line, first and last 2 characters)
-	items top most corner will be marked by a letter marking the type of the object
-		k: key
-		t: table
-		d: door
-		c: characters
-		f: furniture (closet most prolly)
-		 : empty block means wall unpassable barrier
-	*/
+/*
+open file first
+iterate line by line (points to exlude first line, first and last 2 characters)
+items top most corner will be marked by a letter marking the type of the object
+	k: key
+	t: table
+	d: door
+	c: characters
+	f: furniture (closet most prolly)
+	 : empty block means wall unpassable barrier
+*/
