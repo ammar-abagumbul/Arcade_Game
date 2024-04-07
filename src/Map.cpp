@@ -1,9 +1,5 @@
 #include "Map.h"
-#include "GameObject.h"
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <string>
 
 void populate_nodes(GameObject &object, intPair coord);
 
