@@ -1,8 +1,8 @@
 #include "GameObject.h"
 #include <algorithm>
 
-
-GameObject::GameObject(int X, int Y, bool isSinglePoint, intPair coordinateArray, char objectSymbol){
+GameObject::GameObject(int X, int Y, bool isSinglePoint, intPair coordinateArray, char objectSymbol)
+{
 	positionX = X;
 	positionY = Y;
 	isPoint = isSinglePoint;
@@ -10,7 +10,43 @@ GameObject::GameObject(int X, int Y, bool isSinglePoint, intPair coordinateArray
 	symbol = objectSymbol;
 }
 
-std::string GameObject::returnName(){
+int GameObject::getPositionX()
+{
+	return positionX;
+}
+
+int GameObject::getPositionY()
+{
+	return positionY;
+}
+
+bool GameObject::getisPoint()
+{
+	return isPoint;
+}
+
+intPair GameObject::getCoordinates()
+{
+	return coordinates;
+}
+
+char GameObject::getSymbol()
+{
+	return symbol;
+}
+
+void GameObject::setPositionX(int newX)
+{
+	positionX = newX;
+}
+
+void GameObject::setPositionY(int newY)
+{
+	positionY = newY;
+}
+
+std::string GameObject::returnName()
+{
 	return "GameObject";
 }
 
