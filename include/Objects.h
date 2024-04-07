@@ -20,17 +20,36 @@ enum class ObjectType
 
 class GameObject
 {
+private:
+	int positionX;
+	int positionY;
+	bool isPoint;
+	intPair coordinates;
+	char symbol;
+
 public:
-	ObjectType type;
-	intPair pos;
-	std::vector<intPair, intPair> nodes; // a list of continious blocks to allow for flexeble shapes pair(pos, dimension)
-	ObjectType type;
-	bool pickedUp;
+	// ObjectType type;
+	// intPair pos;
+	// std::vector<intPair, intPair> nodes; // a list of continious blocks to allow for flexeble shapes pair(pos, dimension)
+	// ObjectType type;
+	// bool pickedUp;
 
-	GameObject(ObjectType type);
-	GameObject(ObjectType type, std::pair<int, int> pos);
+	// GameObject(ObjectType type);
+	// GameObject(ObjectType type, std::pair<int, int> pos);
 
-	bool overlaps(GameObject object);
+	// bool overlaps(GameObject object);
+	GameObject(int X, int Y, bool isSinglePoint, intPair coordinateArray, char objectSymbol);
+
+	int getPositionX();
+	int getPositionY();
+	bool getisPoint();
+	intPair getCoordinates();
+	char getSymbol();
+
+	void setPositionX(int newX);
+	void setPositionY(int newY);
+
+	std::string returnName();
 };
 
 #endif
