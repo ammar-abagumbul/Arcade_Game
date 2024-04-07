@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "Objects.h"
+#include "GameObject.h"
 
 #ifndef MAP_H_
 #define MAP_H_
