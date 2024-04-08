@@ -15,6 +15,7 @@ private:
 	std::string filename;
 
 public:
+//have to change to pointer array
 	std::vector<GameObject> gameObjects;
 	std::vector<std::vector<char>> map;
 	Map(std::string filename, int width, int height);
