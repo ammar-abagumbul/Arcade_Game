@@ -70,9 +70,9 @@ void Map::printMap()
 {
 	for (int i = 0; i < map.size(); i++)
 	{
-		for (int j = 0; j < map[i].size(); i++)
+		for (int j = 0; j < map[i].size(); j++)
 		{
-			std::cout << map[i][j];
+			std::cout << *(map[i][j]) << " ";
 		}
 		std::cout << std::endl;
 	}
