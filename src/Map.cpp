@@ -41,6 +41,8 @@ void populate_nodes(GameObject &object, intPair coord);
 // 	mapfile.close();
 // }
 // function to open map file and add the map in a vector for each object map
+/*reads the map and creates pointer for each character and stores that pointer in the vector col so for the first 
+line it stores the pointers to the characters in the first line in the vector col*/
 void Map::renderMap()
 {
 	std::ifstream file;
@@ -53,10 +55,11 @@ void Map::renderMap()
 	std::string line;
 	while (std::getline(file, line))
 	{
-		std::vector<char> col;
+		std::vector<char*> col;
 		for (char c : line)
 		{
-			col.push_back(c);
+			char * character = new  char(c);
+			col.push_back(character);
 		}
 		map.push_back(col);
 	}
@@ -72,6 +75,15 @@ void Map::printMap()
 			std::cout << map[i][j];
 		}
 		std::cout << std::endl;
+	}
+}
+
+//deallocating the memory after the map has been used
+void Map::cleanup(){
+	for (auto &row : map){
+		for (char * character : row){
+			delete character;
+		}
 	}
 }
 

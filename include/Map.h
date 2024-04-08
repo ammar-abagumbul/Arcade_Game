@@ -16,8 +16,8 @@ private:
 
 public:
 //have to change to pointer array
-	std::vector<GameObject> gameObjects;
-	std::vector<std::vector<char>> map;
+	std::vector<GameObject * > gameObjects;
+	std::vector<std::vector<char *>> map; // a 2D vector of char pointers which 
 	Map(std::string filename, int width, int height);
 	Map(std::string mapstring, int width, int height); // for testing, would most probably be removed later
 
