@@ -52,4 +52,38 @@ public:
 	std::string returnName();
 };
 
+class GunObject : public GameObject
+{
+private:
+	int Ammo;
+	bool PickedUp;
+
+public:
+	bool Drop();
+	bool CanShoot(int positionX, int positionY);
+	bool Shoot(int positionX, int positionY);
+	
+};
+
+class DoorObject : public GameObject
+{
+private:
+	std::string Password;
+	bool Closed;
+
+public:
+
+
+};
+
+class KeyObject : public GameObject
+{
+private:
+	bool PickedUp;
+	std::string Passwork;
+
+public:
+	bool Unlock(Door* DoorPointer); 
+	//Checks if password of Door and Key Match. If yes, sets DoorObject Closed to Open. Returns True if Unlock is successful and False otherwise
+};
 #endif
