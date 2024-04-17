@@ -3,7 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "include/ncurses-6.3/ncurses"
+                
             ],
             "defines": [
                 "_DEBUG",
