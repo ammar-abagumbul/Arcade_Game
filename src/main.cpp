@@ -1,12 +1,8 @@
 #include <iostream>
-#include "ncurses/curses.h"
+#include "../include/animations.h"
 
 using namespace std;
 
 int main(){
-    initscr();
-    refresh();
-    getch();
-    endwin();
-    return 0;
+    introAnimations();
 }
