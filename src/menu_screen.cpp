@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "../include/menu_screen.h"
 #include "../include/invalid_input_screen.h"
 
@@ -39,7 +40,9 @@ int showMenuScreen()
     while (true)
     {
         cout << "                                                       ";
-        cin >> c;
+        string s;
+        cin >> s;
+        c = s[0];
         if (c >= '1' && c <= '4')
         {
             break;
