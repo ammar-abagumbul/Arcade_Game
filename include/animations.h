@@ -3,5 +3,6 @@
 
 void introAnimations();
 void printCredits();
+void storyLineIntro();
 
 #endif

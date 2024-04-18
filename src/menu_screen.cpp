@@ -1,7 +1,6 @@
 #include <iostream>
 #include "../include/menu_screen.h"
 #include "../include/invalid_input_screen.h"
-#include "../include/animations.h"
 
 void printMainMenu()
 {
@@ -52,10 +51,5 @@ int showMenuScreen()
         }
     }
 
-    if (c == '3'){
-        printCredits();
-        cin.ignore();
-    }
-
-    return c - '0';
+    return (c - '0');
 }
