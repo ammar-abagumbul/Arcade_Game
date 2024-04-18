@@ -91,3 +91,167 @@ void introAnimations()
     cout << "                                     Press any ENTER to continue" << endl;
     cin.ignore();
 }
+
+
+void printCredits(){
+    using namespace std;
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    cout<<"                           Chowdhury Aosaf Ershad              3036253732                "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    cout<<"                           Chowdhury Aosaf Ershad              3036253732                "<<endl;
+    cout<<"                           Ignatius De Loyola Dominique Japar  3036184072                "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                                                                              "<<endl;
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    cout<<"                           Chowdhury Aosaf Ershad              3036253732                "<<endl;
+    cout<<"                           Ignatius De Loyola Dominique Japar  3036184072                "<<endl;
+    cout<<"                           Sheik Mahmood Afif                  3036225230                "<<endl;
+    sleep(1);
+
+
+    system("cls");
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    cout<<"                           Chowdhury Aosaf Ershad              3036253732                "<<endl;
+    cout<<"                           Ignatius De Loyola Dominique Japar  3036184072                "<<endl;
+    cout<<"                           Sheik Mahmood Afif                  3036225230                "<<endl;
+    sleep(1.5);
+
+    system("cls");
+    cout<<"                            ______                          ________ __ __"<<endl;
+    cout<<R"(                           / _____________  __  ______     <  |__  // // /)"<<endl;
+    cout<<R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)"<<endl;
+    cout<<R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)"<<endl;
+    cout<<R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)"<<endl;
+    cout<<R"(                                              /_/                         )"<<endl;
+    cout<<R"(                      =====================================================)"<<endl;
+    cout<<"                                                                              "<<endl;
+    cout<<"                           Abagumbul Ammar Amin                3036259243                "<<endl;
+    cout<<"                           Ali Musaddiq                        3036259011                "<<endl;
+    cout<<"                           Chowdhury Aosaf Ershad              3036253732                "<<endl;
+    cout<<"                           Ignatius De Loyola Dominique Japar  3036184072                "<<endl;
+    cout<<"                           Sheik Mahmood Afif                  3036225230                "<<endl;
+    cout<<endl;
+    cout << "                                    Press any ENTER to continue" << endl;
+}

@@ -2,5 +2,6 @@
 #define ANIMATIONS_H_
 
 void introAnimations();
+void printCredits();
 
 #endif
