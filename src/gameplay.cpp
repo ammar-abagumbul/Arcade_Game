@@ -16,5 +16,10 @@ void startGame(bool started, int stage){
     std::cout<<"Sliding block";
     sleep(5);
     displayOutroOne();
+    displayActTwo();
+    displayStoryTwo();
+    displayIntroTwo();
+    std::cout<<"Enter the gurgueon";
+    sleep(5);
     
 }

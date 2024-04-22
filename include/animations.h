@@ -12,5 +12,7 @@ void displayIntroOne();
 void displayStoryOne();
 void displayOutroOne();
 void displayActTwo();
+void displayStoryTwo();
+void displayIntroTwo();
 
 #endif

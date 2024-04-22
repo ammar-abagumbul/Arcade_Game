@@ -458,7 +458,8 @@ std::string randomize_letters(const std::string input)
     return output;
 }
 
-void displayStoryOne(){
+void displayStoryOne()
+{
     using namespace std;
 
     string s1 = "In his cell's dimness, Sam takes comfort in Mr.";
@@ -744,17 +745,20 @@ void displayIntroOne()
         "                                                              .-::---. :---",
         "                                                               .---:....:",
         "                                                                  .:::."};
-    for (int i=0; i<32; i++){
+    for (int i = 0; i < 32; i++)
+    {
         system("cls");
-        for (int j=0; j<=i; j++){
-            cout<<keyArr[j]<<endl;
+        for (int j = 0; j <= i; j++)
+        {
+            cout << keyArr[j] << endl;
         }
         sleep(0.1);
     }
     sleep(5);
 }
 
-void displayOutroOne(){
+void displayOutroOne()
+{
     using namespace std;
     std::string s1 = "The sliding puzzle revealed a hidden";
     for (int i = 0; i < 36; i++)
@@ -931,11 +935,190 @@ void displayOutroOne(){
         sleep(0.1);
     }
 
-
     cout << endl;
 
     cout << "                                    Press ENTER to continue" << endl;
 
     cin.ignore();
     cin.ignore();
+}
+
+void displayActTwo()
+{
+
+    using namespace std;
+
+    // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
+
+    for (int i = 0; i < 3; i++)
+    {
+        system("cls");
+        std::cout << R"(                     ___           ___           ___                    ___           ___           ___     )"<<endl;
+        std::cout << R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )"<<endl;
+        std::cout << R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )"<<endl;
+        std::cout << R"(                  /:/\:\  \     /:/\:\  \        \:\  \                 \:\  \     /:/ /\__\     /:/\:\  \  )"<<endl;
+        std::cout << R"(                 /::\~\:\  \   /:/  \:\  \       /::\  \                /::\  \   /:/ /:/ _/_   /:/  \:\  \ )"<<endl;
+        std::cout << R"(                /:/\:\ \:\__\ /:/__/ \:\__\     /:/\:\__\              /:/\:\__\ /:/_/:/ /\__\ /:/__/ \:\__\)"<<endl;
+        std::cout << R"(                \/__\:\/:/  / \:\  \  \/__/    /:/  \/__/             /:/  \/__/ \:\/:/ /:/  / \:\  \ /:/  /)"<<endl;
+        std::cout << R"(                     \::/  /   \:\  \         /:/  /                 /:/  /       \::/_/:/  /   \:\  /:/  / )"<<endl;
+        std::cout << R"(                     /:/  /     \:\  \        \/__/                  \/__/         \:\/:/  /     \:\/:/  /  )"<<endl;
+        std::cout << R"(                    /:/  /       \:\__\                                             \::/  /       \::/  /   )"<<endl;
+        std::cout << R"(                    \/__/         \/__/                                              \/__/         \/__/    )"<<endl;
+        sleep(1.5);
+        cout<<endl;
+        std::cout << R"(                     *   )   )          (                                (                          (  )"<<endl;
+        std::cout << R"(                   ` )  /(( /(   (      )\   (      )       (   (        )\   (        (          ) )\ )"<<endl;
+        std::cout << R"(                    ( )(_))\()) ))\  ((((_)( )(    (     (  )(  )\ )  ((((_)( )(  (   ))\ (    ( /(((_))"<<endl;
+        std::cout << R"(                   (_(_()|(_)\ /((_)  )\ _ )(()\   )\  ' )\(()\(()/(   )\ _ )(()\ )\ /((_))\ ) )(_))_  )"<<endl;
+        std::cout << R"(                   |_   _| |(_|_))    (_)_\(_|(_)_((_)) ((_)((_))(_))  (_)_\(_|(_|(_|_)) _(_/(((_)_| | )"<<endl;
+        std::cout << R"(                     | | | ' \/ -_)    / _ \| '_| '  \() _ \ '_| || |   / _ \| '_(_-< -_) ' \)) _` | | )"<<endl;
+        std::cout << R"(                     |_| |_||_\___|   /_/ \_\_| |_|_|_|\___/_|  \_, |  /_/ \_\_| /__|___|_||_|\__,_|_| )"<<endl;
+        std::cout << R"(                                                                |__/)"<<endl;
+        sleep(1.5);
+    }
+    cout << endl;
+    cout << endl;
+    cout << "                                                 Press any ENTER to continue" << endl;
+    cin.ignore();
+    cin.ignore();
+}
+
+void displayStoryTwo()
+{
+    using namespace std;
+
+    string s1 = "Sam discovers an the guard's armory. The";
+    for (int i = 0; i < 40; i++)
+    {
+        system("cls");
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        sleep(0.1);
+    }
+
+    string s2 = "armory, usually a mundane storage room f";
+    for (int i = 0; i < 40; i++)
+    {
+        system("cls");
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |  Sam discovers an the guard's armory. The  | |" << std::endl;
+        std::cout << "                              | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        sleep(0.1);
+    }
+
+    string s3 = "or weapons, turns out to be a facade for";
+    for (int i = 0; i < 40; i++)
+    {
+        system("cls");
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |  Sam discovers an the guard's armory. The  | |" << std::endl;
+        std::cout << "                              | |  armory, usually a mundane storage room f  | |" << std::endl;
+        std::cout << "                              | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        sleep(0.1);
+    }
+
+    string s4 = "         a secret research lab...       ";
+    for (int i = 0; i < 40; i++)
+    {
+        system("cls");
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        std::cout << "                              | |  Sam discovers an the guard's armory. The  | |" << std::endl;
+        std::cout << "                              | |  armory, usually a mundane storage room f  | |" << std::endl;
+        std::cout << "                              | |  or weapons, turns out to be a facade for  | |" << std::endl;
+        std::cout << "                              | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << std::endl;
+        std::cout << "                            __| |____________________________________________| |__" << std::endl;
+        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
+        std::cout << "                              | |                                            | |" << std::endl;
+        sleep(0.1);
+    }
+    cout << endl;
+
+    cout << "                                           Press ENTER to continue" << endl;
+
+    cin.ignore();
+    cin.ignore();
+}
+
+void displayIntroTwo(){
+    using namespace std;
+    string keyArr[] = {
+        R"(                                                   )         )",
+        R"(                                                     (            )",
+        R"(                                                   '    }      )",
+        R"(                                                 (    '      )",
+        R"(                                                '      (   )",
+        R"(                                                 )  |    ) )",
+        R"(                                               '   /|\    `)",
+        R"(                                              )   / | \  ` )   )",
+        R"(                                             {    | | |  {   )",
+        R"(                                            }     | | |  .)",
+        R"(                                             '    | | |    ))",
+        R"(                                            (    /| | |\    .)",
+        R"(                                             .  / | | | \  (  )",
+        R"(                                           }    \ \ | / /  .        )",
+        R"(                                            (    \ `-' /    })",
+        R"(                                            '    / ,-. \    ' )",
+        R"(                                             }  / / | \ \  })",
+        R"(                                            '   \ | | | /   } )",
+        R"(                                             (   \| | |/  ()",
+        R"(                                               )  | | |  ))",
+        R"(                                               .  | | |  '  )",
+        R"(                                                  J | L)",
+        R"(                                            /|    J_|_L    |\\)",
+        R"(                                            \ \___/ o \___/ /)",
+        R"(                                             \_____ _ _____/)",
+        R"(                                                   |-|)",
+        R"(                                                   |-|)",
+        R"(                                                   |-|)",
+        R"(                                                  ,'-''.)",
+        R"(                                                  '---'')"};
+    for (int i = 0; i < 30; i++)
+    {
+        system("cls");
+        for (int j = 0; j <= i; j++)
+        {
+            cout << keyArr[j] << endl;
+        }
+        sleep(0.1);
+    }
+    sleep(5);
 }
