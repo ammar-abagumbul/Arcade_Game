@@ -6,13 +6,21 @@
 void introAnimations();
 void printCredits();
 void storyLineIntro();
+
 void displayActOne();
 std::string randomize_letters(const std::string input);
 void displayIntroOne();
 void displayStoryOne();
 void displayOutroOne();
+
 void displayActTwo();
 void displayStoryTwo();
 void displayIntroTwo();
+void displayOutroTwo();
+
+void displayActThree();
+void displayStoryThree();
+void displayIntroThree();
+void displayOutroThree();
 
 #endif

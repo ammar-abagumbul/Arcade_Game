@@ -21,5 +21,12 @@ void startGame(bool started, int stage){
     displayIntroTwo();
     std::cout<<"Enter the gurgueon";
     sleep(5);
+    displayOutroTwo();
+    displayActThree();
+    displayStoryThree();
+    displayIntroThree();
+    std::cout<<"Minesweeper";
+    sleep(5);
+    displayOutroThree();
     
 }
