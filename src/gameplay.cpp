@@ -10,23 +10,35 @@ void startGame(bool started, int stage){
     if (!started){
         storyLineIntro();
     }
+
     displayActOne();
     displayStoryOne();
     displayIntroOne();
     std::cout<<"Sliding block";
-    sleep(5);
+    sleep(3);
     displayOutroOne();
+
     displayActTwo();
     displayStoryTwo();
     displayIntroTwo();
     std::cout<<"Enter the gurgueon";
-    sleep(5);
+    sleep(3);
     displayOutroTwo();
+
     displayActThree();
     displayStoryThree();
     displayIntroThree();
     std::cout<<"Minesweeper";
-    sleep(5);
+    sleep(3);
     displayOutroThree();
     
+    displayActFour();
+    displayStoryFour();
+    displayIntroFour();
+    std::cout<<"PacMan";
+    sleep(3);
+
+    displayDoorOutro();
+    displayOutroStory();
+    displayToBeContinued();
 }

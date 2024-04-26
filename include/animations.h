@@ -23,4 +23,12 @@ void displayStoryThree();
 void displayIntroThree();
 void displayOutroThree();
 
+void displayActFour();
+void displayStoryFour();
+void displayIntroFour();
+
+void displayDoorOutro();
+void displayOutroStory();
+void displayToBeContinued();
+
 #endif
