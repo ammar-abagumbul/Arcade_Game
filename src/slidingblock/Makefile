@@ -2,7 +2,7 @@
 
 CFLAGS = -pedantic-errors -std=c++11
 
-DEPS = board.h map.h
+DEPS = board.h move.h
 
 OBJ = game.o board.o move.o
 
