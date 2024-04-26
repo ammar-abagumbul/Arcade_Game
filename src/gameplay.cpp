@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/gameplay.h"
 #include "../include/animations.h"
+#include "../src/slidingblock/game.h"
 
 #include <windows.h>
 #include <unistd.h>
@@ -14,8 +15,8 @@ void startGame(bool started, int stage){
     displayActOne();
     displayStoryOne();
     displayIntroOne();
-    std::cout<<"Sliding block";
-    sleep(3);
+    system("cls");
+    slidingBlockGame();    
     displayOutroOne();
 
     displayActTwo();

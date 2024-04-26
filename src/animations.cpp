@@ -1982,9 +1982,9 @@ void displayDoorOutro()
     for (int i = 0; i < 22; i++)
     {
         system("cls");
-        cout<<endl;
-        cout<<endl;
-        cout<<endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
         for (int j = 0; j <= i; j++)
         {
             cout << keyArr[j] << endl;

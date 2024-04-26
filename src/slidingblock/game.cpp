@@ -7,9 +7,10 @@
 #include <ctime>
 #include "board.h"
 #include "move.h"
-using namespace std;
+#include "game.h"
 
-int main(){
+int slidingBlockGame(){
+  using namespace std;
   int board[3][3];
   vector <string> possiblemoves;
   int num = 1;
