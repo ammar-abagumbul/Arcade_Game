@@ -17,14 +17,17 @@
 // Library effective with Linux
 #include <unistd.h>
 
+
+// Introductory animations:
+
 void introAnimations()
 {
-    
+    // This function will print the intro animations which is used to welcome the users
+    // ASCII Art generated from https://patorjk.com/software/taag/#p=testall&h=3&v=1&f=Graffiti&t=The%20Great%20Escape
 
     using namespace std;
 
-    // ASCII Art generated from https://patorjk.com/software/taag/#p=testall&h=3&v=1&f=Graffiti&t=The%20Great%20Escape
-
+    // Terminal cleared before each output to create a motion effect
     system("cls");
     cout << R"(               _______                                        )" << endl;
     cout << R"(              |__   __|                                      )" << endl;
@@ -34,7 +37,7 @@ void introAnimations()
     cout << R"(                 |_|                                                                       \___|)" << endl;
     cout << R"(                                                                                             )" << endl;
     cout << R"(                                                                                             )" << endl;
-    sleep(1);
+    sleep(1); // Sleep time used to create a stop-motion like effect
 
     system("cls");
     cout << R"(               _______ _                                       )" << endl;
@@ -78,7 +81,7 @@ void introAnimations()
     cout << R"(                 |_|  |_| |_|\___|  \_____|_|  \___|\__,_|\__| |______|___/\___\__,_| .__/ \___|)" << endl;
     cout << R"(                                                                                    | |         )" << endl;
     cout << R"(                                                                                    |_|         )" << endl;
-    sleep(1.5);
+    sleep(1.5); // Sleep time increased because of subtitle next
 
     system("cls");
     cout << R"(               _______ _             _____                _     ______)" << endl;
@@ -93,19 +96,26 @@ void introAnimations()
     cout << R"(                        / \ / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \)" << endl;
     cout << R"(                       ( A ( L ( A ( C ( R ( A ( N ( ' ( S ) ( S ( H ( A ( D ( O ( W ))" << endl;
     cout << R"(                        \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/)" << endl;
-    sleep(1.5);
+    sleep(1.5); // High sleep time continued as "Press ENTER to continue" to be printed
 
+    // Create some empty lines
     cout << endl;
     cout << endl;
     cout << endl;
+
+    // Allow user to interact by pressing enter to continue
     cout << "                                     Press any ENTER to continue" << endl;
     cin.ignore();
 }
 
 void printCredits()
 {
+    // This function will print the credits of the developers who worked on this project
+    // ASCII Art generated from https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+
     using namespace std;
 
+    // Terminal cleared before each output to create a motion effect
     system("cls");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -121,7 +131,7 @@ void printCredits()
     cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
     cout << R"(                                              /_/                         )" << endl;
     cout << R"(                      =====================================================)" << endl;
-    sleep(1);
+    sleep(1); // Sleep time used to create a stop-motion like effect
 
     system("cls");
     cout << "                                                                              " << endl;
@@ -255,12 +265,23 @@ void printCredits()
     cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
     cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
     cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
+
+    // Create line break and
+    // allow user to interact by pressing enter to continue
     cout << endl;
     cout << "                                    Press any ENTER to continue" << endl;
 }
 
 void storyLineIntro()
 {
+    // This function prints the introduction of the story line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "Sam Riker, a former detective, finds himse";
@@ -395,26 +416,37 @@ void storyLineIntro()
         sleep(0.1);
     }
 
+    // Add line break
     cout << endl;
 
+    // Prompt user to press enter after they have finished reading the text
     cout << "                                            Press ENTER to continue" << endl;
-
     cin.ignore();
     cin.ignore();
 }
 
 std::string randomize_letters(const std::string input)
 {
-    // Made with Generative AI
+    // When passed a parameter, this function will randomly
+    // shuffle all the characters in the parameter string
+
+    // This function was made using Generative AI tools
+
+    // No need to use std namespace due to limited use
     std::string output = input;
     std::random_device rd;
     std::mt19937 g(rd());
     std::shuffle(output.begin(), output.end(), g);
+
     return output;
 }
 
+// Animations for Act One:
+
 void displayActOne()
 {
+    // This function prints a UI representing the start of Act One
+    // Terminal cleared and wait time added before each output to create a motion effect
 
     using namespace std;
 
@@ -441,14 +473,18 @@ void displayActOne()
 
         string text = "TheClueintheCell";
         string r;
+
         if (i != 5)
         {
+            // Generate a text with the characters randomized
+            // if this is not the last index of the loop
             r = randomize_letters(text);
         }
         else
         {
             r = text;
         }
+
         cout << endl;
         cout << R"(                            _   _   _     _   _   _   _     _   _     _   _   _     _   _   _   _)" << endl;
         cout << R"(                           / \ / \ / \   / \ / \ / \ / \   / \ / \   / \ / \ / \   / \ / \ / \ / \)" << endl;
@@ -456,15 +492,26 @@ void displayActOne()
         cout << R"(                           \_/ \_/ \_/   \_/ \_/ \_/ \_/   \_/ \_/   \_/ \_/ \_/   \_/ \_/ \_/ \_/)" << endl;
         sleep(1.5);
     }
-    sleep(1.5);
+
+    // Generate line breaks
     cout << endl;
     cout << endl;
+
+    // Prompt user to press enter after they have finished reading the text
     cout << "                                                 Press any ENTER to continue" << endl;
     cin.ignore();
 }
 
 void displayStoryOne()
 {
+    // This function prints the story of Act One line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "In his cell's dimness, Sam takes comfort in Mr.";
@@ -475,25 +522,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   )" << setw(47) << left << s1.substr(0, i + 1) << R"(  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                  / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                  \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \                                                    /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                   / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   )" << setw(47) << left << s1.substr(0, i + 1) << R"(  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                  / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                  \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -505,25 +552,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  )" << setw(47) << left << s2.substr(0, i + 1) << R"( / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                  \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \                                                    /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                   / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  )" << setw(47) << left << s2.substr(0, i + 1) << R"( / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                  \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -535,25 +582,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  )" << setw(47) << left << s3.substr(0, i + 1) << R"( \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \                                                    /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                   / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  )" << setw(47) << left << s3.substr(0, i + 1) << R"( \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -565,25 +612,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                          \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   )" << setw(47) << left << s4.substr(0, i + 1) << R"(  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \                                                    /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                   / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                          \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   )" << setw(47) << left << s4.substr(0, i + 1) << R"(  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -595,25 +642,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   )" << setw(47) << left << s5.substr(0, i + 1) << R"(  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \                                                   / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   )" << setw(47) << left << s5.substr(0, i + 1) << R"(  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -625,25 +672,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  )" << setw(47) << left << s6.substr(0, i + 1) << R"(  / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /                                                   \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  )" << setw(47) << left << s6.substr(0, i + 1) << R"(  / /\/ /)" << endl;
+        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -655,25 +702,25 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  )" << setw(47) << left << s7.substr(0, i + 1) << R"(  \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/                                                    \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  )" << setw(47) << left << s7.substr(0, i + 1) << R"(  \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
 
@@ -685,37 +732,46 @@ void displayStoryOne()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << std::endl;
-        std::cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /  Further investigations leads to finding that it  \ \/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/   )" << setw(47) << left << s8.substr(0, i + 1) << R"(  \ \/\ \)" << std::endl;
-        std::cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << std::endl;
-        std::cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << std::endl;
-        std::cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << std::endl;
-        std::cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << std::endl;
-        std::cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << std::endl;
-        std::cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << std::endl;
+        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
+        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
+        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
+        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
+        cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << endl;
+        cout << R"(                            / /\/ /  Further investigations leads to finding that it  \ \/ /\)" << endl;
+        cout << R"(                           / /\ \/   )" << setw(47) << left << s8.substr(0, i + 1) << R"(  \ \/\ \)" << endl;
+        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
+        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
+        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
+        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
+        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
+        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
         sleep(0.1);
     }
+
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                               Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
 void displayIntroOne()
 {
+    // Prints a logo representing the task of the act line by line
+    // using an array
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/
+
     using namespace std;
+
+    // Stored as an array of strings
     string keyArr[32] = {
         "                                                                         -++=++++++=",
         "                                                                     :====*.    .=##+=",
@@ -749,6 +805,8 @@ void displayIntroOne()
         "                                                              .-::---. :---",
         "                                                               .---:....:",
         "                                                                  .:::."};
+    
+    // Loops through the array and prints line by line
     for (int i = 0; i < 32; i++)
     {
         system("cls");
@@ -758,196 +816,211 @@ void displayIntroOne()
         }
         sleep(0.1);
     }
+    
+    // Sleep time to allow user to see final logo
     sleep(3);
 }
 
 void displayOutroOne()
 {
+    // This function prints the outro story of Act One line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
-    std::string s1 = "The sliding puzzle revealed a hidden";
+    
+    string s1 = "The sliding puzzle revealed a hidden";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   )" << setw(36) << left << s1.substr(0, i + 1) << R"(  ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                                                                    )" << '\n';
-        std::cout << R"(                                             )                                        ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   )" << setw(36) << left << s1.substr(0, i + 1) << R"(  ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                                                                    )" << '\n';
+        cout << R"(                                             )                                        ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s2 = "cache of letters. These letters, add";
+    string s2 = "cache of letters. These letters, add";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  )" << setw(36) << left << s2.substr(0, i + 1) << R"(   ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                                                                    )" << '\n';
-        std::cout << R"(                                             )                                        ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  )" << setw(36) << left << s2.substr(0, i + 1) << R"(   ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                                                                    )" << '\n';
+        cout << R"(                                             )                                        ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s3 = "ressed to the cryptic \"The Moth,\" hi";
+    string s3 = "ressed to the cryptic \"The Moth,\" hi";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        std::cout << R"(                                            (   )" << setw(36) << left << s3.substr(0, i + 1) << R"(  ()" << '\n';
-        std::cout << R"(                                                                      )" << '\n';
-        std::cout << R"(                                             )                                        ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
+        cout << R"(                                            (   )" << setw(36) << left << s3.substr(0, i + 1) << R"(  ()" << '\n';
+        cout << R"(                                                                      )" << '\n';
+        cout << R"(                                             )                                        ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s4 = "nt at an escape plan that remained u";
+    string s4 = "nt at an escape plan that remained u";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        std::cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        std::cout << R"(                                                )" << setw(36) << left << s4.substr(0, i + 1) << R"()" << '\n';
-        std::cout << R"(                                             )                                        ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
+        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
+        cout << R"(                                                )" << setw(36) << left << s4.substr(0, i + 1) << R"()" << '\n';
+        cout << R"(                                             )                                        ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s5 = "nfulfilled. Sam realizes that he's n";
+    string s5 = "nfulfilled. Sam realizes that he's n";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        std::cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        std::cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        std::cout << R"(                                             )  )" << setw(36) << left << s5.substr(0, i + 1) << R"(  ))" << '\n';
-        std::cout << R"(                                            (                                         ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
+        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
+        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
+        cout << R"(                                             )  )" << setw(36) << left << s5.substr(0, i + 1) << R"(  ))" << '\n';
+        cout << R"(                                            (                                         ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s6 = "ot the first innocent person to be t";
+    string s6 = "ot the first innocent person to be t";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        std::cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        std::cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        std::cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
-        std::cout << R"(                                            (   )" << setw(36) << left << s6.substr(0, i + 1) << R"(  ()" << '\n';
-        std::cout << R"(                                             )                                         ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
+        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
+        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
+        cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
+        cout << R"(                                            (   )" << setw(36) << left << s6.substr(0, i + 1) << R"(  ()" << '\n';
+        cout << R"(                                             )                                         ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
-    std::string s7 = "rapped....                          ";
+    string s7 = "rapped....                          ";
     for (int i = 0; i < 36; i++)
     {
         system("cls");
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << "                                                                              " << endl;
-        std::cout << R"(                                             ___________________________________________)" << '\n';
-        std::cout << R"(                                            /\                                          \)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        std::cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        std::cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        std::cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        std::cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        std::cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
-        std::cout << R"(                                            (   ot the first innocent person to be t  ()" << '\n';
-        std::cout << R"(                                             )  )" << setw(36) << left << s7.substr(0, i + 1) << R"(   ))" << '\n';
-        std::cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        std::cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        std::cout << R"(                                            \/___________________________________________/)" << '\n';
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << "                                                                              " << endl;
+        cout << R"(                                             ___________________________________________)" << '\n';
+        cout << R"(                                            /\                                          \)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
+        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
+        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
+        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
+        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
+        cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
+        cout << R"(                                            (   ot the first innocent person to be t  ()" << '\n';
+        cout << R"(                                             )  )" << setw(36) << left << s7.substr(0, i + 1) << R"(   ))" << '\n';
+        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
+        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
+        cout << R"(                                            \/___________________________________________/)" << '\n';
         sleep(0.1);
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                                              Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
+// Animations for Act Two:
+
 void displayActTwo()
 {
+    // This function prints a UI representing the start of Act Two
+    // Terminal cleared and wait time added before each output to create a motion effect
 
     using namespace std;
 
@@ -956,37 +1029,49 @@ void displayActTwo()
     for (int i = 0; i < 3; i++)
     {
         system("cls");
-        std::cout << R"(                     ___           ___           ___                    ___           ___           ___     )" << endl;
-        std::cout << R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )" << endl;
-        std::cout << R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )" << endl;
-        std::cout << R"(                  /:/\:\  \     /:/\:\  \        \:\  \                 \:\  \     /:/ /\__\     /:/\:\  \  )" << endl;
-        std::cout << R"(                 /::\~\:\  \   /:/  \:\  \       /::\  \                /::\  \   /:/ /:/ _/_   /:/  \:\  \ )" << endl;
-        std::cout << R"(                /:/\:\ \:\__\ /:/__/ \:\__\     /:/\:\__\              /:/\:\__\ /:/_/:/ /\__\ /:/__/ \:\__\)" << endl;
-        std::cout << R"(                \/__\:\/:/  / \:\  \  \/__/    /:/  \/__/             /:/  \/__/ \:\/:/ /:/  / \:\  \ /:/  /)" << endl;
-        std::cout << R"(                     \::/  /   \:\  \         /:/  /                 /:/  /       \::/_/:/  /   \:\  /:/  / )" << endl;
-        std::cout << R"(                     /:/  /     \:\  \        \/__/                  \/__/         \:\/:/  /     \:\/:/  /  )" << endl;
-        std::cout << R"(                    /:/  /       \:\__\                                             \::/  /       \::/  /   )" << endl;
-        std::cout << R"(                    \/__/         \/__/                                              \/__/         \/__/    )" << endl;
+        cout << R"(                     ___           ___           ___                    ___           ___           ___     )" << endl;
+        cout << R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )" << endl;
+        cout << R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )" << endl;
+        cout << R"(                  /:/\:\  \     /:/\:\  \        \:\  \                 \:\  \     /:/ /\__\     /:/\:\  \  )" << endl;
+        cout << R"(                 /::\~\:\  \   /:/  \:\  \       /::\  \                /::\  \   /:/ /:/ _/_   /:/  \:\  \ )" << endl;
+        cout << R"(                /:/\:\ \:\__\ /:/__/ \:\__\     /:/\:\__\              /:/\:\__\ /:/_/:/ /\__\ /:/__/ \:\__\)" << endl;
+        cout << R"(                \/__\:\/:/  / \:\  \  \/__/    /:/  \/__/             /:/  \/__/ \:\/:/ /:/  / \:\  \ /:/  /)" << endl;
+        cout << R"(                     \::/  /   \:\  \         /:/  /                 /:/  /       \::/_/:/  /   \:\  /:/  / )" << endl;
+        cout << R"(                     /:/  /     \:\  \        \/__/                  \/__/         \:\/:/  /     \:\/:/  /  )" << endl;
+        cout << R"(                    /:/  /       \:\__\                                             \::/  /       \::/  /   )" << endl;
+        cout << R"(                    \/__/         \/__/                                              \/__/         \/__/    )" << endl;
         sleep(1.5);
         cout << endl;
-        std::cout << R"(                     *   )   )          (                                (                          (  )" << endl;
-        std::cout << R"(                   ` )  /(( /(   (      )\   (      )       (   (        )\   (        (          ) )\ )" << endl;
-        std::cout << R"(                    ( )(_))\()) ))\  ((((_)( )(    (     (  )(  )\ )  ((((_)( )(  (   ))\ (    ( /(((_))" << endl;
-        std::cout << R"(                   (_(_()|(_)\ /((_)  )\ _ )(()\   )\  ' )\(()\(()/(   )\ _ )(()\ )\ /((_))\ ) )(_))_  )" << endl;
-        std::cout << R"(                   |_   _| |(_|_))    (_)_\(_|(_)_((_)) ((_)((_))(_))  (_)_\(_|(_|(_|_)) _(_/(((_)_| | )" << endl;
-        std::cout << R"(                     | | | ' \/ -_)    / _ \| '_| '  \() _ \ '_| || |   / _ \| '_(_-< -_) ' \)) _` | | )" << endl;
-        std::cout << R"(                     |_| |_||_\___|   /_/ \_\_| |_|_|_|\___/_|  \_, |  /_/ \_\_| /__|___|_||_|\__,_|_| )" << endl;
-        std::cout << R"(                                                                |__/)" << endl;
+        cout << R"(                     *   )   )          (                                (                          (  )" << endl;
+        cout << R"(                   ` )  /(( /(   (      )\   (      )       (   (        )\   (        (          ) )\ )" << endl;
+        cout << R"(                    ( )(_))\()) ))\  ((((_)( )(    (     (  )(  )\ )  ((((_)( )(  (   ))\ (    ( /(((_))" << endl;
+        cout << R"(                   (_(_()|(_)\ /((_)  )\ _ )(()\   )\  ' )\(()\(()/(   )\ _ )(()\ )\ /((_))\ ) )(_))_  )" << endl;
+        cout << R"(                   |_   _| |(_|_))    (_)_\(_|(_)_((_)) ((_)((_))(_))  (_)_\(_|(_|(_|_)) _(_/(((_)_| | )" << endl;
+        cout << R"(                     | | | ' \/ -_)    / _ \| '_| '  \() _ \ '_| || |   / _ \| '_(_-< -_) ' \)) _` | | )" << endl;
+        cout << R"(                     |_| |_||_\___|   /_/ \_\_| |_|_|_|\___/_|  \_, |  /_/ \_\_| /__|___|_||_|\__,_|_| )" << endl;
+        cout << R"(                                                                |__/)" << endl;
         sleep(1.5);
     }
+    
+    // Generate line breaks
     cout << endl;
     cout << endl;
+
+    // Prompt user to press enter after they have finished reading the text
     cout << "                                                 Press any ENTER to continue" << endl;
     cin.ignore();
 }
 
 void displayStoryTwo()
 {
+    // This function prints the story of Act Two line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "Sam discovers an the guard's armory. The";
@@ -999,16 +1084,16 @@ void displayStoryTwo()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
         sleep(0.1);
     }
 
@@ -1022,16 +1107,16 @@ void displayStoryTwo()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << std::endl;
-        std::cout << "                                               | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                               | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
         sleep(0.1);
     }
 
@@ -1045,16 +1130,16 @@ void displayStoryTwo()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << std::endl;
-        std::cout << "                                               | |  armory, usually a mundane storage room f  | |" << std::endl;
-        std::cout << "                                               | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                               | |  armory, usually a mundane storage room f  | |" << endl;
+        cout << "                                               | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
         sleep(0.1);
     }
 
@@ -1068,28 +1153,37 @@ void displayStoryTwo()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
-        std::cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << std::endl;
-        std::cout << "                                               | |  armory, usually a mundane storage room f  | |" << std::endl;
-        std::cout << "                                               | |  or weapons, turns out to be a facade for  | |" << std::endl;
-        std::cout << "                                               | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << std::endl;
-        std::cout << "                                             __| |____________________________________________| |__" << std::endl;
-        std::cout << "                                            (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                                               | |                                            | |" << std::endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
+        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                               | |  armory, usually a mundane storage room f  | |" << endl;
+        cout << "                                               | |  or weapons, turns out to be a facade for  | |" << endl;
+        cout << "                                               | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                             __| |____________________________________________| |__" << endl;
+        cout << "                                            (__   ____________________________________________   __)" << endl;
+        cout << "                                               | |                                            | |" << endl;
         sleep(0.1);
     }
+
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                                            Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
 void displayIntroTwo()
 {
+    // Prints a logo representing the task of the act line by line
+    // using an array
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/
+
     using namespace std;
+
+    // Stored as an array of strings
     string keyArr[] = {
         R"(                                                   )         )",
         R"(                                                     (            )",
@@ -1121,6 +1215,8 @@ void displayIntroTwo()
         R"(                                                   |-|)",
         R"(                                                  ,'-''.)",
         R"(                                                  '---'')"};
+    
+    // Loops through the array and prints line by line
     for (int i = 0; i < 30; i++)
     {
         system("cls");
@@ -1130,11 +1226,20 @@ void displayIntroTwo()
         }
         sleep(0.1);
     }
+
+    // Sleep time to allow user to see final logo
     sleep(3);
 }
 
 void displayOutroTwo()
 {
+    // This function prints the outro story of Act Two line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
 
     using namespace std;
 
@@ -1146,18 +1251,18 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  )" << setw(39) << left << s1.substr(0, i + 1) << R"( \\//)" << std::endl;
-        std::cout << R"(                                         //                                            \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\                                            //)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  )" << setw(39) << left << s1.substr(0, i + 1) << R"( \\//)" << endl;
+        cout << R"(                                         //                                            \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\                                            //)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
@@ -1169,18 +1274,18 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << std::endl;
-        std::cout << R"(                                         //   )" << setw(39) << left << s2.substr(0, i + 1) << R"(  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\                                            //)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
+        cout << R"(                                         //   )" << setw(39) << left << s2.substr(0, i + 1) << R"(  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\                                            //)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
@@ -1192,18 +1297,18 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << std::endl;
-        std::cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << std::endl;
-        std::cout << R"(                                        //\\  )" << setw(39) << left << s3.substr(0, i + 1) << R"( //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\                                            //)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
+        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
+        cout << R"(                                        //\\  )" << setw(39) << left << s3.substr(0, i + 1) << R"( //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\                                            //)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
@@ -1215,18 +1320,18 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << std::endl;
-        std::cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << std::endl;
-        std::cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << std::endl;
-        std::cout << R"(                                        \\//  )" << setw(39) << left << s4.substr(0, i + 1) << R"( \\//)" << std::endl;
-        std::cout << R"(                                         \\                                            //)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
+        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
+        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
+        cout << R"(                                        \\//  )" << setw(39) << left << s4.substr(0, i + 1) << R"( \\//)" << endl;
+        cout << R"(                                         \\                                            //)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
@@ -1238,18 +1343,18 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << std::endl;
-        std::cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << std::endl;
-        std::cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << std::endl;
-        std::cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << std::endl;
-        std::cout << R"(                                         \\   )" << setw(39) << left << s5.substr(0, i + 1) << R"(  //)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
+        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
+        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
+        cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << endl;
+        cout << R"(                                         \\   )" << setw(39) << left << s5.substr(0, i + 1) << R"(  //)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
@@ -1261,30 +1366,34 @@ void displayOutroTwo()
         cout << endl;
         cout << endl;
         cout << endl;
-        std::cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << std::endl;
-        std::cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << std::endl;
-        std::cout << R"(                                        //\\                                          //\\)" << std::endl;
-        std::cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << std::endl;
-        std::cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << std::endl;
-        std::cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << std::endl;
-        std::cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << std::endl;
-        std::cout << R"(                                         \\   t isn't random-it's purposefully design  //)" << std::endl;
-        std::cout << R"(                                        //\\  )" << setw(39) << left << s6.substr(0, i + 1) << R"( //\\)" << std::endl;
-        std::cout << R"(                                        \\//                                          \\//)" << std::endl;
-        std::cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << std::endl;
-        std::cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << std::endl;
+        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
+        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
+        cout << R"(                                        //\\                                          //\\)" << endl;
+        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
+        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
+        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
+        cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << endl;
+        cout << R"(                                         \\   t isn't random-it's purposefully design  //)" << endl;
+        cout << R"(                                        //\\  )" << setw(39) << left << s6.substr(0, i + 1) << R"( //\\)" << endl;
+        cout << R"(                                        \\//                                          \\//)" << endl;
+        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
+        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
         sleep(0.1);
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                                        Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
+// Animations for Act Three:
+
 void displayActThree()
 {
+    // This function prints a UI representing the start of Act Three
+    // Terminal cleared and wait time added before each output to create a motion effect
 
     using namespace std;
 
@@ -1293,31 +1402,43 @@ void displayActThree()
     for (int i = 0; i < 3; i++)
     {
         system("cls");
-        std::cout << R"(                      __       ______  ___________      ___________  __    __    _______    _______   _______  )" << std::endl;
-        std::cout << R"(                     /""\     /" _  "\("     _   ")    ("     _   ")/" |  | "\  /"      \  /"     "| /"     "| )" << std::endl;
-        std::cout << R"(                    /    \   (: ( \___))__/  \\__/      )__/  \\__/(:  (__)  :)|:        |(: ______)(: ______) )" << std::endl;
-        std::cout << R"(                   /' /\  \   \/ \        \\_ /            \\_ /    \/      \/ |_____/   ) \/    |   \/    |   )" << std::endl;
-        std::cout << R"(                  //  __'  \  //  \ _     |.  |            |.  |    //  __  \\  //      /  // ___)_  // ___)_  )" << std::endl;
-        std::cout << R"(                 /   /  \\  \(:   _) \    \:  |            \:  |   (:  (  )  :)|:  __   \ (:      "|(:      "| )" << std::endl;
-        std::cout << R"(                (___/    \___)\_______)    \__|             \__|    \__|  |__/ |__|  \___) \_______) \_______))" << std::endl;
+        cout << R"(                      __       ______  ___________      ___________  __    __    _______    _______   _______  )" << endl;
+        cout << R"(                     /""\     /" _  "\("     _   ")    ("     _   ")/" |  | "\  /"      \  /"     "| /"     "| )" << endl;
+        cout << R"(                    /    \   (: ( \___))__/  \\__/      )__/  \\__/(:  (__)  :)|:        |(: ______)(: ______) )" << endl;
+        cout << R"(                   /' /\  \   \/ \        \\_ /            \\_ /    \/      \/ |_____/   ) \/    |   \/    |   )" << endl;
+        cout << R"(                  //  __'  \  //  \ _     |.  |            |.  |    //  __  \\  //      /  // ___)_  // ___)_  )" << endl;
+        cout << R"(                 /   /  \\  \(:   _) \    \:  |            \:  |   (:  (  )  :)|:  __   \ (:      "|(:      "| )" << endl;
+        cout << R"(                (___/    \___)\_______)    \__|             \__|    \__|  |__/ |__|  \___) \_______) \_______))" << endl;
         sleep(1.5);
         cout << endl;
         cout << endl;
-        std::cout << R"(                    ________            ______                     __        ______                __    __   )" << std::endl;
-        std::cout << R"(                   /_  __/ /_  ___     / ____/_  ______ __________/ /____   / ____/___ _____ ___  / /_  / /__ )" << std::endl;
-        std::cout << R"(                    / / / __ \/ _ \   / / __/ / / / __ `/ ___/ __  / ___/  / / __/ __ `/ __ `__ \/ __ \/ / _ \)" << std::endl;
-        std::cout << R"(                   / / / / / /  __/  / /_/ / /_/ / /_/ / /  / /_/ (__  )  / /_/ / /_/ / / / / / / /_/ / /  __/)" << std::endl;
-        std::cout << R"(                  /_/ /_/ /_/\___/   \____/\__,_/\__,_/_/   \__,_/____/   \____/\__,_/_/ /_/ /_/_.___/_/\___/)" << std::endl;
+        cout << R"(                    ________            ______                     __        ______                __    __   )" << endl;
+        cout << R"(                   /_  __/ /_  ___     / ____/_  ______ __________/ /____   / ____/___ _____ ___  / /_  / /__ )" << endl;
+        cout << R"(                    / / / __ \/ _ \   / / __/ / / / __ `/ ___/ __  / ___/  / / __/ __ `/ __ `__ \/ __ \/ / _ \)" << endl;
+        cout << R"(                   / / / / / /  __/  / /_/ / /_/ / /_/ / /  / /_/ (__  )  / /_/ / /_/ / / / / / / /_/ / /  __/)" << endl;
+        cout << R"(                  /_/ /_/ /_/\___/   \____/\__,_/\__,_/_/   \__,_/____/   \____/\__,_/_/ /_/ /_/_.___/_/\___/)" << endl;
         sleep(1.5);
     }
+    
+    // Generate line breaks
     cout << endl;
     cout << endl;
+
+    // Prompt user to press enter after they have finished reading the text
     cout << "                                              Press any ENTER to continue" << endl;
     cin.ignore();
 }
 
 void displayStoryThree()
 {
+    // This function prints the story of Act Three line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "Sam overhears guards talking about a mine";
@@ -1328,15 +1449,15 @@ void displayStoryThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                              | |  " << setw(41) << left << s1.substr(0, i + 1) << " | |" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                              | |  " << setw(41) << left << s1.substr(0, i + 1) << " | |" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
         sleep(0.1);
     }
 
@@ -1348,15 +1469,15 @@ void displayStoryThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                              | |  Sam overhears guards talking about a mine | |" << std::endl;
-        std::cout << "                              | |  " << setw(41) << left << s2.substr(0, i + 1) << " | |" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                              | |  Sam overhears guards talking about a mine | |" << endl;
+        cout << "                              | |  " << setw(41) << left << s2.substr(0, i + 1) << " | |" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
         sleep(0.1);
     }
 
@@ -1368,28 +1489,36 @@ void displayStoryThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
-        std::cout << "                              | |  Sam overhears guards talking about a mine | |" << std::endl;
-        std::cout << "                              | |  sweeper game they play during their break | |" << std::endl;
-        std::cout << "                              | |  " << setw(41) << left << s3.substr(0, i + 1) << " | |" << std::endl;
-        std::cout << "                            __| |____________________________________________| |__" << std::endl;
-        std::cout << "                           (__   ____________________________________________   __)" << std::endl;
-        std::cout << "                              | |                                            | |" << std::endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
+        cout << "                              | |  Sam overhears guards talking about a mine | |" << endl;
+        cout << "                              | |  sweeper game they play during their break | |" << endl;
+        cout << "                              | |  " << setw(41) << left << s3.substr(0, i + 1) << " | |" << endl;
+        cout << "                            __| |____________________________________________| |__" << endl;
+        cout << "                           (__   ____________________________________________   __)" << endl;
+        cout << "                              | |                                            | |" << endl;
         sleep(0.1);
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                           Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
 void displayIntroThree()
 {
+    // Prints a logo representing the task of the act line by line
+    // using an array
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/
+
     using namespace std;
+    
+    // Stored as an array of strings
     string keyArr[] = {
         R"(                       .----------------------------------------------------------------------.)",
         R"(                       |_.-._.-._.-._.-._.-._.-.    _.-._.-._.-.    _.-._.-._.-._.-._.-._.-._.|)",
@@ -1422,6 +1551,8 @@ void displayIntroThree()
         R"(                       |_.-._.-._.-._.-._.-._.- \  Y88P _.-._.- \  Y88P _.-._.-._.-._.-._.-._.|)",
         R"(                       |_.-._.-._.-._.-._.-._.-. \__YP ._.-._.-. \__YP ._.-._.-._.-._.-._.-._.|)",
         R"(                       `----------------------------------------------------------------------')"};
+    
+    // Loops through the array and prints line by line
     for (int i = 0; i < 31; i++)
     {
         system("cls");
@@ -1431,11 +1562,21 @@ void displayIntroThree()
         }
         sleep(0.1);
     }
+    
+    // Sleep time to allow user to see final logo
     sleep(3);
 }
 
 void displayOutroThree()
 {
+    // This function prints the outro story of Act Three line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "To Sam's surprise, the minesweeper game is revealed to be a cover for an";
@@ -1446,25 +1587,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   )" << setw(72) << left << s1.substr(0, i + 1) << R"(  ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   )" << setw(72) << left << s1.substr(0, i + 1) << R"(  ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s2 = "illegal betting ring run by the guards. They wager on the outcomes, dist";
@@ -1475,25 +1616,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  )" << setw(72) << left << s2.substr(0, i + 1) << R"( ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  )" << setw(72) << left << s2.substr(0, i + 1) << R"( ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s3 = "racting themselves from the monotony of prison duty....                 ";
@@ -1504,25 +1645,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   )" << setw(72) << left << s3.substr(0, i + 1) << R"(  ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   )" << setw(72) << left << s3.substr(0, i + 1) << R"(  ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s4 = "Sam uses his detective skills to manipulate the game's outcome, creating";
@@ -1533,25 +1674,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   )" << setw(72) << left << s4.substr(0, i + 1) << R"(  ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   )" << setw(72) << left << s4.substr(0, i + 1) << R"(  ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s5 = "a distraction that allows him to access restricted areas of the prison u";
@@ -1562,25 +1703,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << std::endl;
-        std::cout << R"(                   )  )" << setw(72) << left << s5.substr(0, i + 1) << R"( ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
+        cout << R"(                   )  )" << setw(72) << left << s5.substr(0, i + 1) << R"( ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s6 = "nnoticed. He discovers hidden compartments, secret tunnels, and coded me";
@@ -1591,25 +1732,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << std::endl;
-        std::cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << std::endl;
-        std::cout << R"(                  (   )" << setw(72) << left << s6.substr(0, i + 1) << R"(  ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
+        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
+        cout << R"(                  (   )" << setw(72) << left << s6.substr(0, i + 1) << R"(  ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s7 = "ssages left by other inmates who were part of The Moth's failed escape p";
@@ -1620,25 +1761,25 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << std::endl;
-        std::cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << std::endl;
-        std::cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << std::endl;
-        std::cout << R"(                   )  )" << setw(72) << left << s7.substr(0, i + 1) << R"( ( )" << std::endl;
-        std::cout << R"(                  (                                                                             ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
+        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
+        cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << endl;
+        cout << R"(                   )  )" << setw(72) << left << s7.substr(0, i + 1) << R"( ( )" << endl;
+        cout << R"(                  (                                                                             ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
     string s8 = "lan............                                                         ";
@@ -1649,36 +1790,41 @@ void displayOutroThree()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << std::endl;
-        std::cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << std::endl;
-        std::cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << std::endl;
-        std::cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << std::endl;
-        std::cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << std::endl;
-        std::cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << std::endl;
-        std::cout << R"(                   )  ssages left by other inmates who were part of The Moth's failed escape p ( )" << std::endl;
-        std::cout << R"(                  (   )" << setw(72) << left << s8.substr(0, i + 1) << R"(  ))" << std::endl;
-        std::cout << R"(                   )                                                                           ( )" << std::endl;
-        std::cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << std::endl;
-        std::cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << std::endl;
-        std::cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << std::endl;
-        std::cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << std::endl;
-        std::cout << R"(                                              `-._.-' (_ ___) `-._.-')" << std::endl;
-        std::cout << R"(                                                      `-._.-')" << std::endl;
+        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
+        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
+        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
+        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
+        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
+        cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << endl;
+        cout << R"(                   )  ssages left by other inmates who were part of The Moth's failed escape p ( )" << endl;
+        cout << R"(                  (   )" << setw(72) << left << s8.substr(0, i + 1) << R"(  ))" << endl;
+        cout << R"(                   )                                                                           ( )" << endl;
+        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
+        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
+        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
+        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
+        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
+        cout << R"(                                                      `-._.-')" << endl;
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                           Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
+// Animations for Act Four:
+
 void displayActFour()
 {
+    // This function prints a UI representing the start of Act Three
+    // Terminal cleared and wait time added before each output to create a motion effect
+
     using namespace std;
 
     // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
@@ -1686,14 +1832,14 @@ void displayActFour()
     system("cls");
     cout << endl;
     cout << endl;
-    std::cout << R"(                              /$$$$$$   /$$$$$$  /$$$$$$$$       /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$)" << endl;
-    std::cout << R"(                             /$$__  $$ /$$__  $$|__  $$__/      | $$_____//$$__  $$| $$  | $$| $$__  $$)" << endl;
-    std::cout << R"(                            | $$  \ $$| $$  \__/   | $$         | $$     | $$  \ $$| $$  | $$| $$  \ $$)" << endl;
-    std::cout << R"(                            | $$$$$$$$| $$         | $$         | $$$$$  | $$  | $$| $$  | $$| $$$$$$$/)" << endl;
-    std::cout << R"(                            | $$__  $$| $$         | $$         | $$__/  | $$  | $$| $$  | $$| $$__  $$)" << endl;
-    std::cout << R"(                            | $$  | $$| $$    $$   | $$         | $$     | $$  | $$| $$  | $$| $$  \ $$)" << endl;
-    std::cout << R"(                            | $$  | $$|  $$$$$$/   | $$         | $$     |  $$$$$$/|  $$$$$$/| $$  | $$)" << endl;
-    std::cout << R"(                            |__/  |__/ \______/    |__/         |__/      \______/  \______/ |__/  |__/)" << endl;
+    cout << R"(                              /$$$$$$   /$$$$$$  /$$$$$$$$       /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$)" << endl;
+    cout << R"(                             /$$__  $$ /$$__  $$|__  $$__/      | $$_____//$$__  $$| $$  | $$| $$__  $$)" << endl;
+    cout << R"(                            | $$  \ $$| $$  \__/   | $$         | $$     | $$  \ $$| $$  | $$| $$  \ $$)" << endl;
+    cout << R"(                            | $$$$$$$$| $$         | $$         | $$$$$  | $$  | $$| $$  | $$| $$$$$$$/)" << endl;
+    cout << R"(                            | $$__  $$| $$         | $$         | $$__/  | $$  | $$| $$  | $$| $$__  $$)" << endl;
+    cout << R"(                            | $$  | $$| $$    $$   | $$         | $$     | $$  | $$| $$  | $$| $$  \ $$)" << endl;
+    cout << R"(                            | $$  | $$|  $$$$$$/   | $$         | $$     |  $$$$$$/|  $$$$$$/| $$  | $$)" << endl;
+    cout << R"(                            |__/  |__/ \______/    |__/         |__/      \______/  \______/ |__/  |__/)" << endl;
     cout << endl;
     cout << endl;
     cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
@@ -1705,14 +1851,14 @@ void displayActFour()
     system("cls");
     cout << endl;
     cout << endl;
-    std::cout << R"(                             $$$$$$\   $$$$$$\ $$$$$$$$\       $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$\  )" << endl;
-    std::cout << R"(                            $$  __$$\ $$  __$$\\__$$  __|      $$  _____|$$  __$$\ $$ |  $$ |$$  __$$\ )" << endl;
-    std::cout << R"(                            $$ /  $$ |$$ /  \__|  $$ |         $$ |      $$ /  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
-    std::cout << R"(                            $$$$$$$$ |$$ |        $$ |         $$$$$\    $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
-    std::cout << R"(                            $$  __$$ |$$ |        $$ |         $$  __|   $$ |  $$ |$$ |  $$ |$$  __$$< )" << endl;
-    std::cout << R"(                            $$ |  $$ |$$ |  $$\   $$ |         $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
-    std::cout << R"(                            $$ |  $$ |\$$$$$$  |  $$ |         $$ |       $$$$$$  |\$$$$$$  |$$ |  $$ |)" << endl;
-    std::cout << R"(                            \__|  \__| \______/   \__|         \__|       \______/  \______/ \__|  \__|)" << endl;
+    cout << R"(                             $$$$$$\   $$$$$$\ $$$$$$$$\       $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$\  )" << endl;
+    cout << R"(                            $$  __$$\ $$  __$$\\__$$  __|      $$  _____|$$  __$$\ $$ |  $$ |$$  __$$\ )" << endl;
+    cout << R"(                            $$ /  $$ |$$ /  \__|  $$ |         $$ |      $$ /  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
+    cout << R"(                            $$$$$$$$ |$$ |        $$ |         $$$$$\    $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
+    cout << R"(                            $$  __$$ |$$ |        $$ |         $$  __|   $$ |  $$ |$$ |  $$ |$$  __$$< )" << endl;
+    cout << R"(                            $$ |  $$ |$$ |  $$\   $$ |         $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
+    cout << R"(                            $$ |  $$ |\$$$$$$  |  $$ |         $$ |       $$$$$$  |\$$$$$$  |$$ |  $$ |)" << endl;
+    cout << R"(                            \__|  \__| \______/   \__|         \__|       \______/  \______/ \__|  \__|)" << endl;
     cout << endl;
     cout << endl;
     cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
@@ -1724,15 +1870,15 @@ void displayActFour()
     system("cls");
     cout << endl;
     cout << endl;
-    std::cout << R"(                              ______    ______   ________        ________  ______   __    __  _______)" << endl;
-    std::cout << R"(                             /      \  /      \ /        |      /        |/      \ /  |  /  |/       \ )" << endl;
-    std::cout << R"(                            /$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$$//$$$$$$  |$$ |  $$ |$$$$$$$  |)" << endl;
-    std::cout << R"(                            $$ |__$$ |$$ |  $$/    $$ |         $$ |__   $$ |  $$ |$$ |  $$ |$$ |__$$ |)" << endl;
-    std::cout << R"(                            $$    $$ |$$ |         $$ |         $$    |  $$ |  $$ |$$ |  $$ |$$    $$< )" << endl;
-    std::cout << R"(                            $$$$$$$$ |$$ |   __    $$ |         $$$$$/   $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
-    std::cout << R"(                            $$ |  $$ |$$ \__/  |   $$ |         $$ |     $$ \__$$ |$$ \__$$ |$$ |  $$ |)" << endl;
-    std::cout << R"(                            $$ |  $$ |$$    $$/    $$ |         $$ |     $$    $$/ $$    $$/ $$ |  $$ |)" << endl;
-    std::cout << R"(                            $$/   $$/  $$$$$$/     $$/          $$/       $$$$$$/   $$$$$$/  $$/   $$/ )" << endl;
+    cout << R"(                              ______    ______   ________        ________  ______   __    __  _______)" << endl;
+    cout << R"(                             /      \  /      \ /        |      /        |/      \ /  |  /  |/       \ )" << endl;
+    cout << R"(                            /$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$$//$$$$$$  |$$ |  $$ |$$$$$$$  |)" << endl;
+    cout << R"(                            $$ |__$$ |$$ |  $$/    $$ |         $$ |__   $$ |  $$ |$$ |  $$ |$$ |__$$ |)" << endl;
+    cout << R"(                            $$    $$ |$$ |         $$ |         $$    |  $$ |  $$ |$$ |  $$ |$$    $$< )" << endl;
+    cout << R"(                            $$$$$$$$ |$$ |   __    $$ |         $$$$$/   $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
+    cout << R"(                            $$ |  $$ |$$ \__/  |   $$ |         $$ |     $$ \__$$ |$$ \__$$ |$$ |  $$ |)" << endl;
+    cout << R"(                            $$ |  $$ |$$    $$/    $$ |         $$ |     $$    $$/ $$    $$/ $$ |  $$ |)" << endl;
+    cout << R"(                            $$/   $$/  $$$$$$/     $$/          $$/       $$$$$$/   $$$$$$/  $$/   $$/ )" << endl;
     cout << endl;
     cout << endl;
     cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
@@ -1744,15 +1890,15 @@ void displayActFour()
     system("cls");
     cout << endl;
     cout << endl;
-    std::cout << R"(                              ______    ______  ________        ________   ______   __    __  _______  )" << endl;
-    std::cout << R"(                             /      \  /      \|        \      |        \ /      \ |  \  |  \|       \ )" << endl;
-    std::cout << R"(                            |  $$$$$$\|  $$$$$$\\$$$$$$$$      | $$$$$$$$|  $$$$$$\| $$  | $$| $$$$$$$\)" << endl;
-    std::cout << R"(                            | $$__| $$| $$   \$$  | $$         | $$__    | $$  | $$| $$  | $$| $$__| $$)" << endl;
-    std::cout << R"(                            | $$    $$| $$        | $$         | $$  \   | $$  | $$| $$  | $$| $$    $$)" << endl;
-    std::cout << R"(                            | $$$$$$$$| $$   __   | $$         | $$$$$   | $$  | $$| $$  | $$| $$$$$$$\)" << endl;
-    std::cout << R"(                            | $$  | $$| $$__/  \  | $$         | $$      | $$__/ $$| $$__/ $$| $$  | $$)" << endl;
-    std::cout << R"(                            | $$  | $$ \$$    $$  | $$         | $$       \$$    $$ \$$    $$| $$  | $$)" << endl;
-    std::cout << R"(                             \$$   \$$  \$$$$$$    \$$          \$$        \$$$$$$   \$$$$$$  \$$   \$$)" << endl;
+    cout << R"(                              ______    ______  ________        ________   ______   __    __  _______  )" << endl;
+    cout << R"(                             /      \  /      \|        \      |        \ /      \ |  \  |  \|       \ )" << endl;
+    cout << R"(                            |  $$$$$$\|  $$$$$$\\$$$$$$$$      | $$$$$$$$|  $$$$$$\| $$  | $$| $$$$$$$\)" << endl;
+    cout << R"(                            | $$__| $$| $$   \$$  | $$         | $$__    | $$  | $$| $$  | $$| $$__| $$)" << endl;
+    cout << R"(                            | $$    $$| $$        | $$         | $$  \   | $$  | $$| $$  | $$| $$    $$)" << endl;
+    cout << R"(                            | $$$$$$$$| $$   __   | $$         | $$$$$   | $$  | $$| $$  | $$| $$$$$$$\)" << endl;
+    cout << R"(                            | $$  | $$| $$__/  \  | $$         | $$      | $$__/ $$| $$__/ $$| $$  | $$)" << endl;
+    cout << R"(                            | $$  | $$ \$$    $$  | $$         | $$       \$$    $$ \$$    $$| $$  | $$)" << endl;
+    cout << R"(                             \$$   \$$  \$$$$$$    \$$          \$$        \$$$$$$   \$$$$$$  \$$   \$$)" << endl;
     cout << endl;
     cout << endl;
     cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
@@ -1761,14 +1907,25 @@ void displayActFour()
     cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
     sleep(1.5);
 
+    // Generate line breaks
     cout << endl;
     cout << endl;
+
+    // Prompt user to press enter after they have finished reading the text
     cout << "                                              Press any ENTER to continue" << endl;
     cin.ignore();
 }
 
 void displayStoryFour()
 {
+    // This function prints the story of Act Four line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
     using namespace std;
 
     string s1 = "As Sam collects evidence, he also finds pieces of his own pas";
@@ -1779,18 +1936,18 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  )" << setw(61) << left << s1.substr(0, i + 1) << R"(  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  )" << setw(61) << left << s1.substr(0, i + 1) << R"(  (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
@@ -1802,18 +1959,18 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  )" << setw(61) << left << s2.substr(0, i + 1) << R"(  (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
+        cout << R"(                        (_ ___)  )" << setw(61) << left << s2.substr(0, i + 1) << R"(  (_ ___))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
@@ -1825,18 +1982,18 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)  )" << setw(61) << left << s3.substr(0, i + 1) << R"(  (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
+        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
+        cout << R"(                        (__  _)  )" << setw(61) << left << s3.substr(0, i + 1) << R"(  (__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
@@ -1848,18 +2005,18 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)  )" << setw(61) << left << s4.substr(0, i + 1) << R"(  ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)                                                                 (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
+        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
+        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
+        cout << R"(                        ( _ __)  )" << setw(61) << left << s4.substr(0, i + 1) << R"(  ( _ __))" << endl;
+        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
@@ -1871,18 +2028,18 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  )" << setw(61) << left << s5.substr(0, i + 1) << R"(  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)                                                                 (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
+        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
+        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
+        cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << endl;
+        cout << R"(                        (__  _)  )" << setw(61) << left << s5.substr(0, i + 1) << R"(  (__  _))" << endl;
+        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
@@ -1894,31 +2051,39 @@ void displayStoryFour()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << std::endl;
-        std::cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << std::endl;
-        std::cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)  orridors becomes a metaphorical labyrinth of memories and sec  (__  _))" << std::endl;
-        std::cout << R"(                        (_ ___)  )" << setw(61) << left << s6.substr(0, i + 1) << R"(  (_ ___))" << std::endl;
-        std::cout << R"(                        ( _ __)                                                                 ( _ __))" << std::endl;
-        std::cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << std::endl;
-        std::cout << R"(                        `-._.-'                                                                 `-._.-')" << std::endl;
+        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
+        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
+        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
+        cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << endl;
+        cout << R"(                        (__  _)  orridors becomes a metaphorical labyrinth of memories and sec  (__  _))" << endl;
+        cout << R"(                        (_ ___)  )" << setw(61) << left << s6.substr(0, i + 1) << R"(  (_ ___))" << endl;
+        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
+        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
+        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
         sleep(0.1);
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                                     Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
 void displayIntroFour()
 {
+    // Prints a logo representing the task of the act line by line
+    // using an array
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/
+
     using namespace std;
+
+    // Stored as an array of strings
     string keyArr[] = {
         R"(                            ,------------------------------.----------------------------------.)",
         R"(                            |                             |                                  |)",
@@ -1947,6 +2112,8 @@ void displayIntroFour()
         R"(                            |    "    .    `---------     |    |    `----'    |    `----'    |)",
         R"(                            |         |                   |    |              |              |)",
         R"(                            `---------"-------------------'    `--------------"--------------')"};
+    
+    // Loops through the array and prints line by line
     for (int i = 0; i < 27; i++)
     {
         system("cls");
@@ -1956,12 +2123,23 @@ void displayIntroFour()
         }
         sleep(0.1);
     }
+
+    // Sleep time to allow user to see final logo
     sleep(5);
 }
 
+// Animations for Outro:
+
 void displayDoorOutro()
 {
+    // Prints a logo representing the epilogue of the game line by line
+    // using an array
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/
+
     using namespace std;
+    
     string keyArr[] = {
         R"(                            88888888888888888888888888888888888888888888888888888888888888888888888)",
         R"(                            88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88)",
@@ -1985,6 +2163,8 @@ void displayDoorOutro()
         R"(                            88     .'   | .'   |/|  /                     \ |`!   |`.|    `.  |  88)",
         R"(                            88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88)",
         R"(                            88888888888888888888888888888888888888888888888888888888888888888888888)"};
+    
+    // Loops through the array and prints line by line
     for (int i = 0; i < 22; i++)
     {
         system("cls");
@@ -1997,11 +2177,21 @@ void displayDoorOutro()
         }
         sleep(0.1);
     }
+
+    // Sleep time to allow user to see final logo
     sleep(5);
 }
 
 void displayOutroStory()
 {
+    // This function prints the outro story of game line-by-line
+    // character-by-character
+    // This is done by storing separate lines as strings and outputting
+    // them inside a border
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
+
 
     using namespace std;
 
@@ -2013,22 +2203,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s1.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s1.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s2 = "lacran, Sam's heart raced";
@@ -2039,22 +2229,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s2.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s2.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s3 = "as he made his way to fre";
@@ -2065,22 +2255,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s3.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s3.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s4 = "edom. But as he emerged f";
@@ -2091,22 +2281,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  as he made his way to fre |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s4.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s4.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s5 = "rom the prison's depths a";
@@ -2117,22 +2307,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  as he made his way to fre |.)" << std::endl;
-        std::cout << R"(                                                      |  edom. But as he emerged f |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s5.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
+        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s5.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s6 = "nd stepped into sunlight,";
@@ -2143,22 +2333,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  as he made his way to fre |.)" << std::endl;
-        std::cout << R"(                                                      |  edom. But as he emerged f |.)" << std::endl;
-        std::cout << R"(                                                      |  rom the prison's depths a |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s6.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
+        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
+        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s6.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s7 = "he stumbled upon somethin";
@@ -2169,22 +2359,22 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  as he made his way to fre |.)" << std::endl;
-        std::cout << R"(                                                      |  edom. But as he emerged f |.)" << std::endl;
-        std::cout << R"(                                                      |  rom the prison's depths a |.)" << std::endl;
-        std::cout << R"(                                                      |  nd stepped into sunlight, |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s7.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
+        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
+        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
+        cout << R"(                                                      |  nd stepped into sunlight, |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s7.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
     string s8 = "g spine-chilling.........";
@@ -2195,34 +2385,40 @@ void displayOutroStory()
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        std::cout << R"(                                                      ______________________________)" << std::endl;
-        std::cout << R"(                                                    / \                             \.)" << std::endl;
-        std::cout << R"(                                                   |   |                            |.)" << std::endl;
-        std::cout << R"(                                                   \_ |                            |.)" << std::endl;
-        std::cout << R"(                                                      |  Having narrowly escaped A |.)" << std::endl;
-        std::cout << R"(                                                      |  lacran, Sam's heart raced |.)" << std::endl;
-        std::cout << R"(                                                      |  as he made his way to fre |.)" << std::endl;
-        std::cout << R"(                                                      |  edom. But as he emerged f |.)" << std::endl;
-        std::cout << R"(                                                      |  rom the prison's depths a |.)" << std::endl;
-        std::cout << R"(                                                      |  nd stepped into sunlight, |.)" << std::endl;
-        std::cout << R"(                                                      |  he stumbled upon somethin |.)" << std::endl;
-        std::cout << R"(                                                      |  )" << setw(25) << left << s8.substr(0, i + 1) << R"( |.)" << std::endl;
-        std::cout << R"(                                                      |                            |.)" << std::endl;
-        std::cout << R"(                                                      |   _________________________|___)" << std::endl;
-        std::cout << R"(                                                      |  /                            /.)" << std::endl;
-        std::cout << R"(                                                      \_/____________________________/.)" << std::endl;
+        cout << R"(                                                      ______________________________)" << endl;
+        cout << R"(                                                    / \                             \.)" << endl;
+        cout << R"(                                                   |   |                            |.)" << endl;
+        cout << R"(                                                   \_ |                            |.)" << endl;
+        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
+        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
+        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
+        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
+        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
+        cout << R"(                                                      |  nd stepped into sunlight, |.)" << endl;
+        cout << R"(                                                      |  he stumbled upon somethin |.)" << endl;
+        cout << R"(                                                      |  )" << setw(25) << left << s8.substr(0, i + 1) << R"( |.)" << endl;
+        cout << R"(                                                      |                            |.)" << endl;
+        cout << R"(                                                      |   _________________________|___)" << endl;
+        cout << R"(                                                      |  /                            /.)" << endl;
+        cout << R"(                                                      \_/____________________________/.)" << endl;
     }
 
+    // Add line break and
+    // Prompt user to press enter after they have finished reading the text
     cout << endl;
-
     cout << "                                                           Press ENTER to continue" << endl;
-
     cin.ignore();
 }
 
 void displayToBeContinued()
 {
+    // This function prints a UI representing the start of Act Three
+    // Terminal cleared and wait time added before each output to create a motion effect
+
+    // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
+
     using namespace std;
+    
     system("cls");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
