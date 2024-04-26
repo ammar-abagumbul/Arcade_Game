@@ -1,12 +1,20 @@
+// This is the file for moving tiles of the sliding block puzzle game.
+// It checks whether input is legal & moves are possible, and if so carries out the move.
+
 #include <vector>
 #include <string>
 #include <iostream>
 #include <cctype>
+
 #include "board.h"
 #include "move.h"
+
 using namespace std;
 
 vector<string> possiblemovecheck(int board[3][3]){
+  // This function returns all the possible moves the player can make and returns them as a vector
+  // with all the possible moves in the form of the inputs ("w", "a", "s", "d")
+
   int emptyrow = 0, emptycol = 0;
   vector <string> possiblemoves;
   for (int i = 0; i < 3; i++){
@@ -35,6 +43,8 @@ vector<string> possiblemovecheck(int board[3][3]){
 }
 
 string lowerString(string input){
+  // This function turns the input into lower-case characters for checking purposes
+
   string lowerstring = input;
   for (int i = 0; i < lowerstring.length(); i++){
     lowerstring[i] = tolower(lowerstring[i]);
@@ -43,6 +53,8 @@ string lowerString(string input){
 }
 
 bool checklegal(string input, vector <string> possiblemoves){
+  // This function checks whether the user input made is legal ("w", "a", "s", "d", "W", "A", "S", "D")
+
   vector <string> :: iterator itr;
   for (itr = possiblemoves.begin(); itr != possiblemoves.end(); itr++){
     if (input == *itr)
@@ -52,6 +64,8 @@ bool checklegal(string input, vector <string> possiblemoves){
 }
 
 void tileSwap(int (&board)[3][3],int emptyrow,int emptycol,int tilerow,int tilecol){
+  // This function swaps the positions of two tiles
+
   int temp;
   temp = board[emptyrow][emptycol];
   board[emptyrow][emptycol] = board[tilerow][tilecol];
@@ -59,6 +73,8 @@ void tileSwap(int (&board)[3][3],int emptyrow,int emptycol,int tilerow,int tilec
 }
 
 void makemove(string input, int (&board)[3][3]){
+  // This function moves tiles depending on the user input
+  
   int emptyrow = 0, emptycol = 0;
   vector <string> possiblemoves;
   for (int i = 0; i < 3; i++){
