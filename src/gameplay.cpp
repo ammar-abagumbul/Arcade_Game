@@ -8,6 +8,8 @@
 #include "../include/gameplay.h"
 #include "../include/animations.h"
 #include "../src/slidingblock/game.h"
+#include "../src/minesweeper/minesweeper.h"
+#include "../src/bokosan/3.h"
 
 // Comment according to need
 // Library effective with Windows
@@ -41,14 +43,15 @@ void startGame(bool started, int stage){
     // Start of Act Two:
 
     // Show the relevant intro animations of Act Two
-    displayActTwo();
-    displayStoryTwo();
+    // displayActTwo();
+    // displayStoryTwo();
     displayIntroTwo();
 
     // Clear the screen and start playing
     system("cls");
-    std::cout<<"Enter the gurgueon";
+    playBokosan();
     sleep(3);
+    
 
     // Display the outro story of Act Two
     displayOutroTwo();
@@ -63,8 +66,19 @@ void startGame(bool started, int stage){
 
     // Clear the screen and start playing
     system("cls");
-    std::cout<<"Minesweeper";
-    sleep(3);
+    while(true){
+        if (startMinesweeper()){
+            std::cout << "Congratulations! You won!" << std::endl;
+            sleep(2);
+            break;
+        }else{
+            std::cout << "You Lost! Try again!" << std::endl;
+            sleep(2);
+            std::cout<<"Do you want to save and quit?"<<std::endl;
+
+            break;
+        }
+    }
     
     // Display the outro story of Act Three
     displayOutroThree();

@@ -133,8 +133,10 @@ bool startMinesweeper() {
     bool won = playGame(size);
     if (won) {
         cout << "Congratulations! You won!" << endl;
+        return true;
     } else {
         cout << "Try again!" << endl;
+        return false;
     }
-    return 0;
+    //return 0;
 }

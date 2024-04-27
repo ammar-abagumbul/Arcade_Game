@@ -214,7 +214,7 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 	return 1;
 }
 
-int main(){
+int playBokosan(){
 	// open file
 	char lv;
 	string filename = "x.txt";
