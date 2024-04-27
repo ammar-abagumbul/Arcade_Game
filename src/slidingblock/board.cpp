@@ -29,6 +29,7 @@ void initboard(int (&board)[3][3]){
   }
 }
 
+
 void printboard(int board[3][3]){
   // This function prints the board array with each integer in the board surrounded by a box
 
@@ -50,6 +51,7 @@ void printboard(int board[3][3]){
     }
 }
 
+
 void shuffleboard(int(&board)[3][3]){
   // This function shuffles the board 1000 times to form a shuffled puzzle
 
@@ -61,6 +63,7 @@ void shuffleboard(int(&board)[3][3]){
     makemove(shufflemove, board);
   }
 }
+
 
 bool checkonemove(int (&board)[3][3]){
   // This function checks whether the shuffled puzzle is solvable in one move.
@@ -87,6 +90,7 @@ bool checkonemove(int (&board)[3][3]){
   else
     return false;
 }
+
 
 bool checkwin(int (&board)[3][3], bool solved){
   // This function checks whether the board is solved, both when the puzzle is initially shuffled

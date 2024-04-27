@@ -42,6 +42,7 @@ vector<string> possiblemovecheck(int board[3][3]){
   return possiblemoves;
 }
 
+
 string lowerString(string input){
   // This function turns the input into lower-case characters for checking purposes
 
@@ -51,6 +52,7 @@ string lowerString(string input){
   }
   return lowerstring;
 }
+
 
 bool checklegal(string input, vector <string> possiblemoves){
   // This function checks whether the user input made is legal ("w", "a", "s", "d", "W", "A", "S", "D")
@@ -63,6 +65,7 @@ bool checklegal(string input, vector <string> possiblemoves){
   return false;
 }
 
+
 void tileSwap(int (&board)[3][3],int emptyrow,int emptycol,int tilerow,int tilecol){
   // This function swaps the positions of two tiles
 
@@ -71,6 +74,7 @@ void tileSwap(int (&board)[3][3],int emptyrow,int emptycol,int tilerow,int tilec
   board[emptyrow][emptycol] = board[tilerow][tilecol];
   board[tilerow][tilecol] = temp;
 }
+
 
 void makemove(string input, int (&board)[3][3]){
   // This function moves tiles depending on the user input
