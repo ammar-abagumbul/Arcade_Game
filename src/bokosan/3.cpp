@@ -32,7 +32,7 @@ struct Gate{
 };
 
 void PrintMap(char** field, int h, int w){
-	// you'll never believe what this one does
+	// prints map
 	for (int i=0; i<50; i++) cout << endl; // clears the screen
 	for (int i=0; i<h; i++){
 		for (int j=0; j<w; j++)
@@ -45,7 +45,7 @@ void PrintMap(char** field, int h, int w){
 		case 5: cout << "  - | + = laser (DANGER)"; break;
 		case 6: cout << "  X = closed gate"; break;
 		case 7: cout << "  O = open gate"; break;
-		case 8: cout << "  # = button (opens gate)"; break;
+		case 8: cout << "  # = button (light sensitive, opens gate)"; break;
 		}
 		cout << endl;
 	}
@@ -53,6 +53,7 @@ void PrintMap(char** field, int h, int w){
 }
 
 void EndGame(char** field, int h, int w){
+	// clears arrays, ends game
 	for (int i=0; i<h; i++)
         	delete[] field[i];
 	delete[] field;
@@ -60,6 +61,7 @@ void EndGame(char** field, int h, int w){
 }
 
 void TracePath(char** field, int h, int w, Position i, Position d){
+	// draws laser on field. Detects if laser kills player
 	switch (field[i.y+d.y][i.x+d.x]){
 		case ' ':
 			if (d.y) field[i.y+d.y][i.x+d.x] = '|';
@@ -85,6 +87,7 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 }
 
 int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
+	// checks if button is pressed by laser
 	bool prev = but.on;
 	but.on = field[but.pos.y-1][but.pos.x] == '|' || field[but.pos.y+1][but.pos.x] == '|' || field[but.pos.y][but.pos.x-1] == '-' || field[but.pos.y][but.pos.x+1] == '-';
 	if (but.on != prev){
@@ -223,6 +226,7 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 }
 
 int main(){
+	// checks if there is a savefile and makes main  menu based on it
 	ifstream testSave;
 	char menu;
 	string filename;
