@@ -9,7 +9,7 @@
 
 #include "ncurses.h"
 
-void printMainMenu()
+void printMainMenu(int choice)
 {
     // This function outputs the entire main menu as well as the options available
 
@@ -28,14 +28,27 @@ void printMainMenu()
     printw("\n");
     printw(R"(                           ---------------------------------------------------------------)");printw("\n");
     printw(R"(                                                                              )");printw("\n");
-    printw(R"(                                                What would you like to do?)");printw("\n");
-    printw(R"(                                                1. PLAY)");printw("\n");
-    printw(R"(                                                2. CREDITS)");printw("\n");
-    printw(R"(                                                3. EXIT)");printw("\n");
+    printw(R"(                                             What would you like to do?)");printw("\n\n");
+    printw(R"(                                                   )");
+    if (choice == 1)
+        attron(A_REVERSE);
+    printw(R"(PLAY)");printw("\n");
+    if (choice == 1)
+        attroff(A_REVERSE);
+    printw(R"(                                                   )");
+    if (choice == 2)
+        attron(A_REVERSE);
+    printw(R"(CREDITS)");printw("\n");
+    if (choice == 2)
+        attroff(A_REVERSE);
+    printw(R"(                                                   )");
+    if (choice == 3)
+        attron(A_REVERSE);
+    printw(R"(EXIT)");printw("\n");
+    if (choice == 3)
+        attroff(A_REVERSE);
     printw("\n");
     printw(R"(                           ---------------------------------------------------------------)");printw("\n");
-    printw("\n");
-    printw(R"(                                            Enter the instruction number:)");printw("\n");
     refresh();
 
     // Note that the instruction input is taken as part of showMenuScreen()
@@ -50,37 +63,44 @@ int showMenuScreen()
 
     using namespace std;
 
-    char c;
+    int optionChosen = 1;
+    printMainMenu(optionChosen);
 
-    printMainMenu();
-    
-    // This part will keep repeating until
-    // a valid instruction number is input
-    while (true)
+    while(true)
     {
-        // Output a left padding for the input
-        printw("                                                       ");
-        
-        string s;
-        cin >> s;
-        c = s[0];
-        
-        if (s.length() == 1 && c >= '1' && c <= '3')
-        {
-            break;
+        bool br = false;	
+        int c = getch();
+        switch(c)
+        {	
+            case KEY_UP:
+                if(optionChosen == 1)
+                    optionChosen = 3;
+                else
+                    --optionChosen;
+                break;
+            case KEY_DOWN:
+                if(optionChosen == 3)
+                    optionChosen = 1;
+                else 
+                    ++optionChosen;
+                break;
+            case 10:
+                br = true;
+                break;
+            default:
+                continue;
         }
-        else
-        {
-            printInvalidInput();
-            printMainMenu();
+        if(br) 
+            break;
+        else{
+          printMainMenu(optionChosen);  
         }
     }
 
-    // Return an int instead of char
-    return (c - '0');
+    return optionChosen;
 }
 
-void displayLevels(){
+void displayLevels(int choice){
     // This function outputs the level selection options available
 
     using namespace std;
@@ -102,20 +122,62 @@ void displayLevels(){
     printw(R"(                           / \ / /       |___/___|____|___\___| |_| |___\___/|_|\_|      \ / \ \ .)");printw("\n");
     printw(R"(                           \ \ / \                                                       / / \ / .)");printw("\n");
     printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
-    printw(R"(                           / \ / /        1. Act One                  2. Act Two         \ / \ \ .)");printw("\n");
-    printw(R"(                           \ \ / \      The Clue in the           The Armory Arsenal     / / \ / .)");printw("\n");
+    
+    printw(R"(                           / \ / /          )");
+    if (choice == 1){attron(A_REVERSE);}
+    printw("Act One");
+    if (choice == 1){attroff(A_REVERSE);}
+    printw("                      ");
+    if (choice == 2){attron(A_REVERSE);}
+    printw("Act Two");
+    if (choice == 2){attroff(A_REVERSE);}
+    printw(R"(         \ / \ \ .)");printw("\n");
+
+    printw(R"(                           \ \ / \    )");
+    if (choice == 1){attron(A_REVERSE);}
+    printw("The Clue in the Cell");
+    if (choice == 1){attroff(A_REVERSE);}
+    printw("          ");
+    if (choice == 2){attron(A_REVERSE);}
+    printw("The Armory Arsenal");
+    if (choice == 2){attroff(A_REVERSE);}
+    printw(R"(   / / \ / .)");printw("\n");
+
     printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
-    printw(R"(                           / \ / /        3. Act Three                4. Act Four        \ / \ \ .)");printw("\n");
-    printw(R"(                           \ \ / \      The Guards Gamble           Ghostly Pursuits     / / \ / .)");printw("\n");
+
+    printw(R"(                           / \ / /          )");
+    if (choice == 3){attron(A_REVERSE);}
+    printw("Act Three");
+    if (choice == 3){attroff(A_REVERSE);}
+    printw("                   ");
+    if (choice == 4){attron(A_REVERSE);}
+    printw("Act Four");
+    if (choice == 4){attroff(A_REVERSE);}
+    printw(R"(         \ / \ \ .)");printw("\n");
+
+    printw(R"(                           \ \ / \      )");
+    if (choice == 3){attron(A_REVERSE);}
+    printw("The Guards Gamble");
+    if (choice == 3){attroff(A_REVERSE);}
+    printw("           ");
+    if (choice == 4){attron(A_REVERSE);}
+    printw("Ghostly Pursuits");
+    if (choice == 4){attroff(A_REVERSE);}
+    printw(R"(     / / \ / .)");printw("\n");
+
     printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
-    printw(R"(                           / \ / /                 5. Return to Main Menu                \ / \ \ .)");printw("\n");
+
+    printw(R"(                           / \ / /                  )");
+    if (choice == 5){attron(A_REVERSE);}
+    printw("Return to Main Menu");
+    if (choice == 5){attroff(A_REVERSE);}
+    printw(R"(                \ / \ \ .)");printw("\n");
     printw(R"(                           \ \ / \       _       _       _       _       _       _       / / \ / .)");printw("\n");
     printw(R"(                            \ `.\ `-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_/,\ \ .)");printw("\n");
     printw(R"(                           ( `. `,~-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-=,' ,\ \ .)");printw("\n");
     printw(R"(                            `. `'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,"-' ; .)");printw("\n");
     printw(R"(                              `-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-.-' .)");printw("\n");
     printw("\n");
-    printw(R"(                                               Enter the instruction number:)");printw("\n");
     refresh();
 
 
@@ -130,32 +192,68 @@ int showLevelScreen(){
 
     using namespace std;
 
-    char c;
+    int optionChosen = 1;
+    displayLevels(optionChosen);
 
-    displayLevels();
-    
-    // This part will keep repeating until
-    // a valid instruction number is input
-    while (true)
+    while(true)
     {
-        // Output a left padding for the input
-        printw("                                                          ");
-        
-        string s;
-        cin >> s;
-        c = s[0];
-        
-        if (s.length() == 1 && c >= '1' && c <= '5')
-        {
-            break;
+        bool br = false;	
+        int c = getch();
+        switch(c)
+        {	
+            case KEY_UP:
+                if (optionChosen == 1 || optionChosen == 2){
+                    optionChosen = 5;
+                }
+                else if (optionChosen == 3){
+                    optionChosen = 1;
+                }
+                else if (optionChosen == 4){
+                    optionChosen = 2;
+                }
+                else{
+                    optionChosen = 3;
+                }
+                break;
+            case KEY_DOWN:
+                if(optionChosen == 3 || optionChosen == 4)
+                    optionChosen = 5;
+                else if (optionChosen == 1){
+                    optionChosen = 3;
+                }
+                else if (optionChosen == 2){
+                    optionChosen = 4;
+                }
+                else{
+                    optionChosen = 1;
+                }
+                break;
+            case KEY_LEFT:
+                if(optionChosen == 1)
+                    optionChosen = 5;
+                else{
+                    --optionChosen;
+                }
+                break;
+            case KEY_RIGHT:
+                if(optionChosen == 5)
+                    optionChosen = 1;
+                else{
+                    ++optionChosen;
+                }
+                break;
+            case 10:
+                br = true;
+                break;
+            default:
+                continue;
         }
-        else
-        {
-            printInvalidInput();
-            displayLevels();
+        if(br) 
+            break;
+        else{
+          displayLevels(optionChosen);  
         }
     }
 
-    // Return an int instead of char
-    return (c - '0');
+    return optionChosen;
 }

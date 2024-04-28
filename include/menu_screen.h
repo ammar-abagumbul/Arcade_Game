@@ -1,10 +1,10 @@
 #ifndef MENU_SCREEN_H_
 #define MENU_SCREEN_H_
 
-void printMainMenu();
+void printMainMenu(int choice);
 int showMenuScreen();
 
-void displayLevls();
+void displayLevels(int choice);
 int showLevelScreen();
 
 #endif
