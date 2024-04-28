@@ -7,11 +7,25 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <unistd.h>
 
 #include "board.h"
 #include "move.h"
 
 using namespace std;
+
+void clearScreen() {
+  // This function clears the screen prior to the printing the board
+  // Duplicated from Ali Musaddiq's file minesweeper.cpp
+
+  usleep(200000); // Sleep for 0.2 seconds
+  #ifdef _WIN32
+      system("cls");
+  #else
+      system("clear");
+  #endif
+}
+
 
 void initboard(int (&board)[3][3]){
   // This function initializes the board as a 2d array = {{1,2,3},{4,5,6},{7,8,0}}
@@ -33,17 +47,31 @@ void initboard(int (&board)[3][3]){
 void printboard(int board[3][3]){
   // This function prints the board array with each integer in the board surrounded by a box
 
-  for (int i = 0;i < 3; i++){
+  clearScreen();
+  int spaces = (80 - (3 * 5 + 4)) / 2;
+  for (int i = 0; i < 3; i++){
+    for (int l = 0; l < spaces; l ++){
+      cout << " ";
+    }
+  
     for (int k = 0; k < 3; k++){
       cout << "+-----";
     }
     cout << "+" << endl;
         
+    for (int m = 0; m < spaces; m++){
+      cout << " ";
+    }
+
     for (int j = 0 ; j < 3; j++){
       cout << "| " << setw(2) << board[i][j] << "  "; 
     }
     cout << "|" << endl;
-        
+
+    for (int n = 0; n < spaces; n++){
+      cout << " ";
+    }    
+    
     for (int k = 0; k < 3; k++){
       cout << "+-----";
     }
