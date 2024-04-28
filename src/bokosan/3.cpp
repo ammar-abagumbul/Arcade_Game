@@ -32,16 +32,28 @@ struct Gate{
 };
 
 void PrintMap(char** field, int h, int w){
-	// you'll never believe what this one does
+	// prints map
+	for (int i=0; i<50; i++) cout << endl; // clears the screen
 	for (int i=0; i<h; i++){
 		for (int j=0; j<w; j++)
 			cout << field[i][j];
+		switch(i){
+		case 1: cout << "  * = wall"; break;
+		case 2: cout << "  P = player"; break;
+		case 3: cout << "  B = box"; break;
+		case 4: cout << "  / \\ = mirror"; break;
+		case 5: cout << "  - | + = laser (DANGER)"; break;
+		case 6: cout << "  X = closed gate"; break;
+		case 7: cout << "  O = open gate"; break;
+		case 8: cout << "  # = button (light sensitive, opens gate)"; break;
+		}
 		cout << endl;
 	}
 	return;
 }
 
 void EndGame(char** field, int h, int w){
+	// clears arrays, ends game
 	for (int i=0; i<h; i++)
         	delete[] field[i];
 	delete[] field;
@@ -49,6 +61,7 @@ void EndGame(char** field, int h, int w){
 }
 
 void TracePath(char** field, int h, int w, Position i, Position d){
+	// draws laser on field. Detects if laser kills player
 	switch (field[i.y+d.y][i.x+d.x]){
 		case ' ':
 			if (d.y) field[i.y+d.y][i.x+d.x] = '|';
@@ -74,6 +87,7 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 }
 
 int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
+	// checks if button is pressed by laser
 	bool prev = but.on;
 	but.on = field[but.pos.y-1][but.pos.x] == '|' || field[but.pos.y+1][but.pos.x] == '|' || field[but.pos.y][but.pos.x-1] == '-' || field[but.pos.y][but.pos.x+1] == '-';
 	if (but.on != prev){
@@ -126,13 +140,11 @@ bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<M
 	// checks the block ahead and decides if it's possible to push
 	switch (field[p.y+d.y][p.x+d.x]){
 		case '*': case '>': case '<': case '#':
-			cout << "wall reached" << endl;
 			return 0;
 			break;
 		case 'B': // box
 			for (int i=0; i<box.size(); i++){
 				if (box[i].y == p.y+d.y && box[i].x == p.x+d.x && Push(field, box[i], d, box, mir)){
-					cout << "box pushed" << endl;
 					p.y += d.y;
 					p.x += d.x;
 					return 1;
@@ -142,7 +154,6 @@ bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<M
 		case '/': case '\\': // mirror
 			for (int i=0; i<mir.size(); i++){
 				if (mir[i].pos.y == p.y+d.y && mir[i].pos.x == p.x+d.x && Push(field, mir[i].pos, d, box, mir)){
-					cout << "mirror pushed" << endl;
 					p.y += d.y;
 					p.x += d.x;
 					return 1;
@@ -163,7 +174,6 @@ int abs(int v){
 }
 
 void Rotate(char** field, Position p, vector<Mirror> &mir){
-	Position ds[4] = {{-1,0},{0,-1},{1,0},{0,1}};
 	for (int i=0; i<mir.size(); i++){
 		if ((abs(mir[i].pos.y-p.y) == 1 && mir[i].pos.x-p.x == 0) || (mir[i].pos.y-p.y == 0 && abs(mir[i].pos.x-p.x) == 1)){
 			switch (mir[i].dir){
@@ -180,7 +190,8 @@ void Rotate(char** field, Position p, vector<Mirror> &mir){
 
 int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<Mirror> &mir){
 	char input;
-	cout << "Move: ";
+	cout << "[w][a][s][d] Travel  [r] Rotate\n";
+	cout << "[1] Quit             [2] Save & Quit\n" << "Move: ";
 	cin >> input;
 	Position d;
 	switch (input){
@@ -203,10 +214,10 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 		case 'r':
 			Rotate(field,p,mir);
 			break;
-		case 'q':
+		case '1':
 			EndGame(field,h,w);
 			break;
-		case 'k':
+		case '2':
 			return 0;
 		default:
 			cout << "Invalid input." << endl;
@@ -214,13 +225,50 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 	return 1;
 }
 
-int playBokosan(){
+int main(){
+	// checks if there is a savefile and makes main  menu based on it
+	ifstream testSave;
+	char menu;
+	string filename;
+	testSave.open("s.txt");
+	if (testSave.fail()){
+		cout << "[1] New Game\n[2] Exit\n";
+		cin >> menu;
+		while (menu != '1' && menu != '2'){
+			cout << "Invalid input\n";
+			cout << "[1] New Game\n[2] Exit\n";
+			cin >> menu;
+		}
+		switch (menu){
+			case '1':
+				filename = "1.txt";
+				break;
+			case '2':
+				cout << "Bye bye \n";
+				exit(0);
+		}
+	} else{
+		cout << "[1] Resume\n[2] New Game\n[3] Exit\n";
+		cin >> menu;
+		while (menu != '1' && menu != '2' && menu != '3'){
+			cout << "Invalid input\n";
+			cout << "[1] Resume\n[2] New Game\n[3] Exit\n";
+			cin >> menu;
+		}
+		switch (menu){
+			case '1':
+				filename = "s.txt";
+				break;
+			case '2':
+				filename = "1.txt";
+				break;
+			case '3':
+				cout << "Bye bye \n";
+				exit(0);
+		}
+	}
+
 	// open file
-	char lv;
-	string filename = "x.txt";
-	cout << "Level: ";
-	cin >> lv;
-	filename[0] = lv;
 	cout << "loading " << filename << endl;
 	ifstream fin;
 	fin.open(filename);
