@@ -28,7 +28,7 @@ void introAnimations()
     using namespace std;
 
     // Terminal cleared before each output to create a motion effect
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______                                        )" << endl;
     cout << R"(              |__   __|                                      )" << endl;
     cout << R"(                 | |                                                                        ___)" << endl;
@@ -39,7 +39,7 @@ void introAnimations()
     cout << R"(                                                                                             )" << endl;
     sleep(1); // Sleep time used to create a stop-motion like effect
 
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______ _                                       )" << endl;
     cout << R"(              |__   __| |                                      )" << endl;
     cout << R"(                 | |  | |__                                                          _ __   ___)" << endl;
@@ -50,7 +50,7 @@ void introAnimations()
     cout << R"(                                                                                    |_|         )" << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______ _                                       )" << endl;
     cout << R"(              |__   __| |                                      )" << endl;
     cout << R"(                 | |  | |__   ___                                           ___ __ _ _ __   ___)" << endl;
@@ -61,7 +61,7 @@ void introAnimations()
     cout << R"(                                                                                    |_|         )" << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______ _             _____                      ______)" << endl;
     cout << R"(              |__   __| |           / ____|                    |  ____|)" << endl;
     cout << R"(                 | |  | |__   ___  | |  __ _ __                | |__   ___  ___ __ _ _ __   ___)" << endl;
@@ -72,7 +72,7 @@ void introAnimations()
     cout << R"(                                                                                    |_|         )" << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______ _             _____                _     ______)" << endl;
     cout << R"(              |__   __| |           / ____|              | |   |  ____|)" << endl;
     cout << R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)" << endl;
@@ -83,7 +83,7 @@ void introAnimations()
     cout << R"(                                                                                    |_|         )" << endl;
     sleep(1.5); // Sleep time increased because of subtitle next
 
-    system("cls");
+    system("cls||clear");
     cout << R"(               _______ _             _____                _     ______)" << endl;
     cout << R"(              |__   __| |           / ____|              | |   |  ____|)" << endl;
     cout << R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)" << endl;
@@ -116,7 +116,7 @@ void printCredits()
     using namespace std;
 
     // Terminal cleared before each output to create a motion effect
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -133,7 +133,7 @@ void printCredits()
     cout << R"(                      =====================================================)" << endl;
     sleep(1); // Sleep time used to create a stop-motion like effect
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -150,7 +150,7 @@ void printCredits()
     cout << "                                                                              " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -167,7 +167,7 @@ void printCredits()
     cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -184,7 +184,7 @@ void printCredits()
     cout << "                           Ali Musaddiq                        3036259011                " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
@@ -201,7 +201,7 @@ void printCredits()
     cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                            ______                          ________ __ __" << endl;
@@ -218,7 +218,7 @@ void printCredits()
     cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                            ______                          ________ __ __" << endl;
     cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
@@ -235,7 +235,7 @@ void printCredits()
     cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
     sleep(1);
 
-    system("cls");
+    system("cls||clear");
     cout << "                            ______                          ________ __ __" << endl;
     cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
     cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
@@ -251,7 +251,7 @@ void printCredits()
     cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
     sleep(1.5);
 
-    system("cls");
+    system("cls||clear");
     cout << "                            ______                          ________ __ __" << endl;
     cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
     cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
@@ -287,7 +287,7 @@ void storyLineIntro()
     string s1 = "Sam Riker, a former detective, finds himse";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -309,7 +309,7 @@ void storyLineIntro()
     string s2 = "lf framed for a crime he didn't commit. Se";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -331,7 +331,7 @@ void storyLineIntro()
     string s3 = "ntenced to life in Alacran Maximum Securit";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -353,7 +353,7 @@ void storyLineIntro()
     string s4 = "y Prison, he knows the only way to clear h";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -375,7 +375,7 @@ void storyLineIntro()
     string s5 = "is name is to escape and uncover the consp";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -397,7 +397,7 @@ void storyLineIntro()
     string s6 = "iracy that put him behind bars.....";
     for (int i = 0; i < 42; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -454,7 +454,7 @@ void displayActOne()
 
     for (int i = 0; i < 6; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << "                    _____         _____   _________________               _____  _____   ______        ______   " << endl;
@@ -517,7 +517,7 @@ void displayStoryOne()
     string s1 = "In his cell's dimness, Sam takes comfort in Mr.";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -547,7 +547,7 @@ void displayStoryOne()
     string s2 = "Finch's  tales. The old man reminisces about hi";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -577,7 +577,7 @@ void displayStoryOne()
     string s3 = "s lively home and inquisitive grandkids, partic";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -607,7 +607,7 @@ void displayStoryOne()
     string s4 = "ularly drawn to the gleaming fireplace tiles. T";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -637,7 +637,7 @@ void displayStoryOne()
     string s5 = "hese stories prompt Sam to inspect his cell, le";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -667,7 +667,7 @@ void displayStoryOne()
     string s6 = "ading to a surprising discovery - a loose tile.";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -697,7 +697,7 @@ void displayStoryOne()
     string s7 = "Further investigations leads to finding that it";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -727,7 +727,7 @@ void displayStoryOne()
     string s8 = "conceals a sliding puzzle......";
     for (int i = 0; i < 47; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -809,7 +809,7 @@ void displayIntroOne()
     // Loops through the array and prints line by line
     for (int i = 0; i < 32; i++)
     {
-        system("cls");
+        system("cls||clear");
         for (int j = 0; j <= i; j++)
         {
             cout << keyArr[j] << endl;
@@ -836,7 +836,7 @@ void displayOutroOne()
     string s1 = "The sliding puzzle revealed a hidden";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -861,7 +861,7 @@ void displayOutroOne()
     string s2 = "cache of letters. These letters, add";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -886,7 +886,7 @@ void displayOutroOne()
     string s3 = "ressed to the cryptic \"The Moth,\" hi";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -911,7 +911,7 @@ void displayOutroOne()
     string s4 = "nt at an escape plan that remained u";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -936,7 +936,7 @@ void displayOutroOne()
     string s5 = "nfulfilled. Sam realizes that he's n";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -961,7 +961,7 @@ void displayOutroOne()
     string s6 = "ot the first innocent person to be t";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -986,7 +986,7 @@ void displayOutroOne()
     string s7 = "rapped....                          ";
     for (int i = 0; i < 36; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1028,7 +1028,7 @@ void displayActTwo()
 
     for (int i = 0; i < 3; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << R"(                     ___           ___           ___                    ___           ___           ___     )" << endl;
         cout << R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )" << endl;
         cout << R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )" << endl;
@@ -1060,6 +1060,7 @@ void displayActTwo()
     // Prompt user to press enter after they have finished reading the text
     cout << "                                                 Press any ENTER to continue" << endl;
     cin.ignore();
+    cin.ignore();
 }
 
 void displayStoryTwo()
@@ -1077,99 +1078,99 @@ void displayStoryTwo()
     string s1 = "Sam discovers an the guard's armory. The";
     for (int i = 0; i < 40; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
         sleep(0.1);
     }
 
     string s2 = "armory, usually a mundane storage room f";
     for (int i = 0; i < 40; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                               | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                          | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
         sleep(0.1);
     }
 
     string s3 = "or weapons, turns out to be a facade for";
     for (int i = 0; i < 40; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                               | |  armory, usually a mundane storage room f  | |" << endl;
-        cout << "                                               | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                          | |  armory, usually a mundane storage room f  | |" << endl;
+        cout << "                                          | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
         sleep(0.1);
     }
 
     string s4 = "         a secret research lab...       ";
     for (int i = 0; i < 40; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
-        cout << "                                               | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                               | |  armory, usually a mundane storage room f  | |" << endl;
-        cout << "                                               | |  or weapons, turns out to be a facade for  | |" << endl;
-        cout << "                                               | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                             __| |____________________________________________| |__" << endl;
-        cout << "                                            (__   ____________________________________________   __)" << endl;
-        cout << "                                               | |                                            | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
+        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
+        cout << "                                          | |  armory, usually a mundane storage room f  | |" << endl;
+        cout << "                                          | |  or weapons, turns out to be a facade for  | |" << endl;
+        cout << "                                          | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << endl;
+        cout << "                                        __| |____________________________________________| |__" << endl;
+        cout << "                                       (__   ____________________________________________   __)" << endl;
+        cout << "                                          | |                                            | |" << endl;
         sleep(0.1);
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
     cout << endl;
-    cout << "                                                            Press ENTER to continue" << endl;
+    cout << "                                                       Press ENTER to continue" << endl;
     cin.ignore();
 }
 
@@ -1219,7 +1220,7 @@ void displayIntroTwo()
     // Loops through the array and prints line by line
     for (int i = 0; i < 30; i++)
     {
-        system("cls");
+        system("cls||clear");
         for (int j = 0; j <= i; j++)
         {
             cout << keyArr[j] << endl;
@@ -1246,7 +1247,7 @@ void displayOutroTwo()
     string s1 = "Solving the puzzle, Sam discovers the b";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1269,7 +1270,7 @@ void displayOutroTwo()
     string s2 = "lueprint, which reveals that Alacran Ma";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1292,7 +1293,7 @@ void displayOutroTwo()
     string s3 = "ximum Security Prison is part of a larg";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1315,7 +1316,7 @@ void displayOutroTwo()
     string s4 = "er, sinister design. The prison's layou";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1338,7 +1339,7 @@ void displayOutroTwo()
     string s5 = "t isn't random-it's purposefully design";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1361,7 +1362,7 @@ void displayOutroTwo()
     string s6 = "ed to keep certain areas inaccessible. ";
     for (int i = 0; i < 39; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -1401,7 +1402,7 @@ void displayActThree()
 
     for (int i = 0; i < 3; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << R"(                      __       ______  ___________      ___________  __    __    _______    _______   _______  )" << endl;
         cout << R"(                     /""\     /" _  "\("     _   ")    ("     _   ")/" |  | "\  /"      \  /"     "| /"     "| )" << endl;
         cout << R"(                    /    \   (: ( \___))__/  \\__/      )__/  \\__/(:  (__)  :)|:        |(: ______)(: ______) )" << endl;
@@ -1444,7 +1445,7 @@ void displayStoryThree()
     string s1 = "Sam overhears guards talking about a mine";
     for (int i = 0; i < 41; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1464,7 +1465,7 @@ void displayStoryThree()
     string s2 = "sweeper game they play during their break";
     for (int i = 0; i < 41; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1484,7 +1485,7 @@ void displayStoryThree()
     string s3 = "s. Curious, he investigates further....  ";
     for (int i = 0; i < 41; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1555,7 +1556,7 @@ void displayIntroThree()
     // Loops through the array and prints line by line
     for (int i = 0; i < 31; i++)
     {
-        system("cls");
+        system("cls||clear");
         for (int j = 0; j <= i; j++)
         {
             cout << keyArr[j] << endl;
@@ -1582,7 +1583,7 @@ void displayOutroThree()
     string s1 = "To Sam's surprise, the minesweeper game is revealed to be a cover for an";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1611,7 +1612,7 @@ void displayOutroThree()
     string s2 = "illegal betting ring run by the guards. They wager on the outcomes, dist";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1640,7 +1641,7 @@ void displayOutroThree()
     string s3 = "racting themselves from the monotony of prison duty....                 ";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1669,7 +1670,7 @@ void displayOutroThree()
     string s4 = "Sam uses his detective skills to manipulate the game's outcome, creating";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1698,7 +1699,7 @@ void displayOutroThree()
     string s5 = "a distraction that allows him to access restricted areas of the prison u";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1727,7 +1728,7 @@ void displayOutroThree()
     string s6 = "nnoticed. He discovers hidden compartments, secret tunnels, and coded me";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1756,7 +1757,7 @@ void displayOutroThree()
     string s7 = "ssages left by other inmates who were part of The Moth's failed escape p";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1785,7 +1786,7 @@ void displayOutroThree()
     string s8 = "lan............                                                         ";
     for (int i = 0; i < 72; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1829,7 +1830,7 @@ void displayActFour()
 
     // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
 
-    system("cls");
+    system("cls||clear");
     cout << endl;
     cout << endl;
     cout << R"(                              /$$$$$$   /$$$$$$  /$$$$$$$$       /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$)" << endl;
@@ -1848,7 +1849,7 @@ void displayActFour()
     cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
     sleep(1.5);
 
-    system("cls");
+    system("cls||clear");
     cout << endl;
     cout << endl;
     cout << R"(                             $$$$$$\   $$$$$$\ $$$$$$$$\       $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$\  )" << endl;
@@ -1867,7 +1868,7 @@ void displayActFour()
     cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
     sleep(1.5);
 
-    system("cls");
+    system("cls||clear");
     cout << endl;
     cout << endl;
     cout << R"(                              ______    ______   ________        ________  ______   __    __  _______)" << endl;
@@ -1887,7 +1888,7 @@ void displayActFour()
     cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
     sleep(1.5);
 
-    system("cls");
+    system("cls||clear");
     cout << endl;
     cout << endl;
     cout << R"(                              ______    ______  ________        ________   ______   __    __  _______  )" << endl;
@@ -1931,7 +1932,7 @@ void displayStoryFour()
     string s1 = "As Sam collects evidence, he also finds pieces of his own pas";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1954,7 +1955,7 @@ void displayStoryFour()
     string s2 = "t scattered throughout the prison. Old case files, personal b";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -1977,7 +1978,7 @@ void displayStoryFour()
     string s3 = "elongings, and a letter from someone he thought was lost - al";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2000,7 +2001,7 @@ void displayStoryFour()
     string s4 = "l these items help him evade the guards. The maze of prison c";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2023,7 +2024,7 @@ void displayStoryFour()
     string s5 = "orridors becomes a metaphorical labyrinth of memories and sec";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2046,7 +2047,7 @@ void displayStoryFour()
     string s6 = "rets........                                                 ";
     for (int i = 0; i < 61; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2116,7 +2117,7 @@ void displayIntroFour()
     // Loops through the array and prints line by line
     for (int i = 0; i < 27; i++)
     {
-        system("cls");
+        system("cls||clear");
         for (int j = 0; j <= i; j++)
         {
             cout << keyArr[j] << endl;
@@ -2167,7 +2168,7 @@ void displayDoorOutro()
     // Loops through the array and prints line by line
     for (int i = 0; i < 22; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << endl;
         cout << endl;
         cout << endl;
@@ -2198,7 +2199,7 @@ void displayOutroStory()
     string s1 = "Having narrowly escaped A";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2224,7 +2225,7 @@ void displayOutroStory()
     string s2 = "lacran, Sam's heart raced";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2250,7 +2251,7 @@ void displayOutroStory()
     string s3 = "as he made his way to fre";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2276,7 +2277,7 @@ void displayOutroStory()
     string s4 = "edom. But as he emerged f";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2302,7 +2303,7 @@ void displayOutroStory()
     string s5 = "rom the prison's depths a";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2328,7 +2329,7 @@ void displayOutroStory()
     string s6 = "nd stepped into sunlight,";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2354,7 +2355,7 @@ void displayOutroStory()
     string s7 = "he stumbled upon somethin";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2380,7 +2381,7 @@ void displayOutroStory()
     string s8 = "g spine-chilling.........";
     for (int i = 0; i < 25; i++)
     {
-        system("cls");
+        system("cls||clear");
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
         cout << "                                                                              " << endl;
@@ -2419,7 +2420,7 @@ void displayToBeContinued()
 
     using namespace std;
     
-    system("cls");
+    system("cls||clear");
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;

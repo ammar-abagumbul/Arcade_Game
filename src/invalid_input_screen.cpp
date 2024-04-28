@@ -21,7 +21,7 @@ void printInvalidInput()
     using namespace std;
 
     // Terminal is cleared
-    system("cls");
+    system("cls||clear");
 
     cout << "                                                                              " << endl;
     cout << "                                                                              " << endl;

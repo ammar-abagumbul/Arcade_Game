@@ -8,6 +8,8 @@
 #include "../include/menu_screen.h"
 #include "../include/gameplay.h"
 
+// #include "ncurses.h"
+
 using namespace std;
 
 int main()
@@ -26,10 +28,18 @@ int main()
 
         if (currentOption == 1)
         {
-            // Start a new game
-            startGame();
+            int levelOption = showLevelScreen();
+
+            if (levelOption == 5){
+                // Return To main menu
+                continue;
+            }
+            else{
+                // Play a game
+                startGame(levelOption);
+            }
         }
-        else if (currentOption == 3)
+        else if (currentOption == 2)
         {
             // Print the game credits
             printCredits();

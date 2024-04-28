@@ -4,4 +4,7 @@
 void printMainMenu();
 int showMenuScreen();
 
+void displayLevls();
+int showLevelScreen();
+
 #endif
