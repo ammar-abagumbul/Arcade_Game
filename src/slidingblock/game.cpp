@@ -11,6 +11,8 @@
 #include <ctime>
 #include <fstream>
 
+#include "ncurses.h"
+
 #include "board.h"
 #include "move.h"
 #include "game.h"
@@ -45,21 +47,24 @@ int slidingBlockGame(){
   string input;
 
   // Gets input for the first time
-  cout << "Input a move (w, a, s, d): " << endl;
+  printw("Input a move (w, a, s, d): \n");
+  refresh();
 
   // Gets input until the boolean solved becomes true
   while (cin >> input){
     input = lowerString(input);
     possiblemoves = possiblemovecheck(board);
     if (input == "q"){
-      cout << "You displayed great weakness. I know you'll come back though, they always do." << endl;
+      printw("You displayed great weakness. I know you'll come back though, they always do.\n");
+      refresh();
       break;
     }
 
     // Checks if user input is valid
     else if (!checklegal(input, possiblemoves)){
       printboard(board);
-      cout << "Please make a valid input/move: " << endl;
+      printw("Please make a valid input/move: \n");
+      refresh();
     }
     else{
     // If move is legal, the move is made and the boolean solved is updated after every legal move
@@ -71,10 +76,12 @@ int slidingBlockGame(){
     // Ends the game loop if solved becomes true
     if (solved == true){
       cout << "Well done, soldier, move on to the next level" << endl;
+      refresh();
       break;
     }
     // If solved is still false after the input, ask the user for input again
-	cout << "Input a move (w, a, s, d) or input q to quit: " << endl;
+	printw("Input a move (w, a, s, d) or input q to quit: \n");
+  refresh();
   }
   return 0;
 }

@@ -10,6 +10,8 @@
 #include <unistd.h>
 #include <fstream>
 
+#include "ncurses.h"
+
 #include "board.h"
 #include "move.h"
 
@@ -52,17 +54,17 @@ void initSavedboard(int (&board)[3][3], bool solved){
 }
 
 
-void clearScreen() {
-  // This function clears the screen prior to the printing the board
-  // Duplicated from Ali Musaddiq's file minesweeper.cpp
+// void clearScreen() {
+//   // This function clears the screen prior to the printing the board
+//   // Duplicated from Ali Musaddiq's file minesweeper.cpp
 
-  usleep(200000); // Sleep for 0.2 seconds
-  #ifdef _WIN32
-      system("cls");
-  #else
-      system("clear");
-  #endif
-}
+//   usleep(200000); // Sleep for 0.2 seconds
+//   #ifdef _WIN32
+//       system("cls");
+//   #else
+//       system("clear");
+//   #endif
+// }
 
 
 void initboard(int (&board)[3][3]){
@@ -85,36 +87,38 @@ void initboard(int (&board)[3][3]){
 void printboard(int board[3][3]){
   // This function prints the board array with each integer in the board surrounded by a box
 
-  clearScreen();
+  clear();
   int spaces = (80 - (3 * 5 + 4)) / 2;
   for (int i = 0; i < 3; i++){
     for (int l = 0; l < spaces; l ++){
-      cout << " ";
+      printw(" ");
     }
   
     for (int k = 0; k < 3; k++){
-      cout << "+-----";
+      printw("+-----");
     }
-    cout << "+" << endl;
+    printw("+\n");
         
     for (int m = 0; m < spaces; m++){
-      cout << " ";
+      printw(" ");
     }
 
     for (int j = 0 ; j < 3; j++){
-      cout << "| " << setw(2) << board[i][j] << "  "; 
+      string linePart = "|  " + std::to_string(board[i][j]) + "  ";
+      printw(linePart.c_str()); 
     }
-    cout << "|" << endl;
+    printw("|\n");
 
     for (int n = 0; n < spaces; n++){
-      cout << " ";
+      printw(" ");
     }    
     
     for (int k = 0; k < 3; k++){
-      cout << "+-----";
+      printw("+-----");
     }
-      cout << "+" << endl;
-    }
+      printw("+\n");
+  }
+  refresh();
 }
 
 
