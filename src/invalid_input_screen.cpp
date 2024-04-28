@@ -7,9 +7,11 @@
 
 #include "../include/invalid_input_screen.h"
 
+#include "ncurses.h"
+
 // Comment according to need
 // Library effective with Windows
-#include <windows.h>
+//#include <windows.h>
 // Library effective with Linux
 #include <unistd.h>
 
@@ -21,22 +23,23 @@ void printInvalidInput()
     using namespace std;
 
     // Terminal is cleared
-    system("cls||clear");
+    clear();
 
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                             ---------------------------------------------------------------" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                             Invalid Input! Please try again!              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                             ---------------------------------------------------------------" << endl;
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                             ---------------------------------------------------------------\n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                                             Invalid Input! Please try again!              \n");
+    printw("                                                                              \n");
+    printw("                                                                              \n");
+    printw("                             ---------------------------------------------------------------\n");
+    refresh();
 
     // Sleep time to allow the user to read the message
     sleep(1.5);

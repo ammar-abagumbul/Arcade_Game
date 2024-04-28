@@ -8,15 +8,17 @@
 #include <string>
 #include <random>
 #include <algorithm>
+#include <chrono>
+#include <thread>
 
 #include "../include/animations.h"
+#include "ncurses.h"
 
 // Comment according to need
 // Library effective with Windows
-#include <windows.h>
+// #include <windows.h>
 // Library effective with Linux
 #include <unistd.h>
-
 
 // Introductory animations:
 
@@ -28,84 +30,148 @@ void introAnimations()
     using namespace std;
 
     // Terminal cleared before each output to create a motion effect
-    system("cls||clear");
-    cout << R"(               _______                                        )" << endl;
-    cout << R"(              |__   __|                                      )" << endl;
-    cout << R"(                 | |                                                                        ___)" << endl;
-    cout << R"(                 | |                                                                       / _ \)" << endl;
-    cout << R"(                 | |                                                                      |  __/)" << endl;
-    cout << R"(                 |_|                                                                       \___|)" << endl;
-    cout << R"(                                                                                             )" << endl;
-    cout << R"(                                                                                             )" << endl;
-    sleep(1); // Sleep time used to create a stop-motion like effect
+    clear();
+    printw(R"(               _______                                        )");
+    printw("\n");
+    printw(R"(              |__   __|                                      )");
+    printw("\n");
+    printw(R"(                 | |                                                                        ___)");
+    printw("\n");
+    printw(R"(                 | |                                                                       / _ \)");
+    printw("\n");
+    printw(R"(                 | |                                                                      |  __/)");
+    printw("\n");
+    printw(R"(                 |_|                                                                       \___|)");
+    printw("\n");
+    printw(R"(                                                                                             )");
+    printw("\n");
+    printw(R"(                                                                                             )");
+    printw("\n");
+    refresh();
+    sleep(1); // sleep time used to create a stop-motion like effect
 
-    system("cls||clear");
-    cout << R"(               _______ _                                       )" << endl;
-    cout << R"(              |__   __| |                                      )" << endl;
-    cout << R"(                 | |  | |__                                                          _ __   ___)" << endl;
-    cout << R"(                 | |  | '_ \                                                        | '_ \ / _ \)" << endl;
-    cout << R"(                 | |  | | | |                                                       | |_) |  __/)" << endl;
-    cout << R"(                 |_|  |_| |_|                                                       | .__/ \___|)" << endl;
-    cout << R"(                                                                                    | |         )" << endl;
-    cout << R"(                                                                                    |_|         )" << endl;
+    clear();
+    printw(R"(               _______ _                                       )");
+    printw("\n");
+    printw(R"(              |__   __| |                                      )");
+    printw("\n");
+    printw(R"(                 | |  | |__                                                          _ __   ___)");
+    printw("\n");
+    printw(R"(                 | |  | '_ \                                                        | '_ \ / _ \)");
+    printw("\n");
+    printw(R"(                 | |  | | | |                                                       | |_) |  __/)");
+    printw("\n");
+    printw(R"(                 |_|  |_| |_|                                                       | .__/ \___|)");
+    printw("\n");
+    printw(R"(                                                                                    | |         )");
+    printw("\n");
+    printw(R"(                                                                                    |_|         )");
+    printw("\n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << R"(               _______ _                                       )" << endl;
-    cout << R"(              |__   __| |                                      )" << endl;
-    cout << R"(                 | |  | |__   ___                                           ___ __ _ _ __   ___)" << endl;
-    cout << R"(                 | |  | '_ \ / _ \                                         / __/ _` | '_ \ / _ \)" << endl;
-    cout << R"(                 | |  | | | |  __/                                        | (_| (_| | |_) |  __/)" << endl;
-    cout << R"(                 |_|  |_| |_|\___|                                         \___\__,_| .__/ \___|)" << endl;
-    cout << R"(                                                                                    | |         )" << endl;
-    cout << R"(                                                                                    |_|         )" << endl;
+    clear();
+    printw(R"(               _______ _                                       )");
+    printw("\n");
+    printw(R"(              |__   __| |                                      )");
+    printw("\n");
+    printw(R"(                 | |  | |__   ___                                           ___ __ _ _ __   ___)");
+    printw("\n");
+    printw(R"(                 | |  | '_ \ / _ \                                         / __/ _` | '_ \ / _ \)");
+    printw("\n");
+    printw(R"(                 | |  | | | |  __/                                        | (_| (_| | |_) |  __/)");
+    printw("\n");
+    printw(R"(                 |_|  |_| |_|\___|                                         \___\__,_| .__/ \___|)");
+    printw("\n");
+    printw(R"(                                                                                    | |         )");
+    printw("\n");
+    printw(R"(                                                                                    |_|         )");
+    printw("\n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << R"(               _______ _             _____                      ______)" << endl;
-    cout << R"(              |__   __| |           / ____|                    |  ____|)" << endl;
-    cout << R"(                 | |  | |__   ___  | |  __ _ __                | |__   ___  ___ __ _ _ __   ___)" << endl;
-    cout << R"(                 | |  | '_ \ / _ \ | | |_ | '__/               |  __| / __|/ __/ _` | '_ \ / _ \)" << endl;
-    cout << R"(                 | |  | | | |  __/ | |__| | |                  | |____\__ | (_| (_| | |_) |  __/)" << endl;
-    cout << R"(                 |_|  |_| |_|\___|  \_____|_|                  |______|___/\___\__,_| .__/ \___|)" << endl;
-    cout << R"(                                                                                    | |         )" << endl;
-    cout << R"(                                                                                    |_|         )" << endl;
+    clear();
+    printw(R"(               _______ _             _____                      ______)");
+    printw("\n");
+    printw(R"(              |__   __| |           / ____|                    |  ____|)");
+    printw("\n");
+    printw(R"(                 | |  | |__   ___  | |  __ _ __                | |__   ___  ___ __ _ _ __   ___)");
+    printw("\n");
+    printw(R"(                 | |  | '_ \ / _ \ | | |_ | '__/               |  __| / __|/ __/ _` | '_ \ / _ \)");
+    printw("\n");
+    printw(R"(                 | |  | | | |  __/ | |__| | |                  | |____\__ | (_| (_| | |_) |  __/)");
+    printw("\n");
+    printw(R"(                 |_|  |_| |_|\___|  \_____|_|                  |______|___/\___\__,_| .__/ \___|)");
+    printw("\n");
+    printw(R"(                                                                                    | |         )");
+    printw("\n");
+    printw(R"(                                                                                    |_|         )");
+    printw("\n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << R"(               _______ _             _____                _     ______)" << endl;
-    cout << R"(              |__   __| |           / ____|              | |   |  ____|)" << endl;
-    cout << R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)" << endl;
-    cout << R"(                 | |  | '_ \ / _ \ | | |_ | '__/ _ \/ _` | __| |  __| / __|/ __/ _` | '_ \ / _ \)" << endl;
-    cout << R"(                 | |  | | | |  __/ | |__| | | |  __| (_| | |_  | |____\__ | (_| (_| | |_) |  __/)" << endl;
-    cout << R"(                 |_|  |_| |_|\___|  \_____|_|  \___|\__,_|\__| |______|___/\___\__,_| .__/ \___|)" << endl;
-    cout << R"(                                                                                    | |         )" << endl;
-    cout << R"(                                                                                    |_|         )" << endl;
-    sleep(1.5); // Sleep time increased because of subtitle next
+    clear();
+    printw(R"(               _______ _             _____                _     ______)");
+    printw("\n");
+    printw(R"(              |__   __| |           / ____|              | |   |  ____|)");
+    printw("\n");
+    printw(R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)");
+    printw("\n");
+    printw(R"(                 | |  | '_ \ / _ \ | | |_ | '__/ _ \/ _` | __| |  __| / __|/ __/ _` | '_ \ / _ \)");
+    printw("\n");
+    printw(R"(                 | |  | | | |  __/ | |__| | | |  __| (_| | |_  | |____\__ | (_| (_| | |_) |  __/)");
+    printw("\n");
+    printw(R"(                 |_|  |_| |_|\___|  \_____|_|  \___|\__,_|\__| |______|___/\___\__,_| .__/ \___|)");
+    printw("\n");
+    printw(R"(                                                                                    | |         )");
+    printw("\n");
+    printw(R"(                                                                                    |_|         )");
+    printw("\n");
+    refresh();
+    sleep(1.5); // sleep time increased because of subtitle next
 
-    system("cls||clear");
-    cout << R"(               _______ _             _____                _     ______)" << endl;
-    cout << R"(              |__   __| |           / ____|              | |   |  ____|)" << endl;
-    cout << R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)" << endl;
-    cout << R"(                 | |  | '_ \ / _ \ | | |_ | '__/ _ \/ _` | __| |  __| / __|/ __/ _` | '_ \ / _ \)" << endl;
-    cout << R"(                 | |  | | | |  __/ | |__| | | |  __| (_| | |_  | |____\__ | (_| (_| | |_) |  __/)" << endl;
-    cout << R"(                 |_|  |_| |_|\___|  \_____|_|  \___|\__,_|\__| |______|___/\___\__,_| .__/ \___|)" << endl;
-    cout << R"(                                                                                    | |         )" << endl;
-    cout << R"(                                                                                    |_|         )" << endl;
-    cout << R"(                         _   _   _   _   _   _   _   _   _     _   _   _   _   _   _)" << endl;
-    cout << R"(                        / \ / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \)" << endl;
-    cout << R"(                       ( A ( L ( A ( C ( R ( A ( N ( ' ( S ) ( S ( H ( A ( D ( O ( W ))" << endl;
-    cout << R"(                        \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/)" << endl;
-    sleep(1.5); // High sleep time continued as "Press ENTER to continue" to be printed
+    clear();
+    printw(R"(               _______ _             _____                _     ______)");
+    printw("\n");
+    printw(R"(              |__   __| |           / ____|              | |   |  ____|)");
+    printw("\n");
+    printw(R"(                 | |  | |__   ___  | |  __ _ __ ___  __ _| |_  | |__   ___  ___ __ _ _ __   ___)");
+    printw("\n");
+    printw(R"(                 | |  | '_ \ / _ \ | | |_ | '__/ _ \/ _` | __| |  __| / __|/ __/ _` | '_ \ / _ \)");
+    printw("\n");
+    printw(R"(                 | |  | | | |  __/ | |__| | | |  __| (_| | |_  | |____\__ | (_| (_| | |_) |  __/)");
+    printw("\n");
+    printw(R"(                 |_|  |_| |_|\___|  \_____|_|  \___|\__,_|\__| |______|___/\___\__,_| .__/ \___|)");
+    printw("\n");
+    printw(R"(                                                                                    | |         )");
+    printw("\n");
+    printw(R"(                                                                                    |_|         )");
+    printw("\n");
+    printw(R"(                         _   _   _   _   _   _   _   _   _     _   _   _   _   _   _)");
+    printw("\n");
+    printw(R"(                        / \ / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \)");
+    printw("\n");
+    printw(R"(                       ( A ( L ( A ( C ( R ( A ( N ( ' ( S ) ( S ( H ( A ( D ( O ( W ))");
+    printw("\n");
+    printw(R"(                        \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/)");
+    printw("\n");
+    refresh();
+    sleep(1.5); // High sleep time continued as "Press ENTER to continue\n" to be printed
 
     // Create some empty lines
-    cout << endl;
-    cout << endl;
-    cout << endl;
+    printw("\n");
+    printw("\n");
+    printw("\n");
 
     // Allow user to interact by pressing enter to continue
-    cout << "                                     Press any ENTER to continue" << endl;
-    cin.ignore();
+    printw("                                     Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void printCredits()
@@ -116,160 +182,229 @@ void printCredits()
     using namespace std;
 
     // Terminal cleared before each output to create a motion effect
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    sleep(1); // Sleep time used to create a stop-motion like effect
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    refresh();
+    sleep(1); // sleep time used to create a stop - motion like effect
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
-    cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    printw("                           Chowdhury Aosaf Ershad              3036253732                \n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
-    cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
-    cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    printw("                           Chowdhury Aosaf Ershad              3036253732                \n");
+    printw("                           Ignatius De Loyola Dominique Japar  3036184072                \n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
-    cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
-    cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
-    cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
+    clear();
+    printw("\n");
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    printw("                           Chowdhury Aosaf Ershad              3036253732                \n");
+    printw("                           Ignatius De Loyola Dominique Japar  3036184072                \n");
+    printw("                           Sheik Mahmood Afif                  3036225230                \n");
+    refresh();
     sleep(1);
 
-    system("cls||clear");
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
-    cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
-    cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
-    cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
+    clear();
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    printw("                           Chowdhury Aosaf Ershad              3036253732                \n");
+    printw("                           Ignatius De Loyola Dominique Japar  3036184072                \n");
+    printw("                           Sheik Mahmood Afif                  3036225230                \n");
+    refresh();
     sleep(1.5);
 
-    system("cls||clear");
-    cout << "                            ______                          ________ __ __" << endl;
-    cout << R"(                           / _____________  __  ______     <  |__  // // /)" << endl;
-    cout << R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)" << endl;
-    cout << R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)" << endl;
-    cout << R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)" << endl;
-    cout << R"(                                              /_/                         )" << endl;
-    cout << R"(                      =====================================================)" << endl;
-    cout << "                                                                              " << endl;
-    cout << "                           Abagumbul Ammar Amin                3036259243                " << endl;
-    cout << "                           Ali Musaddiq                        3036259011                " << endl;
-    cout << "                           Chowdhury Aosaf Ershad              3036253732                " << endl;
-    cout << "                           Ignatius De Loyola Dominique Japar  3036184072                " << endl;
-    cout << "                           Sheik Mahmood Afif                  3036225230                " << endl;
+    clear();
+    printw("                            ______                          ________ __ __\n");
+    printw(R"(                           / _____________  __  ______     <  |__  // // /)");
+    printw("\n");
+    printw(R"(                          / / __/ ___/ __ \/ / / / __ \    / / /_ </ // /_)");
+    printw("\n");
+    printw(R"(                         / /_/ / /  / /_/ / /_/ / /_/ /   / /___/ /__  __/)");
+    printw("\n");
+    printw(R"(                         \____/_/   \____/\__,_/ .___/   /_//____/  /_/)");
+    printw("\n");
+    printw(R"(                                              /_/                         )");
+    printw("\n");
+    printw(R"(                      =====================================================)");
+    printw("\n");
+    printw("\n");
+    printw("                           Abagumbul Ammar Amin                3036259243                \n");
+    printw("                           Ali Musaddiq                        3036259011                \n");
+    printw("                           Chowdhury Aosaf Ershad              3036253732                \n");
+    printw("                           Ignatius De Loyola Dominique Japar  3036184072                \n");
+    printw("                           Sheik Mahmood Afif                  3036225230                \n");
 
     // Create line break and
     // allow user to interact by pressing enter to continue
-    cout << endl;
-    cout << "                                    Press any ENTER to continue" << endl;
+    printw("\n");
+    printw("                                    Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void storyLineIntro()
@@ -284,145 +419,240 @@ void storyLineIntro()
 
     using namespace std;
 
+    int width = 42;
+
     string s1 = "Sam Riker, a former detective, finds himse";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s1.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "lf framed for a crime he didn't commit. Se";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | Sam Riker, a former detective, finds himse | |)" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s2.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | Sam Riker, a former detective, finds himse | |)");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "ntenced to life in Alacran Maximum Securit";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | Sam Riker, a former detective, finds himse | |)" << endl;
-        cout << R"(                                | | lf framed for a crime he didn't commit. Se | |)" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s3.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | Sam Riker, a former detective, finds himse | |)");
+        printw("\n");
+        printw(R"(                                | | lf framed for a crime he didn't commit. Se | |)");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "y Prison, he knows the only way to clear h";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | Sam Riker, a former detective, finds himse | |)" << endl;
-        cout << R"(                                | | lf framed for a crime he didn't commit. Se | |)" << endl;
-        cout << R"(                                | | ntenced to life in Alacran Maximum Securit | |)" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s4.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | Sam Riker, a former detective, finds himse | |)");
+        printw("\n");
+        printw(R"(                                | | lf framed for a crime he didn't commit. Se | |)");
+        printw("\n");
+        printw(R"(                                | | ntenced to life in Alacran Maximum Securit | |)");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "is name is to escape and uncover the consp";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | Sam Riker, a former detective, finds himse | |)" << endl;
-        cout << R"(                                | | lf framed for a crime he didn't commit. Se | |)" << endl;
-        cout << R"(                                | | ntenced to life in Alacran Maximum Securit | |)" << endl;
-        cout << R"(                                | | y Prison, he knows the only way to clear h | |)" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s5.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | Sam Riker, a former detective, finds himse | |)");
+        printw("\n");
+        printw(R"(                                | | lf framed for a crime he didn't commit. Se | |)");
+        printw("\n");
+        printw(R"(                                | | ntenced to life in Alacran Maximum Securit | |)");
+        printw("\n");
+        printw(R"(                                | | y Prison, he knows the only way to clear h | |)");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    string s6 = "iracy that put him behind bars.....";
+    string s6 = "iracy that put him behind bars.....       ";
     for (int i = 0; i < 42; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | | Sam Riker, a former detective, finds himse | |)" << endl;
-        cout << R"(                                | | lf framed for a crime he didn't commit. Se | |)" << endl;
-        cout << R"(                                | | ntenced to life in Alacran Maximum Securit | |)" << endl;
-        cout << R"(                                | | y Prison, he knows the only way to clear h | |)" << endl;
-        cout << R"(                                | | is name is to escape and uncover the consp | |)" << endl;
-        cout << R"(                                | | )" << setw(42) << left << s6.substr(0, i + 1) << R"( | |)" << endl;
-        cout << R"(                              __| |____________________________________________| |__)" << endl;
-        cout << R"(                             (__   ____________________________________________   __))" << endl;
-        cout << R"(                                | |                                            | |)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | | Sam Riker, a former detective, finds himse | |)");
+        printw("\n");
+        printw(R"(                                | | lf framed for a crime he didn't commit. Se | |)");
+        printw("\n");
+        printw(R"(                                | | ntenced to life in Alacran Maximum Securit | |)");
+        printw("\n");
+        printw(R"(                                | | y Prison, he knows the only way to clear h | |)");
+        printw("\n");
+        printw(R"(                                | | is name is to escape and uncover the consp | |)");
+        printw("\n");
+        printw(R"(                                | | %-*s | |)", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                              __| |____________________________________________| |__)");
+        printw("\n");
+        printw(R"(                             (__   ____________________________________________   __))");
+        printw("\n");
+        printw(R"(                                | |                                            | |)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break
-    cout << endl;
+    printw("\n");
 
     // Prompt user to press enter after they have finished reading the text
-    cout << "                                            Press ENTER to continue" << endl;
-    cin.ignore();
-    cin.ignore();
+    printw("                                            Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 std::string randomize_letters(const std::string input)
@@ -454,22 +684,34 @@ void displayActOne()
 
     for (int i = 0; i < 6; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << "                    _____         _____   _________________               _____  _____   ______        ______   " << endl;
-        cout << R"(                ___|\    \    ___|\    \ /                 \         ____|\    \|\    \ |\     \   ___|\     \  )" << endl;
-        cout << R"(               /    /\    \  /    /\    \\______     ______/        /     /\    \\\    \| \     \ |     \     \)" << endl;
-        cout << R"(              |    |  |    ||    |  |    |  \( /    /  )/          /     /  \    \\|    \  \     ||     ,_____/|)" << endl;
-        cout << R"(              |    |__|    ||    |  |____|   ' |   |   '          |     |    |    ||     \  |    ||     \--'\_|/)" << endl;
-        cout << R"(              |    .--.    ||    |   ____      |   |              |     |    |    ||      \ |    ||     /___/|)" << endl;
-        cout << R"(              |    |  |    ||    |  |    |    /   //              |\     \  /    /||    |\ \|    ||     \____|\)" << endl;
-        cout << R"(              |____|  |____||\ ___\/    /|   /___//               | \_____\/____/ ||____||\_____/||____ '     /|)" << endl;
-        cout << R"(              |    |  |    || |   /____/ |  |`   |                 \ |    ||    | /|    |/ \|   |||    /_____/ |)" << endl;
-        cout << R"(              |____|  |____| \|___|    | /  |____|                  \|____||____|/ |____|   |___|/|____|     | /)" << endl;
-        cout << R"(                \(      )/     \( |____|/     \(                       \(    )/      \(       )/    \( |_____|/ )" << endl;
-        cout << R"(                 '      '       '   )/         '                        '    '        '       '      '    )/    )" << endl;
-        cout << R"(                                    '                                                                     '     )" << endl;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("                    _____         _____   _________________               _____  _____   ______        ______   \n");
+        printw(R"(                ___|\    \    ___|\    \ /                 \         ____|\    \|\    \ |\     \   ___|\     \  )");
+        printw("\n");
+        printw(R"(               /    /\    \  /    /\    \\______     ______/        /     /\    \\\    \| \     \ |     \     \)");
+        printw("\n");
+        printw(R"(              |    |  |    ||    |  |    |  \( /    /  )/          /     /  \    \\|    \  \     ||     ,_____/|)");
+        printw("\n");
+        printw(R"(              |    |__|    ||    |  |____|   ' |   |   '          |     |    |    ||     \  |    ||     \--'\_|/)");
+        printw("\n");
+        printw(R"(              |    .--.    ||    |   ____      |   |              |     |    |    ||      \ |    ||     /___/|)");
+        printw("\n");
+        printw(R"(              |    |  |    ||    |  |    |    /   //              |\     \  /    /||    |\ \|    ||     \____|\)");
+        printw("\n");
+        printw(R"(              |____|  |____||\ ___\/    /|   /___//               | \_____\/____/ ||____||\_____/||____ '     /|)");
+        printw("\n");
+        printw(R"(              |    |  |    || |   /____/ |  |`   |                 \ |    ||    | /|    |/ \|   |||    /_____/ |)");
+        printw("\n");
+        printw(R"(              |____|  |____| \|___|    | /  |____|                  \|____||____|/ |____|   |___|/|____|     | /)");
+        printw("\n");
+        printw(R"(                \(      )/     \( |____|/     \(                       \(    )/      \(       )/    \( |_____|/ )");
+        printw("\n");
+        printw(R"(                 '      '       '   )/         '                        '    '        '       '      '    )/    )");
+        printw("\n");
+        printw(R"(                                    '                                                                     '     )");
+        printw("\n");
 
         string text = "TheClueintheCell";
         string r;
@@ -485,21 +727,49 @@ void displayActOne()
             r = text;
         }
 
-        cout << endl;
-        cout << R"(                            _   _   _     _   _   _   _     _   _     _   _   _     _   _   _   _)" << endl;
-        cout << R"(                           / \ / \ / \   / \ / \ / \ / \   / \ / \   / \ / \ / \   / \ / \ / \ / \)" << endl;
-        cout << R"(                          ( )" << r[0] << " | " << r[1] << " | " << r[2] << " ) ( " << r[3] << " | " << r[4] << " | " << r[5] << " | " << r[6] << " ) ( " << r[7] << " | " << r[8] << " ) ( " << r[9] << " | " << r[10] << " | " << r[11] << " ) ( " << r[12] << " | " << r[13] << " | " << r[14] << " | " << r[15] << " )" << endl;
-        cout << R"(                           \_/ \_/ \_/   \_/ \_/ \_/ \_/   \_/ \_/   \_/ \_/ \_/   \_/ \_/ \_/ \_/)" << endl;
+        printw("\n");
+        printw(R"(                            _   _   _     _   _   _   _     _   _     _   _   _     _   _   _   _)");
+        printw("\n");
+        printw(R"(                           / \ / \ / \   / \ / \ / \ / \   / \ / \   / \ / \ / \   / \ / \ / \ / \)");
+        printw("\n");
+        string currString = "                          ( " +
+                            string(1, r[0]) + " | " +
+                            string(1, r[1]) + " | " +
+                            string(1, r[2]) + " ) ( " +
+                            string(1, r[3]) + " | " +
+                            string(1, r[4]) + " | " +
+                            string(1, r[5]) + " | " +
+                            string(1, r[6]) + " ) ( " +
+                            string(1, r[7]) + " | " +
+                            string(1, r[8]) + " ) ( " +
+                            string(1, r[9]) + " | " +
+                            string(1, r[10]) + " | " +
+                            string(1, r[11]) + " ) ( " +
+                            string(1, r[12]) + " | " +
+                            string(1, r[13]) + " | " +
+                            string(1, r[14]) + " | " +
+                            string(1, r[15]) + " )";
+        printw(currString.c_str());
+        printw("\n");
+        printw(R"(                           \_/ \_/ \_/   \_/ \_/ \_/ \_/   \_/ \_/   \_/ \_/ \_/   \_/ \_/ \_/ \_/)");
+        printw("\n");
+        refresh();
         sleep(1.5);
     }
 
     // Generate line breaks
-    cout << endl;
-    cout << endl;
+    printw("\n");
+    printw("\n");
 
     // Prompt user to press enter after they have finished reading the text
-    cout << "                                                 Press any ENTER to continue" << endl;
-    cin.ignore();
+    printw("                                                 Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayStoryOne()
@@ -514,251 +784,441 @@ void displayStoryOne()
 
     using namespace std;
 
+    int width = 47;
+
     string s1 = "In his cell's dimness, Sam takes comfort in Mr.";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   )" << setw(47) << left << s1.substr(0, i + 1) << R"(  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                  / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                  \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   %-*s  /\ \/ /)", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                  / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                  \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \                                                    /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                   / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "Finch's  tales. The old man reminisces about hi";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  )" << setw(47) << left << s2.substr(0, i + 1) << R"( / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                  \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  %-*s / /\/ /)", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                            / /\/ /                                                  \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \                                                    /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                   / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "s lively home and inquisitive grandkids, partic";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  )" << setw(47) << left << s3.substr(0, i + 1) << R"( \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  %-*s \ \/ /\)", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \                                                    /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                   / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "ularly drawn to the gleaming fireplace tiles. T";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                          \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   )" << setw(47) << left << s4.substr(0, i + 1) << R"(  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \                                                    /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                          \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   %-*s  \ \/\ \)", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                           \ \/\ \                                                    /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                   / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "hese stories prompt Sam to inspect his cell, le";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   )" << setw(47) << left << s5.substr(0, i + 1) << R"(  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \                                                   / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   %-*s  /\ \/ /)", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                            \/ /\ \                                                   / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "ading to a surprising discovery - a loose tile.";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  )" << setw(47) << left << s6.substr(0, i + 1) << R"(  / /\/ /)" << endl;
-        cout << R"(                            / /\/ /                                                   \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  %-*s  / /\/ /)", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                            / /\/ /                                                   \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s7 = "Further investigations leads to finding that it";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  )" << setw(47) << left << s7.substr(0, i + 1) << R"(  \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/                                                    \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s7.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  %-*s  \ \/ /\)", width, s7.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                           / /\ \/                                                    \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s8 = "conceals a sliding puzzle......";
     for (int i = 0; i < 47; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)" << endl;
-        cout << R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)" << endl;
-        cout << R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)" << endl;
-        cout << R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)" << endl;
-        cout << R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)" << endl;
-        cout << R"(                            / /\/ /  Further investigations leads to finding that it  \ \/ /\)" << endl;
-        cout << R"(                           / /\ \/   )" << setw(47) << left << s8.substr(0, i + 1) << R"(  \ \/\ \)" << endl;
-        cout << R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)" << endl;
-        cout << R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)" << endl;
-        cout << R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)" << endl;
-        cout << R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)" << endl;
-        cout << R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)" << endl;
-        cout << R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s8.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                           / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /`' /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   In his cell's dimness, Sam takes comfort in Mr.  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  Finch's  tales. The old man reminisces about hi / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  s lively home and inquisitive grandkids, partic \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   ularly drawn to the gleaming fireplace tiles. T  \ \/\ \)");
+        printw("\n");
+        printw(R"(                           \ \/\ \   hese stories prompt Sam to inspect his cell, le  /\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\ \  ading to a surprising discovery - a loose tile.  / /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /  Further investigations leads to finding that it  \ \/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/   %-*s  \ \/\ \)", width, s8.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                           \ \/\ \.--..--..--..--..--..--..--..--..--..--..--..--..--./\ \/ /)");
+        printw("\n");
+        printw(R"(                            \/ /\/ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ ../ /\/ /)");
+        printw("\n");
+        printw(R"(                            / /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\/ /\)");
+        printw("\n");
+        printw(R"(                           / /\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ \/\ /)");
+        printw("\n");
+        printw(R"(                           \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' /)");
+        printw("\n");
+        printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                               Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                               Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayIntroOne()
@@ -784,16 +1244,16 @@ void displayIntroOne()
         "                                               .  ..-:-==-+****.    +=:.....-      ",
         "                                             =:********************+-==.+*=       ",
         "                                           .-=:+******************+=+=.+***:     ",
-        "                                           .+=-+***********####**+=+--******     ",
+        "                                           .+=-+***********####**+=+--******    ",
         "                                           .+-=.+***********####+=+++********    ",
         "                                           .===.:***===-.+**##%+-=*+**=-:=-=*=   ",
         "                                            :+=-..-+-:=++-.+**#+=*+**=:+++++-.   ",
         "                                            .+-:-=+..:+++-=.+--*#%#**::++++=     ",
-        "                                             .---     .---===-=+@#****   .       ",
-        "                                                        -+=+=-+*@******       =+     ",
-        "                                                  -*+: :-+*+=+**@@*+*****=..+***+   ",
-        "                                               .:= .========++*******************-  ",
-        "                                              .-=-..-=-====+++*******************+ ",
+        "                                             .---     .---===-=+@#****   .      ",
+        "                                                        -+=+=-+*@******       =+    ",
+        "                                                  -*+: :-+*+=+**@@*+*****=..+***+  ",
+        "                                               .:= .========++*******************- ",
+        "                                              .-=-..-=-====+++*******************+",
         "                                              .=+--..-=====++++*******************-",
         "                                           ::+++---: .====+++++********************",
         "                                         ..  =+-:=--..=+++++++==-:+****** ........",
@@ -805,19 +1265,22 @@ void displayIntroOne()
         "                                                              .-::---. :---",
         "                                                               .---:....:",
         "                                                                  .:::."};
-    
+
     // Loops through the array and prints line by line
     for (int i = 0; i < 32; i++)
     {
-        system("cls||clear");
+        clear();
         for (int j = 0; j <= i; j++)
         {
-            cout << keyArr[j] << endl;
+            printw(keyArr[j].c_str());
+            printw("\n");
         }
-        sleep(0.1);
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
-    
-    // Sleep time to allow user to see final logo
+
+    // sleep time to allow user to see final logo
+    refresh();
     sleep(3);
 }
 
@@ -832,187 +1295,319 @@ void displayOutroOne()
     // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
 
     using namespace std;
-    
+
+    int width = 36;
+
     string s1 = "The sliding puzzle revealed a hidden";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   )" << setw(36) << left << s1.substr(0, i + 1) << R"(  ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                                                                    )" << '\n';
-        cout << R"(                                             )                                        ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   %-*s  ()", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                                                                    )");
+        printw("\n");
+        printw(R"(                                             )                                        ))");
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "cache of letters. These letters, add";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  )" << setw(36) << left << s2.substr(0, i + 1) << R"(   ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                                                                    )" << '\n';
-        cout << R"(                                             )                                        ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  %-*s   ))", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                                                                    )");
+        printw("\n");
+        printw(R"(                                             )                                        ))");
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "ressed to the cryptic \"The Moth,\" hi";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        cout << R"(                                            (   )" << setw(36) << left << s3.substr(0, i + 1) << R"(  ()" << '\n';
-        cout << R"(                                                                      )" << '\n';
-        cout << R"(                                             )                                        ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  cache of letters. These letters, add   ))");
+        printw("\n");
+        printw(R"(                                            (   %-*s  ()", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                                      )");
+        printw("\n");
+        printw(R"(                                             )                                        ))");
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "nt at an escape plan that remained u";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        cout << R"(                                                )" << setw(36) << left << s4.substr(0, i + 1) << R"()" << '\n';
-        cout << R"(                                             )                                        ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  cache of letters. These letters, add   ))");
+        printw("\n");
+        printw(R"(                                            (   ressed to the cryptic "The Moth," hi  ()");
+        printw("\n");
+        printw(R"(                                                %s)", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                             )                                        ))");
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "nfulfilled. Sam realizes that he's n";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        cout << R"(                                             )  )" << setw(36) << left << s5.substr(0, i + 1) << R"(  ))" << '\n';
-        cout << R"(                                            (                                         ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  cache of letters. These letters, add   ))");
+        printw("\n");
+        printw(R"(                                            (   ressed to the cryptic "The Moth," hi  ()");
+        printw("\n");
+        printw(R"(                                                nt at an escape plan that remained u)");
+        printw("\n");
+        printw(R"(                                             )  %s  ))", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                            (                                         ()");
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "ot the first innocent person to be t";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
-        cout << R"(                                            (   )" << setw(36) << left << s6.substr(0, i + 1) << R"(  ()" << '\n';
-        cout << R"(                                             )                                         ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  cache of letters. These letters, add   ))");
+        printw("\n");
+        printw(R"(                                            (   ressed to the cryptic "The Moth," hi  ()");
+        printw("\n");
+        printw(R"(                                                nt at an escape plan that remained u)");
+        printw("\n");
+        printw(R"(                                             )  nfulfilled. Sam realizes that he's n  ))");
+        printw("\n");
+        printw(R"(                                            (   %-*s  ()", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                             )                                         ))");
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s7 = "rapped....                          ";
     for (int i = 0; i < 36; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                             ___________________________________________)" << '\n';
-        cout << R"(                                            /\                                          \)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)" << '\n';
-        cout << R"(                                            (   The sliding puzzle revealed a hidden  ()" << '\n';
-        cout << R"(                                             )  cache of letters. These letters, add   ))" << '\n';
-        cout << R"(                                            (   ressed to the cryptic "The Moth," hi  ()" << '\n';
-        cout << R"(                                                nt at an escape plan that remained u)" << '\n';
-        cout << R"(                                             )  nfulfilled. Sam realizes that he's n  ))" << '\n';
-        cout << R"(                                            (   ot the first innocent person to be t  ()" << '\n';
-        cout << R"(                                             )  )" << setw(36) << left << s7.substr(0, i + 1) << R"(   ))" << '\n';
-        cout << R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)" << '\n';
-        cout << R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))" << '\n';
-        cout << R"(                                            \/___________________________________________/)" << '\n';
-        sleep(0.1);
+        int numSpaces = width - s7.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                             ___________________________________________)");
+        printw("\n");
+        printw(R"(                                            /\                                          \)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/''''''''''''''''''''''''''''''''''''''''''/)");
+        printw("\n");
+        printw(R"(                                            (   The sliding puzzle revealed a hidden  ()");
+        printw("\n");
+        printw(R"(                                             )  cache of letters. These letters, add   ))");
+        printw("\n");
+        printw(R"(                                            (   ressed to the cryptic "The Moth," hi  ()");
+        printw("\n");
+        printw(R"(                                                nt at an escape plan that remained u)");
+        printw("\n");
+        printw(R"(                                             )  nfulfilled. Sam realizes that he's n  ))");
+        printw("\n");
+        printw(R"(                                            (   ot the first innocent person to be t  ()");
+        printw("\n");
+        printw(R"(                                             )  %-*s   ))", width, s7.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                            /\''''''''''''''''''''''''''''''''''''''''''\)");
+        printw("\n");
+        printw(R"(                                         (O)===)><><><><><><><><><><><><><><><><><><><><><>)==(O))");
+        printw("\n");
+        printw(R"(                                            \/___________________________________________/)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                                              Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                                              Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 // Animations for Act Two:
@@ -1028,39 +1623,65 @@ void displayActTwo()
 
     for (int i = 0; i < 3; i++)
     {
-        system("cls||clear");
-        cout << R"(                     ___           ___           ___                    ___           ___           ___     )" << endl;
-        cout << R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )" << endl;
-        cout << R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )" << endl;
-        cout << R"(                  /:/\:\  \     /:/\:\  \        \:\  \                 \:\  \     /:/ /\__\     /:/\:\  \  )" << endl;
-        cout << R"(                 /::\~\:\  \   /:/  \:\  \       /::\  \                /::\  \   /:/ /:/ _/_   /:/  \:\  \ )" << endl;
-        cout << R"(                /:/\:\ \:\__\ /:/__/ \:\__\     /:/\:\__\              /:/\:\__\ /:/_/:/ /\__\ /:/__/ \:\__\)" << endl;
-        cout << R"(                \/__\:\/:/  / \:\  \  \/__/    /:/  \/__/             /:/  \/__/ \:\/:/ /:/  / \:\  \ /:/  /)" << endl;
-        cout << R"(                     \::/  /   \:\  \         /:/  /                 /:/  /       \::/_/:/  /   \:\  /:/  / )" << endl;
-        cout << R"(                     /:/  /     \:\  \        \/__/                  \/__/         \:\/:/  /     \:\/:/  /  )" << endl;
-        cout << R"(                    /:/  /       \:\__\                                             \::/  /       \::/  /   )" << endl;
-        cout << R"(                    \/__/         \/__/                                              \/__/         \/__/    )" << endl;
+        clear();
+        printw(R"(                     ___           ___           ___                    ___           ___           ___     )");
+        printw("\n");
+        printw(R"(                    /\  \         /\  \         /\  \                  /\  \         /\__\         /\  \    )");
+        printw("\n");
+        printw(R"(                   /::\  \       /::\  \        \:\  \                 \:\  \       /:/ _/_       /::\  \   )");
+        printw("\n");
+        printw(R"(                  /:/\:\  \     /:/\:\  \        \:\  \                 \:\  \     /:/ /\__\     /:/\:\  \  )");
+        printw("\n");
+        printw(R"(                 /::\~\:\  \   /:/  \:\  \       /::\  \                /::\  \   /:/ /:/ _/_   /:/  \:\  \ )");
+        printw("\n");
+        printw(R"(                /:/\:\ \:\__\ /:/__/ \:\__\     /:/\:\__\              /:/\:\__\ /:/_/:/ /\__\ /:/__/ \:\__\)");
+        printw("\n");
+        printw(R"(                \/__\:\/:/  / \:\  \  \/__/    /:/  \/__/             /:/  \/__/ \:\/:/ /:/  / \:\  \ /:/  /)");
+        printw("\n");
+        printw(R"(                     \::/  /   \:\  \         /:/  /                 /:/  /       \::/_/:/  /   \:\  /:/  / )");
+        printw("\n");
+        printw(R"(                     /:/  /     \:\  \        \/__/                  \/__/         \:\/:/  /     \:\/:/  /  )");
+        printw("\n");
+        printw(R"(                    /:/  /       \:\__\                                             \::/  /       \::/  /   )");
+        printw("\n");
+        printw(R"(                    \/__/         \/__/                                              \/__/         \/__/    )");
+        printw("\n");
+        refresh();
         sleep(1.5);
-        cout << endl;
-        cout << R"(                     *   )   )          (                                (                          (  )" << endl;
-        cout << R"(                   ` )  /(( /(   (      )\   (      )       (   (        )\   (        (          ) )\ )" << endl;
-        cout << R"(                    ( )(_))\()) ))\  ((((_)( )(    (     (  )(  )\ )  ((((_)( )(  (   ))\ (    ( /(((_))" << endl;
-        cout << R"(                   (_(_()|(_)\ /((_)  )\ _ )(()\   )\  ' )\(()\(()/(   )\ _ )(()\ )\ /((_))\ ) )(_))_  )" << endl;
-        cout << R"(                   |_   _| |(_|_))    (_)_\(_|(_)_((_)) ((_)((_))(_))  (_)_\(_|(_|(_|_)) _(_/(((_)_| | )" << endl;
-        cout << R"(                     | | | ' \/ -_)    / _ \| '_| '  \() _ \ '_| || |   / _ \| '_(_-< -_) ' \)) _` | | )" << endl;
-        cout << R"(                     |_| |_||_\___|   /_/ \_\_| |_|_|_|\___/_|  \_, |  /_/ \_\_| /__|___|_||_|\__,_|_| )" << endl;
-        cout << R"(                                                                |__/)" << endl;
+        printw("\n");
+        printw(R"(                     *   )   )          (                                (                          (  )");
+        printw("\n");
+        printw(R"(                   ` )  /(( /(   (      )\   (      )       (   (        )\   (        (          ) )\ )");
+        printw("\n");
+        printw(R"(                    ( )(_))\()) ))\  ((((_)( )(    (     (  )(  )\ )  ((((_)( )(  (   ))\ (    ( /(((_))");
+        printw("\n");
+        printw(R"(                   (_(_()|(_)\ /((_)  )\ _ )(()\   )\  ' )\(()\(()/(   )\ _ )(()\ )\ /((_))\ ) )(_))_  )");
+        printw("\n");
+        printw(R"(                   |_   _| |(_|_))    (_)_\(_|(_)_((_)) ((_)((_))(_))  (_)_\(_|(_|(_|_)) _(_/(((_)_| | )");
+        printw("\n");
+        printw(R"(                     | | | ' \/ -_)    / _ \| '_| '  \() _ \ '_| || |   / _ \| '_(_-< -_) ' \)) _` | | )");
+        printw("\n");
+        printw(R"(                     |_| |_||_\___|   /_/ \_\_| |_|_|_|\___/_|  \_, |  /_/ \_\_| /__|___|_||_|\__,_|_| )");
+        printw("\n");
+        printw(R"(                                                                |__/)");
+        printw("\n");
+        refresh();
         sleep(1.5);
     }
-    
+
     // Generate line breaks
-    cout << endl;
-    cout << endl;
+    printw("\n");
+    printw("\n");
 
     // Prompt user to press enter after they have finished reading the text
-    cout << "                                                 Press any ENTER to continue" << endl;
-    cin.ignore();
-    cin.ignore();
+    printw("                                                 Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayStoryTwo()
@@ -1075,103 +1696,133 @@ void displayStoryTwo()
 
     using namespace std;
 
+    int width = 40;
+
     string s1 = "Sam discovers an the guard's armory. The";
     for (int i = 0; i < 40; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |  " << setw(40) << left << s1.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |  %-*s  | |\n", width, s1.substr(0, i + 1).c_str());
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "armory, usually a mundane storage room f";
     for (int i = 0; i < 40; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                          | |  " << setw(40) << left << s2.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |  Sam discovers an the guard's armory. The  | |\n");
+        printw("                                          | |  %-*s  | |\n", width, s2.substr(0, i + 1).c_str());
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "or weapons, turns out to be a facade for";
     for (int i = 0; i < 40; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                          | |  armory, usually a mundane storage room f  | |" << endl;
-        cout << "                                          | |  " << setw(40) << left << s3.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |  Sam discovers an the guard's armory. The  | |\n");
+        printw("                                          | |  armory, usually a mundane storage room f  | |\n");
+        printw("                                          | |  %-*s  | |\n", width, s3.substr(0, i + 1).c_str());
+        printw("                                          | |                                            | |\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "         a secret research lab...       ";
     for (int i = 0; i < 40; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        cout << "                                          | |  Sam discovers an the guard's armory. The  | |" << endl;
-        cout << "                                          | |  armory, usually a mundane storage room f  | |" << endl;
-        cout << "                                          | |  or weapons, turns out to be a facade for  | |" << endl;
-        cout << "                                          | |  " << setw(40) << left << s4.substr(0, i + 1) << "  | |" << endl;
-        cout << "                                        __| |____________________________________________| |__" << endl;
-        cout << "                                       (__   ____________________________________________   __)" << endl;
-        cout << "                                          | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        printw("                                          | |  Sam discovers an the guard's armory. The  | |\n");
+        printw("                                          | |  armory, usually a mundane storage room f  | |\n");
+        printw("                                          | |  or weapons, turns out to be a facade for  | |\n");
+        printw("                                          | |  %-*s  | |\n", width, s4.substr(0, i + 1).c_str());
+        printw("                                        __| |____________________________________________| |__\n");
+        printw("                                       (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                                          | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                                       Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                                       Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayIntroTwo()
@@ -1216,19 +1867,22 @@ void displayIntroTwo()
         R"(                                                   |-|)",
         R"(                                                  ,'-''.)",
         R"(                                                  '---'')"};
-    
+
     // Loops through the array and prints line by line
     for (int i = 0; i < 30; i++)
     {
-        system("cls||clear");
+        clear();
         for (int j = 0; j <= i; j++)
         {
-            cout << keyArr[j] << endl;
+            printw(keyArr[j].c_str());
+            printw("\n");
         }
-        sleep(0.1);
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    // Sleep time to allow user to see final logo
+    // sleep time to allow user to see final logo
+    refresh();
     sleep(3);
 }
 
@@ -1244,149 +1898,251 @@ void displayOutroTwo()
 
     using namespace std;
 
+    int width = 39;
+
     string s1 = "Solving the puzzle, Sam discovers the b";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  )" << setw(39) << left << s1.substr(0, i + 1) << R"( \\//)" << endl;
-        cout << R"(                                         //                                            \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\                                            //)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  %-*s \\//)", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                         //                                            \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\                                            //)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "lueprint, which reveals that Alacran Ma";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
-        cout << R"(                                         //   )" << setw(39) << left << s2.substr(0, i + 1) << R"(  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\                                            //)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)");
+        printw("\n");
+        printw(R"(                                         //   %-*s  \\)", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\                                            //)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "ximum Security Prison is part of a larg";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
-        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
-        cout << R"(                                        //\\  )" << setw(39) << left << s3.substr(0, i + 1) << R"( //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\                                            //)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)");
+        printw("\n");
+        printw(R"(                                         //   lueprint, which reveals that Alacran Ma  \\)");
+        printw("\n");
+        printw(R"(                                        //\\  %-*s //\\)", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\                                            //)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "er, sinister design. The prison's layou";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
-        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
-        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
-        cout << R"(                                        \\//  )" << setw(39) << left << s4.substr(0, i + 1) << R"( \\//)" << endl;
-        cout << R"(                                         \\                                            //)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)");
+        printw("\n");
+        printw(R"(                                         //   lueprint, which reveals that Alacran Ma  \\)");
+        printw("\n");
+        printw(R"(                                        //\\  ximum Security Prison is part of a larg //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  %-*s \\//)", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                         \\                                            //)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "t isn't random-it's purposefully design";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
-        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
-        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
-        cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << endl;
-        cout << R"(                                         \\   )" << setw(39) << left << s5.substr(0, i + 1) << R"(  //)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)");
+        printw("\n");
+        printw(R"(                                         //   lueprint, which reveals that Alacran Ma  \\)");
+        printw("\n");
+        printw(R"(                                        //\\  ximum Security Prison is part of a larg //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  er, sinister design. The prison's layou \\//)");
+        printw("\n");
+        printw(R"(                                         \\   %-*s  //)", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "ed to keep certain areas inaccessible. ";
     for (int i = 0; i < 39; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << endl;
-        cout << R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)" << endl;
-        cout << R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)" << endl;
-        cout << R"(                                        //\\                                          //\\)" << endl;
-        cout << R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)" << endl;
-        cout << R"(                                         //   lueprint, which reveals that Alacran Ma  \\)" << endl;
-        cout << R"(                                        //\\  ximum Security Prison is part of a larg //\\)" << endl;
-        cout << R"(                                        \\//  er, sinister design. The prison's layou \\//)" << endl;
-        cout << R"(                                         \\   t isn't random-it's purposefully design  //)" << endl;
-        cout << R"(                                        //\\  )" << setw(39) << left << s6.substr(0, i + 1) << R"( //\\)" << endl;
-        cout << R"(                                        \\//                                          \\//)" << endl;
-        cout << R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)" << endl;
-        cout << R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)" << endl;
-        sleep(0.1);
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                          //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\)");
+        printw("\n");
+        printw(R"(                                         //  \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\)");
+        printw("\n");
+        printw(R"(                                        //\\                                          //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  Solving the puzzle, Sam discovers the b \\//)");
+        printw("\n");
+        printw(R"(                                         //   lueprint, which reveals that Alacran Ma  \\)");
+        printw("\n");
+        printw(R"(                                        //\\  ximum Security Prison is part of a larg //\\)");
+        printw("\n");
+        printw(R"(                                        \\//  er, sinister design. The prison's layou \\//)");
+        printw("\n");
+        printw(R"(                                         \\   t isn't random-it's purposefully design  //)");
+        printw("\n");
+        printw(R"(                                        //\\  %-*s //\\)", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                        \\//                                          \\//)");
+        printw("\n");
+        printw(R"(                                         \\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //)");
+        printw("\n");
+        printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                                        Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                                        Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 // Animations for Act Three:
@@ -1402,32 +2158,52 @@ void displayActThree()
 
     for (int i = 0; i < 3; i++)
     {
-        system("cls||clear");
-        cout << R"(                      __       ______  ___________      ___________  __    __    _______    _______   _______  )" << endl;
-        cout << R"(                     /""\     /" _  "\("     _   ")    ("     _   ")/" |  | "\  /"      \  /"     "| /"     "| )" << endl;
-        cout << R"(                    /    \   (: ( \___))__/  \\__/      )__/  \\__/(:  (__)  :)|:        |(: ______)(: ______) )" << endl;
-        cout << R"(                   /' /\  \   \/ \        \\_ /            \\_ /    \/      \/ |_____/   ) \/    |   \/    |   )" << endl;
-        cout << R"(                  //  __'  \  //  \ _     |.  |            |.  |    //  __  \\  //      /  // ___)_  // ___)_  )" << endl;
-        cout << R"(                 /   /  \\  \(:   _) \    \:  |            \:  |   (:  (  )  :)|:  __   \ (:      "|(:      "| )" << endl;
-        cout << R"(                (___/    \___)\_______)    \__|             \__|    \__|  |__/ |__|  \___) \_______) \_______))" << endl;
+        clear();
+        printw(R"(                      __       ______  ___________      ___________  __    __    _______    _______   _______  )");
+        printw("\n");
+        printw(R"(                     /""\     /" _  "\("     _   ")    ("     _   ")/" |  | "\  /"      \  /"     "| /"     "| )");
+        printw("\n");
+        printw(R"(                    /    \   (: ( \___))__/  \\__/      )__/  \\__/(:  (__)  :)|:        |(: ______)(: ______) )");
+        printw("\n");
+        printw(R"(                   /' /\  \   \/ \        \\_ /            \\_ /    \/      \/ |_____/   ) \/    |   \/    |   )");
+        printw("\n");
+        printw(R"(                  //  __'  \  //  \ _     |.  |            |.  |    //  __  \\  //      /  // ___)_  // ___)_  )");
+        printw("\n");
+        printw(R"(                 /   /  \\  \(:   _) \    \:  |            \:  |   (:  (  )  :)|:  __   \ (:      "|(:      "| )");
+        printw("\n");
+        printw(R"(                (___/    \___)\_______)    \__|             \__|    \__|  |__/ |__|  \___) \_______) \_______))");
+        printw("\n");
+        refresh();
         sleep(1.5);
-        cout << endl;
-        cout << endl;
-        cout << R"(                    ________            ______                     __        ______                __    __   )" << endl;
-        cout << R"(                   /_  __/ /_  ___     / ____/_  ______ __________/ /____   / ____/___ _____ ___  / /_  / /__ )" << endl;
-        cout << R"(                    / / / __ \/ _ \   / / __/ / / / __ `/ ___/ __  / ___/  / / __/ __ `/ __ `__ \/ __ \/ / _ \)" << endl;
-        cout << R"(                   / / / / / /  __/  / /_/ / /_/ / /_/ / /  / /_/ (__  )  / /_/ / /_/ / / / / / / /_/ / /  __/)" << endl;
-        cout << R"(                  /_/ /_/ /_/\___/   \____/\__,_/\__,_/_/   \__,_/____/   \____/\__,_/_/ /_/ /_/_.___/_/\___/)" << endl;
+        printw("\n");
+        printw("\n");
+        printw(R"(                    ________            ______                     __        ______                __    __   )");
+        printw("\n");
+        printw(R"(                   /_  __/ /_  ___     / ____/_  ______ __________/ /____   / ____/___ _____ ___  / /_  / /__ )");
+        printw("\n");
+        printw(R"(                    / / / __ \/ _ \   / / __/ / / / __ `/ ___/ __  / ___/  / / __/ __ `/ __ `__ \/ __ \/ / _ \)");
+        printw("\n");
+        printw(R"(                   / / / / / /  __/  / /_/ / /_/ / /_/ / /  / /_/ (__  )  / /_/ / /_/ / / / / / / /_/ / /  __/)");
+        printw("\n");
+        printw(R"(                  /_/ /_/ /_/\___/   \____/\__,_/\__,_/_/   \__,_/____/   \____/\__,_/_/ /_/ /_/_.___/_/\___/)");
+        printw("\n");
+        refresh();
         sleep(1.5);
     }
-    
+
     // Generate line breaks
-    cout << endl;
-    cout << endl;
+    printw("\n");
+    printw("\n");
 
     // Prompt user to press enter after they have finished reading the text
-    cout << "                                              Press any ENTER to continue" << endl;
-    cin.ignore();
+    printw("                                              Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayStoryThree()
@@ -1442,71 +2218,95 @@ void displayStoryThree()
 
     using namespace std;
 
+    int width = 41;
+
     string s1 = "Sam overhears guards talking about a mine";
     for (int i = 0; i < 41; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                              | |  " << setw(41) << left << s1.substr(0, i + 1) << " | |" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        printw("                              | |  %-*s | |\n", width, s1.substr(0, i + 1).c_str());
+        printw("                              | |                                            | |\n");
+        printw("                              | |                                            | |\n");
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "sweeper game they play during their break";
     for (int i = 0; i < 41; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                              | |  Sam overhears guards talking about a mine | |" << endl;
-        cout << "                              | |  " << setw(41) << left << s2.substr(0, i + 1) << " | |" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        printw("                              | |  Sam overhears guards talking about a mine | |\n");
+        printw("                              | |  %-*s | |\n", width, s2.substr(0, i + 1).c_str());
+        printw("                              | |                                            | |\n");
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "s. Curious, he investigates further....  ";
     for (int i = 0; i < 41; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        cout << "                              | |  Sam overhears guards talking about a mine | |" << endl;
-        cout << "                              | |  sweeper game they play during their break | |" << endl;
-        cout << "                              | |  " << setw(41) << left << s3.substr(0, i + 1) << " | |" << endl;
-        cout << "                            __| |____________________________________________| |__" << endl;
-        cout << "                           (__   ____________________________________________   __)" << endl;
-        cout << "                              | |                                            | |" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        printw("                              | |  Sam overhears guards talking about a mine | |\n");
+        printw("                              | |  sweeper game they play during their break | |\n");
+        printw("                              | |  %-*s | |\n", width, s3.substr(0, i + 1).c_str());
+        printw("                            __| |____________________________________________| |__\n");
+        printw("                           (__   ____________________________________________   __)");
+        printw("\n");
+        printw("                              | |                                            | |\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                           Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                           Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayIntroThree()
@@ -1518,7 +2318,7 @@ void displayIntroThree()
     // Border ASCII taken from https://www.asciiart.eu/
 
     using namespace std;
-    
+
     // Stored as an array of strings
     string keyArr[] = {
         R"(                       .----------------------------------------------------------------------.)",
@@ -1552,19 +2352,22 @@ void displayIntroThree()
         R"(                       |_.-._.-._.-._.-._.-._.- \  Y88P _.-._.- \  Y88P _.-._.-._.-._.-._.-._.|)",
         R"(                       |_.-._.-._.-._.-._.-._.-. \__YP ._.-._.-. \__YP ._.-._.-._.-._.-._.-._.|)",
         R"(                       `----------------------------------------------------------------------')"};
-    
+
     // Loops through the array and prints line by line
     for (int i = 0; i < 31; i++)
     {
-        system("cls||clear");
+        clear();
         for (int j = 0; j <= i; j++)
         {
-            cout << keyArr[j] << endl;
+            printw(keyArr[j].c_str());
+            printw("\n");
         }
-        sleep(0.1);
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
-    
-    // Sleep time to allow user to see final logo
+
+    // sleep time to allow user to see final logo
+    refresh();
     sleep(3);
 }
 
@@ -1580,243 +2383,441 @@ void displayOutroThree()
 
     using namespace std;
 
+    int width = 72;
+
     string s1 = "To Sam's surprise, the minesweeper game is revealed to be a cover for an";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   )" << setw(72) << left << s1.substr(0, i + 1) << R"(  ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   %-*s  ))", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "illegal betting ring run by the guards. They wager on the outcomes, dist";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  )" << setw(72) << left << s2.substr(0, i + 1) << R"( ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  %-*s ( )", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "racting themselves from the monotony of prison duty....                 ";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   )" << setw(72) << left << s3.substr(0, i + 1) << R"(  ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   %-*s  ))", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "Sam uses his detective skills to manipulate the game's outcome, creating";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   )" << setw(72) << left << s4.substr(0, i + 1) << R"(  ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   racting themselves from the monotony of prison duty....                   ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   %-*s  ))", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "a distraction that allows him to access restricted areas of the prison u";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
-        cout << R"(                   )  )" << setw(72) << left << s5.substr(0, i + 1) << R"( ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   racting themselves from the monotony of prison duty....                   ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))");
+        printw("\n");
+        printw(R"(                   )  )%-*s ( )", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "nnoticed. He discovers hidden compartments, secret tunnels, and coded me";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
-        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
-        cout << R"(                  (   )" << setw(72) << left << s6.substr(0, i + 1) << R"(  ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   racting themselves from the monotony of prison duty....                   ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))");
+        printw("\n");
+        printw(R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )");
+        printw("\n");
+        printw(R"(                  (   %-*s  ))", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s7 = "ssages left by other inmates who were part of The Moth's failed escape p";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
-        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
-        cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << endl;
-        cout << R"(                   )  )" << setw(72) << left << s7.substr(0, i + 1) << R"( ( )" << endl;
-        cout << R"(                  (                                                                             ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s7.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   racting themselves from the monotony of prison duty....                   ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))");
+        printw("\n");
+        printw(R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )");
+        printw("\n");
+        printw(R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))");
+        printw("\n");
+        printw(R"(                   )  %-*s ( )", width, s7.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                  (                                                                             ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s8 = "lan............                                                         ";
     for (int i = 0; i < 72; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)" << endl;
-        cout << R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))" << endl;
-        cout << R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )" << endl;
-        cout << R"(                  (   racting themselves from the monotony of prison duty....                   ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))" << endl;
-        cout << R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )" << endl;
-        cout << R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))" << endl;
-        cout << R"(                   )  ssages left by other inmates who were part of The Moth's failed escape p ( )" << endl;
-        cout << R"(                  (   )" << setw(72) << left << s8.substr(0, i + 1) << R"(  ))" << endl;
-        cout << R"(                   )                                                                           ( )" << endl;
-        cout << R"(                  (___       _       _       _       _       _       _       _       _       ___))" << endl;
-        cout << R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')" << endl;
-        cout << R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')" << endl;
-        cout << R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')" << endl;
-        cout << R"(                                              `-._.-' (_ ___) `-._.-')" << endl;
-        cout << R"(                                                      `-._.-')" << endl;
+        int numSpaces = width - s8.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                     _.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._)");
+        printw("\n");
+        printw(R"(                  .-'---      - ---     --     ---   -----   - --       ----  ----   -     ---`-.)");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   To Sam's surprise, the minesweeper game is revealed to be a cover for an  ))");
+        printw("\n");
+        printw(R"(                   )  illegal betting ring run by the guards. They wager on the outcomes, dist ( )");
+        printw("\n");
+        printw(R"(                  (   racting themselves from the monotony of prison duty....                   ))");
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (   Sam uses his detective skills to manipulate the game's outcome, creating  ))");
+        printw("\n");
+        printw(R"(                   )  a distraction that allows him to access restricted areas of the prison u ( )");
+        printw("\n");
+        printw(R"(                  (   nnoticed. He discovers hidden compartments, secret tunnels, and coded me  ))");
+        printw("\n");
+        printw(R"(                   )  ssages left by other inmates who were part of The Moth's failed escape p ( )");
+        printw("\n");
+        printw(R"(                  (   %-*s  ))", width, s8.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                   )                                                                           ( )");
+        printw("\n");
+        printw(R"(                  (___       _       _       _       _       _       _       _       _       ___))");
+        printw("\n");
+        printw(R"(                      `-._.-' (___ _) (__ _ ) (_   _) (__  _) ( __ _) (__  _) (__ _ ) `-._.-')");
+        printw("\n");
+        printw(R"(                              `-._.-' (  ___) ( _  _) ( _ __) (_  __) (__ __) `-._.-')");
+        printw("\n");
+        printw(R"(                                      `-._.-' (__  _) (__  _) (_ _ _) `-._.-')");
+        printw("\n");
+        printw(R"(                                              `-._.-' (_ ___) `-._.-')");
+        printw("\n");
+        printw(R"(                                                      `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                           Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                           Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 // Animations for Act Four:
@@ -1830,91 +2831,151 @@ void displayActFour()
 
     // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
 
-    system("cls||clear");
-    cout << endl;
-    cout << endl;
-    cout << R"(                              /$$$$$$   /$$$$$$  /$$$$$$$$       /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$)" << endl;
-    cout << R"(                             /$$__  $$ /$$__  $$|__  $$__/      | $$_____//$$__  $$| $$  | $$| $$__  $$)" << endl;
-    cout << R"(                            | $$  \ $$| $$  \__/   | $$         | $$     | $$  \ $$| $$  | $$| $$  \ $$)" << endl;
-    cout << R"(                            | $$$$$$$$| $$         | $$         | $$$$$  | $$  | $$| $$  | $$| $$$$$$$/)" << endl;
-    cout << R"(                            | $$__  $$| $$         | $$         | $$__/  | $$  | $$| $$  | $$| $$__  $$)" << endl;
-    cout << R"(                            | $$  | $$| $$    $$   | $$         | $$     | $$  | $$| $$  | $$| $$  \ $$)" << endl;
-    cout << R"(                            | $$  | $$|  $$$$$$/   | $$         | $$     |  $$$$$$/|  $$$$$$/| $$  | $$)" << endl;
-    cout << R"(                            |__/  |__/ \______/    |__/         |__/      \______/  \______/ |__/  |__/)" << endl;
-    cout << endl;
-    cout << endl;
-    cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
-    cout << R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))" << endl;
-    cout << R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)" << endl;
-    cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw(R"(                              /$$$$$$   /$$$$$$  /$$$$$$$$       /$$$$$$$$ /$$$$$$  /$$   /$$ /$$$$$$$)");
+    printw("\n");
+    printw(R"(                             /$$__  $$ /$$__  $$|__  $$__/      | $$_____//$$__  $$| $$  | $$| $$__  $$)");
+    printw("\n");
+    printw(R"(                            | $$  \ $$| $$  \__/   | $$         | $$     | $$  \ $$| $$  | $$| $$  \ $$)");
+    printw("\n");
+    printw(R"(                            | $$$$$$$$| $$         | $$         | $$$$$  | $$  | $$| $$  | $$| $$$$$$$/)");
+    printw("\n");
+    printw(R"(                            | $$__  $$| $$         | $$         | $$__/  | $$  | $$| $$  | $$| $$__  $$)");
+    printw("\n");
+    printw(R"(                            | $$  | $$| $$    $$   | $$         | $$     | $$  | $$| $$  | $$| $$  \ $$)");
+    printw("\n");
+    printw(R"(                            | $$  | $$|  $$$$$$/   | $$         | $$     |  $$$$$$/|  $$$$$$/| $$  | $$)");
+    printw("\n");
+    printw(R"(                            |__/  |__/ \______/    |__/         |__/      \______/  \______/ |__/  |__/)");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw(R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )");
+    printw("\n");
+    printw(R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))");
+    printw("\n");
+    printw(R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)");
+    printw("\n");
+    printw(R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)");
+    printw("\n");
+    refresh();
     sleep(1.5);
 
-    system("cls||clear");
-    cout << endl;
-    cout << endl;
-    cout << R"(                             $$$$$$\   $$$$$$\ $$$$$$$$\       $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$\  )" << endl;
-    cout << R"(                            $$  __$$\ $$  __$$\\__$$  __|      $$  _____|$$  __$$\ $$ |  $$ |$$  __$$\ )" << endl;
-    cout << R"(                            $$ /  $$ |$$ /  \__|  $$ |         $$ |      $$ /  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
-    cout << R"(                            $$$$$$$$ |$$ |        $$ |         $$$$$\    $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
-    cout << R"(                            $$  __$$ |$$ |        $$ |         $$  __|   $$ |  $$ |$$ |  $$ |$$  __$$< )" << endl;
-    cout << R"(                            $$ |  $$ |$$ |  $$\   $$ |         $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |)" << endl;
-    cout << R"(                            $$ |  $$ |\$$$$$$  |  $$ |         $$ |       $$$$$$  |\$$$$$$  |$$ |  $$ |)" << endl;
-    cout << R"(                            \__|  \__| \______/   \__|         \__|       \______/  \______/ \__|  \__|)" << endl;
-    cout << endl;
-    cout << endl;
-    cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
-    cout << R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))" << endl;
-    cout << R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)" << endl;
-    cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw(R"(                             $$$$$$\   $$$$$$\ $$$$$$$$\       $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$\  )");
+    printw("\n");
+    printw(R"(                            $$  __$$\ $$  __$$\\__$$  __|      $$  _____|$$  __$$\ $$ |  $$ |$$  __$$\ )");
+    printw("\n");
+    printw(R"(                            $$ /  $$ |$$ /  \__|  $$ |         $$ |      $$ /  $$ |$$ |  $$ |$$ |  $$ |)");
+    printw("\n");
+    printw(R"(                            $$$$$$$$ |$$ |        $$ |         $$$$$\    $$ |  $$ |$$ |  $$ |$$$$$$$  |)");
+    printw("\n");
+    printw(R"(                            $$  __$$ |$$ |        $$ |         $$  __|   $$ |  $$ |$$ |  $$ |$$  __$$< )");
+    printw("\n");
+    printw(R"(                            $$ |  $$ |$$ |  $$\   $$ |         $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$ |)");
+    printw("\n");
+    printw(R"(                            $$ |  $$ |\$$$$$$  |  $$ |         $$ |       $$$$$$  |\$$$$$$  |$$ |  $$ |)");
+    printw("\n");
+    printw(R"(                            \__|  \__| \______/   \__|         \__|       \______/  \______/ \__|  \__|)");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw(R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )");
+    printw("\n");
+    printw(R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))");
+    printw("\n");
+    printw(R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)");
+    printw("\n");
+    printw(R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)");
+    printw("\n");
+    refresh();
     sleep(1.5);
 
-    system("cls||clear");
-    cout << endl;
-    cout << endl;
-    cout << R"(                              ______    ______   ________        ________  ______   __    __  _______)" << endl;
-    cout << R"(                             /      \  /      \ /        |      /        |/      \ /  |  /  |/       \ )" << endl;
-    cout << R"(                            /$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$$//$$$$$$  |$$ |  $$ |$$$$$$$  |)" << endl;
-    cout << R"(                            $$ |__$$ |$$ |  $$/    $$ |         $$ |__   $$ |  $$ |$$ |  $$ |$$ |__$$ |)" << endl;
-    cout << R"(                            $$    $$ |$$ |         $$ |         $$    |  $$ |  $$ |$$ |  $$ |$$    $$< )" << endl;
-    cout << R"(                            $$$$$$$$ |$$ |   __    $$ |         $$$$$/   $$ |  $$ |$$ |  $$ |$$$$$$$  |)" << endl;
-    cout << R"(                            $$ |  $$ |$$ \__/  |   $$ |         $$ |     $$ \__$$ |$$ \__$$ |$$ |  $$ |)" << endl;
-    cout << R"(                            $$ |  $$ |$$    $$/    $$ |         $$ |     $$    $$/ $$    $$/ $$ |  $$ |)" << endl;
-    cout << R"(                            $$/   $$/  $$$$$$/     $$/          $$/       $$$$$$/   $$$$$$/  $$/   $$/ )" << endl;
-    cout << endl;
-    cout << endl;
-    cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
-    cout << R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))" << endl;
-    cout << R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)" << endl;
-    cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw(R"(                              ______    ______   ________        ________  ______   __    __  _______)");
+    printw("\n");
+    printw(R"(                             /      \  /      \ /        |      /        |/      \ /  |  /  |/       \ )");
+    printw("\n");
+    printw(R"(                            /$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$$//$$$$$$  |$$ |  $$ |$$$$$$$  |)");
+    printw("\n");
+    printw(R"(                            $$ |__$$ |$$ |  $$/    $$ |         $$ |__   $$ |  $$ |$$ |  $$ |$$ |__$$ |)");
+    printw("\n");
+    printw(R"(                            $$    $$ |$$ |         $$ |         $$    |  $$ |  $$ |$$ |  $$ |$$    $$< )");
+    printw("\n");
+    printw(R"(                            $$$$$$$$ |$$ |   __    $$ |         $$$$$/   $$ |  $$ |$$ |  $$ |$$$$$$$  |)");
+    printw("\n");
+    printw(R"(                            $$ |  $$ |$$ \__/  |   $$ |         $$ |     $$ \__$$ |$$ \__$$ |$$ |  $$ |)");
+    printw("\n");
+    printw(R"(                            $$ |  $$ |$$    $$/    $$ |         $$ |     $$    $$/ $$    $$/ $$ |  $$ |)");
+    printw("\n");
+    printw(R"(                            $$/   $$/  $$$$$$/     $$/          $$/       $$$$$$/   $$$$$$/  $$/   $$/ )");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw(R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )");
+    printw("\n");
+    printw(R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))");
+    printw("\n");
+    printw(R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)");
+    printw("\n");
+    printw(R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)");
+    printw("\n");
+    refresh();
     sleep(1.5);
 
-    system("cls||clear");
-    cout << endl;
-    cout << endl;
-    cout << R"(                              ______    ______  ________        ________   ______   __    __  _______  )" << endl;
-    cout << R"(                             /      \  /      \|        \      |        \ /      \ |  \  |  \|       \ )" << endl;
-    cout << R"(                            |  $$$$$$\|  $$$$$$\\$$$$$$$$      | $$$$$$$$|  $$$$$$\| $$  | $$| $$$$$$$\)" << endl;
-    cout << R"(                            | $$__| $$| $$   \$$  | $$         | $$__    | $$  | $$| $$  | $$| $$__| $$)" << endl;
-    cout << R"(                            | $$    $$| $$        | $$         | $$  \   | $$  | $$| $$  | $$| $$    $$)" << endl;
-    cout << R"(                            | $$$$$$$$| $$   __   | $$         | $$$$$   | $$  | $$| $$  | $$| $$$$$$$\)" << endl;
-    cout << R"(                            | $$  | $$| $$__/  \  | $$         | $$      | $$__/ $$| $$__/ $$| $$  | $$)" << endl;
-    cout << R"(                            | $$  | $$ \$$    $$  | $$         | $$       \$$    $$ \$$    $$| $$  | $$)" << endl;
-    cout << R"(                             \$$   \$$  \$$$$$$    \$$          \$$        \$$$$$$   \$$$$$$  \$$   \$$)" << endl;
-    cout << endl;
-    cout << endl;
-    cout << R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )" << endl;
-    cout << R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))" << endl;
-    cout << R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)" << endl;
-    cout << R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)" << endl;
+    clear();
+    printw("\n");
+    printw("\n");
+    printw(R"(                              ______    ______  ________        ________   ______   __    __  _______  )");
+    printw("\n");
+    printw(R"(                             /      \  /      \|        \      |        \ /      \ |  \  |  \|       \ )");
+    printw("\n");
+    printw(R"(                            |  $$$$$$\|  $$$$$$\\$$$$$$$$      | $$$$$$$$|  $$$$$$\| $$  | $$| $$$$$$$\)");
+    printw("\n");
+    printw(R"(                            | $$__| $$| $$   \$$  | $$         | $$__    | $$  | $$| $$  | $$| $$__| $$)");
+    printw("\n");
+    printw(R"(                            | $$    $$| $$        | $$         | $$  \   | $$  | $$| $$  | $$| $$    $$)");
+    printw("\n");
+    printw(R"(                            | $$$$$$$$| $$   __   | $$         | $$$$$   | $$  | $$| $$  | $$| $$$$$$$\)");
+    printw("\n");
+    printw(R"(                            | $$  | $$| $$__/  \  | $$         | $$      | $$__/ $$| $$__/ $$| $$  | $$)");
+    printw("\n");
+    printw(R"(                            | $$  | $$ \$$    $$  | $$         | $$       \$$    $$ \$$    $$| $$  | $$)");
+    printw("\n");
+    printw(R"(                             \$$   \$$  \$$$$$$    \$$          \$$        \$$$$$$   \$$$$$$  \$$   \$$)");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw(R"(                      ___  _   _  _____  ___  ____  __   _  _    ____  __  __  ____  ___  __  __  ____  ____  ___ )");
+    printw("\n");
+    printw(R"(                     / __)( )_( )(  _  )/ __)(_  _)(  ) ( \/ )  (  _ \(  )(  )(  _ \/ __)(  )(  )(_  _)(_  _)/ __))");
+    printw("\n");
+    printw(R"(                    ( (_-. ) _ (  )(_)( \__ \  )(   )(__ \  /    )___/ )(__)(  )   /\__ \ )(__)(  _)(_   )(  \__ \)");
+    printw("\n");
+    printw(R"(                     \___/(_) (_)(_____)(___/ (__) (____)(__)   (__)  (______)(_)\_)(___/(______)(____) (__) (___/)");
+    printw("\n");
+    refresh();
     sleep(1.5);
 
     // Generate line breaks
-    cout << endl;
-    cout << endl;
+    printw("\n");
+    printw("\n");
 
     // Prompt user to press enter after they have finished reading the text
-    cout << "                                              Press any ENTER to continue" << endl;
-    cin.ignore();
+    printw("                                              Press any ENTER to continue\n");
+    refresh();
+
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayStoryFour()
@@ -1929,149 +2990,251 @@ void displayStoryFour()
 
     using namespace std;
 
+    int width = 61;
+
     string s1 = "As Sam collects evidence, he also finds pieces of his own pas";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  )" << setw(61) << left << s1.substr(0, i + 1) << R"(  (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  %-*s  (__  _))", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "t scattered throughout the prison. Old case files, personal b";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
-        cout << R"(                        (_ ___)  )" << setw(61) << left << s2.substr(0, i + 1) << R"(  (_ ___))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  %-*s  (_ ___))", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "elongings, and a letter from someone he thought was lost - al";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
-        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
-        cout << R"(                        (__  _)  )" << setw(61) << left << s3.substr(0, i + 1) << R"(  (__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))");
+        printw("\n");
+        printw(R"(                        (__  _)  %-*s  (__  _))", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "l these items help him evade the guards. The maze of prison c";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
-        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
-        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
-        cout << R"(                        ( _ __)  )" << setw(61) << left << s4.substr(0, i + 1) << R"(  ( _ __))" << endl;
-        cout << R"(                        (__  _)                                                                 (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))");
+        printw("\n");
+        printw(R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)  %-*s  ( _ __))", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        (__  _)                                                                 (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "orridors becomes a metaphorical labyrinth of memories and sec";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
-        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
-        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
-        cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << endl;
-        cout << R"(                        (__  _)  )" << setw(61) << left << s5.substr(0, i + 1) << R"(  (__  _))" << endl;
-        cout << R"(                        (_ ___)                                                                 (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))");
+        printw("\n");
+        printw(R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  %-*s  (__  _))", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        (_ ___)                                                                 (_ ___))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "rets........                                                 ";
     for (int i = 0; i < 61; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                        .-=~=-.                                                                 .-=~=-.)" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))" << endl;
-        cout << R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))" << endl;
-        cout << R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))" << endl;
-        cout << R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))" << endl;
-        cout << R"(                        (__  _)  orridors becomes a metaphorical labyrinth of memories and sec  (__  _))" << endl;
-        cout << R"(                        (_ ___)  )" << setw(61) << left << s6.substr(0, i + 1) << R"(  (_ ___))" << endl;
-        cout << R"(                        ( _ __)                                                                 ( _ __))" << endl;
-        cout << R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))" << endl;
-        cout << R"(                        `-._.-'                                                                 `-._.-')" << endl;
-        sleep(0.1);
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                        .-=~=-.                                                                 .-=~=-.)");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  As Sam collects evidence, he also finds pieces of his own pas  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  t scattered throughout the prison. Old case files, personal b  (_ ___))");
+        printw("\n");
+        printw(R"(                        (__  _)  elongings, and a letter from someone he thought was lost - al  (__  _))");
+        printw("\n");
+        printw(R"(                        ( _ __)  l these items help him evade the guards. The maze of prison c  ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)  orridors becomes a metaphorical labyrinth of memories and sec  (__  _))");
+        printw("\n");
+        printw(R"(                        (_ ___)  %-*s  (_ ___))", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                        ( _ __)                                                                 ( _ __))");
+        printw("\n");
+        printw(R"(                        (__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _))");
+        printw("\n");
+        printw(R"(                        `-._.-'                                                                 `-._.-')");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                                     Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                                     Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayIntroFour()
@@ -2087,13 +3250,13 @@ void displayIntroFour()
     // Stored as an array of strings
     string keyArr[] = {
         R"(                            ,------------------------------.----------------------------------.)",
-        R"(                            |                             |                                  |)",
-        R"(                            |    .    .    ,---------     |     ------------------------.    |)",
-        R"(                            |    |    |    |              |                             |    |)",
-        R"(                            |    |    `----"--------------'    ,-------------------.    |    |)",
-        R"(                            |    |                             |                   |    |    |)",
-        R"(                            |    :--------------.--------------"----     ,---------:    |    |)",
-        R"(                            |    |              |                        |         |    |    |)",
+        R"(                            |                             |                                   |)",
+        R"(                            |    .    .    ,---------     |     ------------------------.     |)",
+        R"(                            |    |    |    |              |                             |     |)",
+        R"(                            |    |    `----"--------------'    ,-------------------.    |     |)",
+        R"(                            |    |                             |                   |    |     |)",
+        R"(                            |    :--------------.--------------"----     ,---------:    |     |)",
+        R"(                            |    |              |                        |         |    |     |)",
         R"(                            |    :---------     |    .    ,---------.    |    .    |    `----:)",
         R"(                            |    |              |    |    |         |    |    |    |         |)",
         R"(                            |    |     ---------'    |    :----     |    |    |    |    .    |)",
@@ -2113,19 +3276,22 @@ void displayIntroFour()
         R"(                            |    "    .    `---------     |    |    `----'    |    `----'    |)",
         R"(                            |         |                   |    |              |              |)",
         R"(                            `---------"-------------------'    `--------------"--------------')"};
-    
+
     // Loops through the array and prints line by line
     for (int i = 0; i < 27; i++)
     {
-        system("cls||clear");
+        clear();
         for (int j = 0; j <= i; j++)
         {
-            cout << keyArr[j] << endl;
+            printw(keyArr[j].c_str());
+            printw("\n");
         }
-        sleep(0.1);
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    // Sleep time to allow user to see final logo
+    // sleep time to allow user to see final logo
+    refresh();
     sleep(5);
 }
 
@@ -2140,7 +3306,7 @@ void displayDoorOutro()
     // Border ASCII taken from https://www.asciiart.eu/
 
     using namespace std;
-    
+
     string keyArr[] = {
         R"(                            88888888888888888888888888888888888888888888888888888888888888888888888)",
         R"(                            88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88)",
@@ -2164,22 +3330,25 @@ void displayDoorOutro()
         R"(                            88     .'   | .'   |/|  /                     \ |`!   |`.|    `.  |  88)",
         R"(                            88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88)",
         R"(                            88888888888888888888888888888888888888888888888888888888888888888888888)"};
-    
+
     // Loops through the array and prints line by line
     for (int i = 0; i < 22; i++)
     {
-        system("cls||clear");
-        cout << endl;
-        cout << endl;
-        cout << endl;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
         for (int j = 0; j <= i; j++)
         {
-            cout << keyArr[j] << endl;
+            printw(keyArr[j].c_str());
+            printw("\n");
         }
-        sleep(0.1);
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
-    // Sleep time to allow user to see final logo
+    // sleep time to allow user to see final logo
+    refresh();
     sleep(5);
 }
 
@@ -2193,222 +3362,395 @@ void displayOutroStory()
 
     // Border ASCII taken from https://www.asciiart.eu/art-and-design/borders
 
-
     using namespace std;
+
+    int width = 25;
 
     string s1 = "Having narrowly escaped A";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s1.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s1.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s1.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s2 = "lacran, Sam's heart raced";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s2.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s2.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s2.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s3 = "as he made his way to fre";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s3.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s3.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s3.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s4 = "edom. But as he emerged f";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s4.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s4.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  as he made his way to fre |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s4.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s5 = "rom the prison's depths a";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
-        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s5.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s5.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  as he made his way to fre |.)");
+        printw("\n");
+        printw(R"(                                                      |  edom. But as he emerged f |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s5.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s6 = "nd stepped into sunlight,";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
-        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
-        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s6.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s6.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  as he made his way to fre |.)");
+        printw("\n");
+        printw(R"(                                                      |  edom. But as he emerged f |.)");
+        printw("\n");
+        printw(R"(                                                      |  rom the prison's depths a |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s6.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s7 = "he stumbled upon somethin";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
-        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
-        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
-        cout << R"(                                                      |  nd stepped into sunlight, |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s7.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s7.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  as he made his way to fre |.)");
+        printw("\n");
+        printw(R"(                                                      |  edom. But as he emerged f |.)");
+        printw("\n");
+        printw(R"(                                                      |  rom the prison's depths a |.)");
+        printw("\n");
+        printw(R"(                                                      |  nd stepped into sunlight, |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s7.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     string s8 = "g spine-chilling.........";
     for (int i = 0; i < 25; i++)
     {
-        system("cls||clear");
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << "                                                                              " << endl;
-        cout << R"(                                                      ______________________________)" << endl;
-        cout << R"(                                                    / \                             \.)" << endl;
-        cout << R"(                                                   |   |                            |.)" << endl;
-        cout << R"(                                                   \_ |                            |.)" << endl;
-        cout << R"(                                                      |  Having narrowly escaped A |.)" << endl;
-        cout << R"(                                                      |  lacran, Sam's heart raced |.)" << endl;
-        cout << R"(                                                      |  as he made his way to fre |.)" << endl;
-        cout << R"(                                                      |  edom. But as he emerged f |.)" << endl;
-        cout << R"(                                                      |  rom the prison's depths a |.)" << endl;
-        cout << R"(                                                      |  nd stepped into sunlight, |.)" << endl;
-        cout << R"(                                                      |  he stumbled upon somethin |.)" << endl;
-        cout << R"(                                                      |  )" << setw(25) << left << s8.substr(0, i + 1) << R"( |.)" << endl;
-        cout << R"(                                                      |                            |.)" << endl;
-        cout << R"(                                                      |   _________________________|___)" << endl;
-        cout << R"(                                                      |  /                            /.)" << endl;
-        cout << R"(                                                      \_/____________________________/.)" << endl;
+        int numSpaces = width - s8.substr(0, i + 1).length();
+        if (numSpaces < 0)
+            numSpaces = 0;
+        clear();
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw("\n");
+        printw(R"(                                                      ______________________________)");
+        printw("\n");
+        printw(R"(                                                    / \                             \.)");
+        printw("\n");
+        printw(R"(                                                   |   |                            |.)");
+        printw("\n");
+        printw(R"(                                                   \_ |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |  Having narrowly escaped A |.)");
+        printw("\n");
+        printw(R"(                                                      |  lacran, Sam's heart raced |.)");
+        printw("\n");
+        printw(R"(                                                      |  as he made his way to fre |.)");
+        printw("\n");
+        printw(R"(                                                      |  edom. But as he emerged f |.)");
+        printw("\n");
+        printw(R"(                                                      |  rom the prison's depths a |.)");
+        printw("\n");
+        printw(R"(                                                      |  nd stepped into sunlight, |.)");
+        printw("\n");
+        printw(R"(                                                      |  he stumbled upon somethin |.)");
+        printw("\n");
+        printw(R"(                                                      |  %-*s |.)", width, s8.substr(0, i + 1).c_str());
+        printw("\n");
+        printw(R"(                                                      |                            |.)");
+        printw("\n");
+        printw(R"(                                                      |   _________________________|___)");
+        printw("\n");
+        printw(R"(                                                      |  /                            /.)");
+        printw("\n");
+        printw(R"(                                                      \_/____________________________/.)");
+        printw("\n");
+        refresh();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 
     // Add line break and
     // Prompt user to press enter after they have finished reading the text
-    cout << endl;
-    cout << "                                                           Press ENTER to continue" << endl;
-    cin.ignore();
+    printw("\n");
+    printw("                                                           Press ENTER to continue\n");
+    int ch;
+    do
+    {
+        ch = getch();
+    } while (ch != '\n');
 }
 
 void displayToBeContinued()
@@ -2419,22 +3761,33 @@ void displayToBeContinued()
     // ASCII art generated from https://www.asciiart.eu/text-to-ascii-art
 
     using namespace std;
-    
-    system("cls||clear");
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << "                                                                              " << endl;
-    cout << R"(                                      ______   ______        ______     ______    )" << endl;
-    cout << R"(                                     /\__  _\ /\  __ \      /\  == \   /\  ___\   )" << endl;
-    cout << R"(                                     \/_/\ \/ \ \ \/\ \     \ \  __<   \ \  __\   )" << endl;
-    cout << R"(                                        \ \_\  \ \_____\     \ \_____\  \ \_____\ )" << endl;
-    cout << R"(                                         \/_/   \/_____/      \/_____/   \/_____/ )" << endl;
-    cout << endl;
-    cout << R"(                    ______     ______     __   __     ______   __     __   __     __  __     ______     _____    )" << endl;
-    cout << R"(                   /\  ___\   /\  __ \   /\ "-.\ \   /\__  _\ /\ \   /\ "-.\ \   /\ \/\ \   /\  ___\   /\  __-.  )" << endl;
-    cout << R"(                   \ \ \____  \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \  \ \ \-.  \  \ \ \_\ \  \ \  __\   \ \ \/\ \ )" << endl;
-    cout << R"(                    \ \_____\  \ \_____\  \ \_\\"\_\    \ \_\  \ \_\  \ \_\\"\_\  \ \_____\  \ \_____\  \ \____- )" << endl;
-    cout << R"(                     \/_____/   \/_____/   \/_/ \/_/     \/_/   \/_/   \/_/ \/_/   \/_____/   \/_____/   \/____/ )" << endl;
+
+    clear();
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw("\n");
+    printw(R"(                                      ______   ______        ______     ______    )");
+    printw("\n");
+    printw(R"(                                     /\__  _\ /\  __ \      /\  == \   /\  ___\   )");
+    printw("\n");
+    printw(R"(                                     \/_/\ \/ \ \ \/\ \     \ \  __<   \ \  __\   )");
+    printw("\n");
+    printw(R"(                                        \ \_\  \ \_____\     \ \_____\  \ \_____\ )");
+    printw("\n");
+    printw(R"(                                         \/_/   \/_____/      \/_____/   \/_____/ )");
+    printw("\n");
+    printw("\n");
+    printw(R"(                    ______     ______     __   __     ______   __     __   __     __  __     ______     _____    )");
+    printw("\n");
+    printw(R"(                   /\  ___\   /\  __ \   /\ "-.\ \   /\__  _\ /\ \   /\ "-.\ \   /\ \/\ \   /\  ___\   /\  __-.  )");
+    printw("\n");
+    printw(R"(                   \ \ \____  \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \  \ \ \-.  \  \ \ \_\ \  \ \  __\   \ \ \/\ \ )");
+    printw("\n");
+    printw(R"(                    \ \_____\  \ \_____\  \ \_\\"\_\    \ \_\  \ \_\  \ \_\\"\_\  \ \_____\  \ \_____\  \ \____- )");
+    printw("\n");
+    printw(R"(                     \/_____/   \/_____/   \/_/ \/_/     \/_/   \/_/   \/_/ \/_/   \/_____/   \/_____/   \/____/ )");
+    printw("\n");
+    refresh();
     sleep(5.5);
 }

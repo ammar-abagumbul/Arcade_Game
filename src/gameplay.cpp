@@ -11,9 +11,11 @@
 #include "../src/minesweeper/minesweeper.h"
 #include "../src/bokosan/3.h"
 
+#include "ncurses.h"
+
 // Comment according to need
 // Library effective with Windows
-#include <windows.h>
+//#include <windows.h>
 // Library effective with Linux
 #include <unistd.h>
 
@@ -35,7 +37,7 @@ void startGame(int actNumber){
             displayIntroOne();
 
             // Clear the screen and start playing
-            system("cls||clear");
+            clear();
             slidingBlockGame();
 
             // Display the outro story of Act One
@@ -51,7 +53,7 @@ void startGame(int actNumber){
             displayIntroTwo();
 
             // Clear the screen and start playing
-            system("cls||clear");
+            clear();
             playBokosan();
             sleep(3);
             
@@ -69,17 +71,19 @@ void startGame(int actNumber){
             displayIntroThree();
 
             // Clear the screen and start playing
-            system("cls||clear");
+            clear();
             while(true){
                 if (startMinesweeper()){
-                    std::cout << "Congratulations! You won!" << std::endl;
+                    printw("Congratulations! You won!\n");
+                    refresh();
                     sleep(2);
                     break;
                 }else{
-                    std::cout << "You Lost! Try again!" << std::endl;
+                    printw("You Lost! Try again!\n");
+                    refresh();
                     sleep(2);
-                    std::cout<<"Do you want to save and quit?"<<std::endl;
-
+                    printw("Do you want to save and quit?\n");
+                    refresh();
                     break;
                 }
             }
@@ -97,8 +101,9 @@ void startGame(int actNumber){
             displayIntroFour();
 
             // Clear the screen and start playing
-            system("cls||clear");
-            std::cout<<"PacMan";
+            clear();
+            printw("PacMan\n");
+            refresh();
             sleep(3);
 
             // Show the outro animations of the game

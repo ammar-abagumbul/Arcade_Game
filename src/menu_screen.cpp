@@ -7,6 +7,7 @@
 #include "../include/menu_screen.h"
 #include "../include/invalid_input_screen.h"
 
+#include "ncurses.h"
 
 void printMainMenu()
 {
@@ -15,26 +16,27 @@ void printMainMenu()
     using namespace std;
 
     // Terminal cleared to improve user experience
-    system("cls||clear");
-    cout << R"(                           ###############################################################)" << endl;
-    cout << R"(                           ###############################################################)" << endl;
-    cout << endl;
-    cout << R"(                                     __        __   _                          _)" << endl;
-    cout << R"(                                     \ \      / /__| | ___ ___  _ __ ___   ___| |)" << endl;
-    cout << R"(                                      \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ |)" << endl;
-    cout << R"(                                       \ V  V /  __/ | (_| (_) | | | | | |  __/_|)" << endl;
-    cout << R"(                                        \_/\_/ \___|_|\___\___/|_| |_| |_|\___(_))" << endl;
-    cout << endl;
-    cout << R"(                           ---------------------------------------------------------------)" << endl;
-    cout << R"(                                                                              )" << endl;
-    cout << R"(                                                What would you like to do?)" << endl;
-    cout << R"(                                                1. PLAY)" << endl;
-    cout << R"(                                                2. CREDITS)" << endl;
-    cout << R"(                                                3. EXIT)" << endl;
-    cout << endl;
-    cout << R"(                           ---------------------------------------------------------------)" << endl;
-    cout << endl;
-    cout << R"(                                            Enter the instruction number:)" << endl;
+    clear();
+    printw(R"(                           ###############################################################)");printw("\n");
+    printw(R"(                           ###############################################################)");printw("\n");
+    printw("\n");
+    printw(R"(                                     __        __   _                          _)");printw("\n");
+    printw(R"(                                     \ \      / /__| | ___ ___  _ __ ___   ___| |)");printw("\n");
+    printw(R"(                                      \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ |)");printw("\n");
+    printw(R"(                                       \ V  V /  __/ | (_| (_) | | | | | |  __/_|)");printw("\n");
+    printw(R"(                                        \_/\_/ \___|_|\___\___/|_| |_| |_|\___(_))");printw("\n");
+    printw("\n");
+    printw(R"(                           ---------------------------------------------------------------)");printw("\n");
+    printw(R"(                                                                              )");printw("\n");
+    printw(R"(                                                What would you like to do?)");printw("\n");
+    printw(R"(                                                1. PLAY)");printw("\n");
+    printw(R"(                                                2. CREDITS)");printw("\n");
+    printw(R"(                                                3. EXIT)");printw("\n");
+    printw("\n");
+    printw(R"(                           ---------------------------------------------------------------)");printw("\n");
+    printw("\n");
+    printw(R"(                                            Enter the instruction number:)");printw("\n");
+    refresh();
 
     // Note that the instruction input is taken as part of showMenuScreen()
     // It is kept separate from this function so that this function can
@@ -57,7 +59,7 @@ int showMenuScreen()
     while (true)
     {
         // Output a left padding for the input
-        cout << "                                                       ";
+        printw("                                                       ");
         
         string s;
         cin >> s;
@@ -84,36 +86,37 @@ void displayLevels(){
     using namespace std;
 
     // Terminal cleared to improve user experience
-    system("cls||clear");
+    clear();
 
-    cout << R"(                          .-"-._,-'_`-._,-'_`-._,-'_`-._,-'_`-,_,-'_`-,_,-'_`-,_,-'_`-,_,-'_`-,.)" << endl;
-    cout << R"(                          (  ,-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-~-} ;.)" << endl;
-    cout << R"(                           \ \.'_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-._~--. \ .)" << endl;
-    cout << R"(                           /\ \/ ,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._`./ \ \ .)" << endl;
-    cout << R"(                          ( (`/ /                  _    _____   _____ _                  `/ /.) ) .)" << endl;
-    cout << R"(                           \ \ / \                | |  | __\ \ / / __| |                 / / \ / .)" << endl;
-    cout << R"(                            \ \') )               | |__| _| \ V /| _|| |                ( (,\ \ .)" << endl;
-    cout << R"(                           / \ / /                |____|___| \_/ |___|____|              \ / \ \ .)" << endl;
-    cout << R"(                            (`/ /         ___ ___ _    ___ ___ _____ ___ ___  _  _        / /.) ) .)" << endl;
-    cout << R"(                           \ \ / \       / __| __| |  | __/ __|_   _|_ _/ _ \| \| |      / / \ / .)" << endl;
-    cout << R"(                            \ \') )      \__ \ _|| |__| _| (__  | |  | | (_) | .` |     ( (,\ \ .)" << endl;
-    cout << R"(                           / \ / /       |___/___|____|___\___| |_| |___\___/|_|\_|      \ / \ \ .)" << endl;
-    cout << R"(                           \ \ / \                                                       / / \ / .)" << endl;
-    cout << R"(                            \ \') )                                                     ( (,\ \ .)" << endl;
-    cout << R"(                           / \ / /        1. Act One                  2. Act Two         \ / \ \ .)" << endl;
-    cout << R"(                           \ \ / \      The Clue in the           The Armory Arsenal     / / \ / .)" << endl;
-    cout << R"(                            \ \') )                                                     ( (,\ \ .)" << endl;
-    cout << R"(                           / \ / /        3. Act Three                4. Act Four        \ / \ \ .)" << endl;
-    cout << R"(                           \ \ / \      The Guards Gamble           Ghostly Pursuits     / / \ / .)" << endl;
-    cout << R"(                            \ \') )                                                     ( (,\ \ .)" << endl;
-    cout << R"(                           / \ / /                 5. Return to Main Menu                \ / \ \ .)" << endl;
-    cout << R"(                           \ \ / \       _       _       _       _       _       _       / / \ / .)" << endl;
-    cout << R"(                            \ `.\ `-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_/,\ \ .)" << endl;
-    cout << R"(                           ( `. `,~-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-=,' ,\ \ .)" << endl;
-    cout << R"(                            `. `'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,"-' ; .)" << endl;
-    cout << R"(                              `-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-.-' .)" << endl;
-    cout << endl;
-    cout << R"(                                               Enter the instruction number:)" << endl;
+    printw(R"(                          .-"-._,-'_`-._,-'_`-._,-'_`-._,-'_`-,_,-'_`-,_,-'_`-,_,-'_`-,_,-'_`-,.)");printw("\n");
+    printw(R"(                          (  ,-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-<.>-'_,-~-} ;.)");printw("\n");
+    printw(R"(                           \ \.'_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-<_>-._`-._~--. \ .)");printw("\n");
+    printw(R"(                           /\ \/ ,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._`./ \ \ .)");printw("\n");
+    printw(R"(                          ( (`/ /                  _    _____   _____ _                  `/ /.) ) .)");printw("\n");
+    printw(R"(                           \ \ / \                | |  | __\ \ / / __| |                 / / \ / .)");printw("\n");
+    printw(R"(                            \ \') )               | |__| _| \ V /| _|| |                ( (,\ \ .)");printw("\n");
+    printw(R"(                           / \ / /                |____|___| \_/ |___|____|              \ / \ \ .)");printw("\n");
+    printw(R"(                            (`/ /         ___ ___ _    ___ ___ _____ ___ ___  _  _        / /.) ) .)");printw("\n");
+    printw(R"(                           \ \ / \       / __| __| |  | __/ __|_   _|_ _/ _ \| \| |      / / \ / .)");printw("\n");
+    printw(R"(                            \ \') )      \__ \ _|| |__| _| (__  | |  | | (_) | .` |     ( (,\ \ .)");printw("\n");
+    printw(R"(                           / \ / /       |___/___|____|___\___| |_| |___\___/|_|\_|      \ / \ \ .)");printw("\n");
+    printw(R"(                           \ \ / \                                                       / / \ / .)");printw("\n");
+    printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
+    printw(R"(                           / \ / /        1. Act One                  2. Act Two         \ / \ \ .)");printw("\n");
+    printw(R"(                           \ \ / \      The Clue in the           The Armory Arsenal     / / \ / .)");printw("\n");
+    printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
+    printw(R"(                           / \ / /        3. Act Three                4. Act Four        \ / \ \ .)");printw("\n");
+    printw(R"(                           \ \ / \      The Guards Gamble           Ghostly Pursuits     / / \ / .)");printw("\n");
+    printw(R"(                            \ \') )                                                     ( (,\ \ .)");printw("\n");
+    printw(R"(                           / \ / /                 5. Return to Main Menu                \ / \ \ .)");printw("\n");
+    printw(R"(                           \ \ / \       _       _       _       _       _       _       / / \ / .)");printw("\n");
+    printw(R"(                            \ `.\ `-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_`-._,-'_/,\ \ .)");printw("\n");
+    printw(R"(                           ( `. `,~-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-<,>-._`-=,' ,\ \ .)");printw("\n");
+    printw(R"(                            `. `'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,-<_>-'_,"-' ; .)");printw("\n");
+    printw(R"(                              `-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-._,-' `-.-' .)");printw("\n");
+    printw("\n");
+    printw(R"(                                               Enter the instruction number:)");printw("\n");
+    refresh();
 
 
     // Note that the instruction input is taken as part of showLevelScreen()
@@ -136,7 +139,7 @@ int showLevelScreen(){
     while (true)
     {
         // Output a left padding for the input
-        cout << "                                                          ";
+        printw("                                                          ");
         
         string s;
         cin >> s;

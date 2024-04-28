@@ -8,12 +8,21 @@
 #include "../include/menu_screen.h"
 #include "../include/gameplay.h"
 
-// #include "ncurses.h"
+#include "ncurses.h"
 
 using namespace std;
 
 int main()
 {
+    setlocale(LC_ALL, "");
+    initscr();
+    refresh();
+    cbreak();
+    noecho();
+    curs_set(0);
+    keypad(stdscr, TRUE);
+    timeout(0);
+
     // Display the intro animations welcoming the user
     introAnimations();
 
@@ -43,10 +52,6 @@ int main()
         {
             // Print the game credits
             printCredits();
-
-            // To deal with "Press ENTER to continue"
-            cin.ignore();
-            cin.ignore();
         }
         else
         {
