@@ -9,6 +9,7 @@
 #include <cctype>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 #include "board.h"
 #include "move.h"
@@ -50,9 +51,8 @@ int slidingBlockGame(){
   while (cin >> input){
     input = lowerString(input);
     possiblemoves = possiblemovecheck(board);
-    //quit game if player types q (just for testing purposes, I assume our game won't have ability to skip levels)
     if (input == "q"){
-      cout << "You are weak" << endl;
+      cout << "You displayed great weakness. I know you'll come back though, they always do." << endl;
       break;
     }
 
@@ -74,7 +74,7 @@ int slidingBlockGame(){
       break;
     }
     // If solved is still false after the input, ask the user for input again
-	cout << "Input a move (w, a, s, d): " << endl;
+	cout << "Input a move (w, a, s, d) or input q to quit: " << endl;
   }
   return 0;
 }

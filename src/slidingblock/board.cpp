@@ -8,11 +8,49 @@
 #include <vector>
 #include <string>
 #include <unistd.h>
+#include <fstream>
 
 #include "board.h"
 #include "move.h"
 
 using namespace std;
+
+
+void saveBoard(int (&board)[3][3], bool solved){
+  // This function saves the board if the player wants to save the current board before quitting
+  
+  ofstream fout;
+  fout.open("saveslidingblock.txt");
+  if (fout.is_open()){
+    for (int i = 0; i < 3; i++){
+      for (int j = 0; j < 3; j++){
+        fout << board[i][j] << " ";
+      }
+      fout << endl;
+    }
+    fout << solved << endl;
+
+    fout.close();
+  }
+}
+
+
+void initSavedboard(int (&board)[3][3], bool solved){
+  // This function loads in the saved board from a previous game save
+
+  ifstream fin;
+  fin.open("saveslidingblock.txt");
+  if (fin.is_open()){
+    for (int i = 0; i < 3; i++){
+      for (int j = 0; j < 3; j++){
+        fin >> board[i][j]; 
+      }
+    }
+    fin >> solved;
+    fin.close();
+  }
+}
+
 
 void clearScreen() {
   // This function clears the screen prior to the printing the board
