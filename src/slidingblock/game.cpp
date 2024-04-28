@@ -58,6 +58,7 @@ int slidingBlockGame(){
 
     // Checks if user input is valid
     else if (!checklegal(input, possiblemoves)){
+      printboard(board);
       cout << "Please make a valid input/move: " << endl;
     }
     else{
