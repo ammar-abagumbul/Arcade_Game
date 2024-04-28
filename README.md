@@ -54,18 +54,32 @@
     
 ## Features Implemented
 
-* Generation of random game sets or events
-
-* Data structures for storing game status  
+* Generation of random game sets or events:
+  - Sliding Block Puzzle: Shuffles the tiles in random order every game, so the board is random every time. Check the shuffleboard() function in board.cpp
+  - Minesweeper: The positions of bombs are generated randomly, leading to a random game every time. Check the placeBombs() function in minesweeper.cpp
+  - Bokosan:
+  - Pacman:
+    
+* Data structures for storing game status
+  - 
 
 * Dynamic memory management
+  - 
 
 * File input/output
+  - Sliding Block Puzzle:
+  - Minesweeper:
+  - Bokosan: The maps for each level of Bokosan is read from .txt files
+  - Pacman: 
 
 * Program codes in multiple file
+  - Effective file organization makes it easy to edit functions and finding errorsc  
 
 * Proper indentation and naming styles
+  - Proper indentation of 2 spaces is used
+  - Functions are named appropriately and clearly in order to avoid misunderstanding and for easy location if changes are required 
 
 * In-code documentation
+  - Our code is well-organized with comments explaining each function, so that we can keep up with the code easily.
 
 ## Description
