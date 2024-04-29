@@ -50,13 +50,29 @@ void startGame(int actNumber){
             // Start of Act Two:
 
             // Show the relevant intro animations of Act Two
-            displayActTwo();
-            displayStoryTwo();
+            // displayActTwo();
+            // displayStoryTwo();
             displayIntroTwo();
 
             // Clear the screen and start playing
             clear();
-            playBokosan();
+            bool br;
+            while (true){
+                int bokosanStatus = playBokosan();
+                if (bokosanStatus == 0){
+                    br = true;
+                    break;
+                }else if(bokosanStatus == 2){
+                    continue;
+                }
+                else{
+                    br = false;
+                    break;
+                }
+            }
+            if (br){
+                break;
+            }
             sleep(3);
             
 

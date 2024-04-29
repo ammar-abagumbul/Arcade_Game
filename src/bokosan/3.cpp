@@ -1,7 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+
+#include "ncurses.h"
+
+#include "3.h"
+
 using namespace std;
+
+bool bokosanGameOver = false;
 
 struct Position{
 	int y;
@@ -33,23 +40,30 @@ struct Gate{
 
 void PrintMap(char** field, int h, int w){
 	// prints map
-	for (int i=0; i<50; i++) cout << endl; // clears the screen
+	clear(); // clears the screen
+	refresh();
+	printw("\n\n\n\n\n");
 	for (int i=0; i<h; i++){
-		for (int j=0; j<w; j++)
-			cout << field[i][j];
-		switch(i){
-		case 1: cout << "  * = wall"; break;
-		case 2: cout << "  P = player"; break;
-		case 3: cout << "  B = box"; break;
-		case 4: cout << "  / \\ = mirror"; break;
-		case 5: cout << "  - | + = laser (DANGER)"; break;
-		case 6: cout << "  X = closed gate"; break;
-		case 7: cout << "  O = open gate"; break;
-		case 8: cout << "  # = button (light sensitive, opens gate)"; break;
+		for (int j=0; j<w; j++){
+			if (j == 0){
+				printw("                                             %c", field[i][j]);
+			}else{
+			printw("%c", field[i][j]);
+			}
 		}
-		cout << endl;
+		switch(i){
+		case 1: printw("  * = wall"); break;
+		case 2: printw("  P = player"); break;
+		case 3: printw("  B = box"); break;
+		case 4: printw("  / \\ = mirror"); break;
+		case 5: printw("  - | + = laser (DANGER)"); break;
+		case 6: printw("  X = closed gate"); break;
+		case 7: printw("  O = open gate"); break;
+		case 8: printw("  # = button (light sensitive, opens gate)"); break;
+		}
+		printw("\n");
+		refresh();
 	}
-	return;
 }
 
 void EndGame(char** field, int h, int w){
@@ -57,7 +71,6 @@ void EndGame(char** field, int h, int w){
 	for (int i=0; i<h; i++)
         	delete[] field[i];
 	delete[] field;
-	exit(0);
 }
 
 void TracePath(char** field, int h, int w, Position i, Position d){
@@ -80,8 +93,11 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 			break;
 		case 'P':
 			PrintMap(field, h, w);
-			cout << "ooh ah you died" << endl;
-			EndGame(field, h, w);
+			printw("\nYou died :(\n");
+			refresh();
+			napms(1500);
+			bokosanGameOver = true;
+			//EndGame(field, h, w);
 	}
 	return;
 }
@@ -190,91 +206,180 @@ void Rotate(char** field, Position p, vector<Mirror> &mir){
 
 int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<Mirror> &mir){
 	char input;
-	cout << "[w][a][s][d] Travel  [r] Rotate\n";
-	cout << "[1] Quit             [2] Save & Quit\n" << "Move: ";
-	cin >> input;
-	Position d;
-	switch (input){
-		case 'w': case 'W':
-			d = {-1,0};
-			Push(field,p,d,box,mir);
-			break;
-		case 'a': case 'A':
-			d = {0,-1};
-			Push(field,p,d,box,mir);
-			break;
-		case 's': case 'S':
-			d = {1, 0};
-			Push(field,p,d,box,mir);
-			break;
-		case 'd': case 'D':
-			d = {0, 1};
-			Push(field,p,d,box,mir);
-			break;
-		case 'r':
-			Rotate(field,p,mir);
-			break;
-		case '1':
-			EndGame(field,h,w);
-			break;
-		case '2':
-			return 0;
-		default:
-			cout << "Invalid input." << endl;
-	}
+	printw("                                [w][a][s][d] Travel  [r] Rotate\n");
+	printw("                                [1] Quit             [2] Save & Quit\n");
+	refresh();
+	bool br = true;
+	do{
+		// char input = getch();
+		cin>>input;
+		printw("%c", input);
+		refresh();
+		Position d;
+		switch (input){
+			case 'w': case 'W':
+				d = {-1,0};
+				Push(field,p,d,box,mir);
+				break;
+			case 'a': case 'A':
+				d = {0,-1};
+				Push(field,p,d,box,mir);
+				break;
+			case 's': case 'S':
+				d = {1, 0};
+				Push(field,p,d,box,mir);
+				break;
+			case 'd': case 'D':
+				d = {0, 1};
+				Push(field,p,d,box,mir);
+				break;
+			case 'r':
+				Rotate(field,p,mir);
+				break;
+			case '1':
+				bokosanGameOver = true;
+				EndGame(field,h,w);
+				break;
+			case '2':
+				return 0;
+			default:
+				br = false;
+		}
+	}while(!br);
 	return 1;
 }
 
+void BokosanDisplayMenu(int choice, bool resumeAvailable)
+{
+    clear();
+    printw("\n\n\n\n\n");
+    printw("                                               THE ARMORY ARSENAL\n\n");
+
+
+    printw("                                                   ");
+    if (choice == 1)
+        attron(A_REVERSE);
+    printw("NEW GAME");
+    printw("\n");
+    if (choice == 1)
+        attroff(A_REVERSE);
+    
+
+    if (resumeAvailable)
+    {
+        printw("                                                   ");
+        if (choice == 2)
+            attron(A_REVERSE);
+        printw("RESUME GAME");
+        printw("\n");
+        if (choice == 2)
+            attroff(A_REVERSE);
+    }
+
+
+    printw("                                                   ");
+    if (choice == 3 || (!resumeAvailable && choice == 2))
+        attron(A_REVERSE);
+    printw("EXIT");
+    printw("\n");
+    if (choice == 3 || (!resumeAvailable && choice == 2))
+        attroff(A_REVERSE);
+}
+
+int BokosanShowMenuScreen(bool resumeAvailable)
+{
+    // This function handles the main flow of the main menu and returns
+    // which option was selected
+
+    using namespace std;
+
+    int optionChosen = 1;
+    BokosanDisplayMenu(optionChosen, resumeAvailable);
+
+    while(true)
+    {
+        bool br = false;	
+        int c = getch();
+        switch(c)
+        {	
+            case KEY_UP:
+                if(optionChosen == 1 && resumeAvailable){
+                    optionChosen = 3;
+                }
+                else if (optionChosen == 1){
+                    optionChosen = 2;
+                }
+                else{
+                    --optionChosen;
+                }
+                break;
+            case KEY_DOWN:
+                if(optionChosen == 3){
+                    optionChosen = 1;
+                }else if (optionChosen == 2 && !resumeAvailable){
+                    optionChosen = 1;
+                }
+                else {
+                    ++optionChosen;
+                }
+                break;
+            case 10:
+                return optionChosen;
+                break;
+            default:
+                continue;
+        }
+        BokosanDisplayMenu(optionChosen, resumeAvailable);  
+    }
+
+    return optionChosen;
+}
+
 int playBokosan(){
+	clear();
+
 	// checks if there is a savefile and makes main  menu based on it
 	ifstream testSave;
-	char menu;
+	int menu;
 	string filename;
 	testSave.open("s.txt");
 	if (testSave.fail()){
-		cout << "[1] New Game\n[2] Exit\n";
-		cin >> menu;
-		while (menu != '1' && menu != '2'){
-			cout << "Invalid input\n";
-			cout << "[1] New Game\n[2] Exit\n";
-			cin >> menu;
-		}
+		menu = BokosanShowMenuScreen(false);
 		switch (menu){
-			case '1':
+			case 1:
 				filename = "1.txt";
 				break;
-			case '2':
-				cout << "Bye bye \n";
-				exit(0);
+			case 2:
+				printw("Bye bye \n");
+				refresh();
+				return 0;
 		}
 	} else{
-		cout << "[1] Resume\n[2] New Game\n[3] Exit\n";
-		cin >> menu;
-		while (menu != '1' && menu != '2' && menu != '3'){
-			cout << "Invalid input\n";
-			cout << "[1] Resume\n[2] New Game\n[3] Exit\n";
-			cin >> menu;
-		}
+		menu = BokosanShowMenuScreen(true);
 		switch (menu){
-			case '1':
+			case 2:
 				filename = "s.txt";
 				break;
-			case '2':
+			case 1:
 				filename = "1.txt";
 				break;
-			case '3':
-				cout << "Bye bye \n";
-				exit(0);
+			case 3:
+				printw("Bye bye \n");
+				refresh();
+				return 0;
 		}
 	}
 
 	// open file
-	cout << "loading " << filename << endl;
+	printw("loading %s\n", filename.c_str());
+	refresh();
 	ifstream fin;
 	fin.open(filename);
 	if (fin.fail()){
-		cout << "Error in file opening" << endl;
-		exit(1);
+		printw("Error in file opening\n");
+		refresh();
+		napms(1000);
+		return 0;
 	}
 
 	// initiate map
@@ -317,7 +422,6 @@ int playBokosan(){
 		field[temp.y][temp.x] = 'B';
 		fin.ignore(100,'\n');
 	}
-
 	// spawn mirrors
 	fin.ignore(100,'\n');
 	fin >> n;
@@ -359,17 +463,20 @@ int playBokosan(){
 	fin.ignore(100,'\n');
 	Gate gat;
 	fin >> gat.pos.y >> gat.pos.x >> gat.on;
-
 	// initial print
 	UpdateField(field, height, width, p, box, mir, las, but, gat);
 	PrintMap(field, height, width);
-
 	// game
 	while (Move(field, height, width, p, box, mir)){
 		UpdateField(field, height, width, p, box, mir, las, but, gat);
+		if (bokosanGameOver){
+			EndGame(field, height, width);
+			return 2;
+		}
 		PrintMap(field, height, width);
 		if (p.y == gat.pos.y && p.x == gat.pos.x && gat.on){
-			cout << "you win!" << endl;
+			printw("you win!\n");
+			refresh();
 			break;
 		}
 	}
@@ -378,7 +485,8 @@ int playBokosan(){
 	ofstream fout;
 	fout.open("save.txt");
 	if (fout.fail()){
-		cout << "Error in file opening" << endl;
+		printw("Error in file opening\n");
+		refresh();
 		exit(1);
 	}
 
