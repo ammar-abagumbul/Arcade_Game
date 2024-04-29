@@ -18,7 +18,7 @@
 
 
 
-[Aosaf Ershad Choudry](https://github.com/aosaf-e-c) (3036259011)
+[Aosaf Ershad Chowdhury](https://github.com/aosaf-e-c) (3036259011)
 
 [Sheik Mahmood Afif](https://github.com/mahmoodafif) (3036225230)
 
