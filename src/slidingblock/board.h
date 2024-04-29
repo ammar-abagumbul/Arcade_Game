@@ -7,7 +7,7 @@
 using namespace std;
 
 void saveBoard(int (&board)[3][3], bool solved);
-void initSavedboard (int (&board)[3][3], bool solved);
+bool initSavedboard (int (&board)[3][3], bool solved);
 void clearScreen();
 void initboard(int (&board)[3][3]);
 void printboard(int board[3][3]);

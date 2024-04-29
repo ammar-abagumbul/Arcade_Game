@@ -1,8 +1,9 @@
-#ifndef tes_h
-#define tes_h
 #include <vector>
 #include <string>
 
+#ifndef tes_h
+#define tes_h
+
 bool startMinesweeper();
-vector<string> checkSaved();
+std::vector<std::string> checkSaved();
 #endif

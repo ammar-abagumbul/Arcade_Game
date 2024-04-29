@@ -2,7 +2,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
-#include <ctring>
+#include <cstring>
 #include <fstream>
 #include "minesweeper.h"
 #include "ncurses.h"
@@ -319,7 +319,7 @@ bool startMinesweeper() {
 }
 
 //to return if user has saved game or not
-vector<string> checkSaved(){
+std::vector<std::string> checkSaved(){
     vector<string> options;
     ifstream saveFile("minesweeper_save.txt");
     if (!saveFile.is_open()) {
