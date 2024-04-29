@@ -2,7 +2,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
-#include <ctring>
+#include <cstring>
 #include <fstream>
 #include "minesweeper.h"
 #include "ncurses.h"
@@ -94,7 +94,7 @@ void saveGame(const vector<vector<char>>& board, const vector<vector<char>>& gri
     saveFile.close();
     printCentered(0, "Game saved successfully.");
     refresh();
-    napms(1000); // Pause for 2 seconds
+    napms(500); // Pause for 2 seconds
 }
 
 
@@ -141,6 +141,10 @@ bool checkWin(const vector<vector<char>>& board, const vector<vector<char>>& gri
     return true;
 }
 
+int isValidAction(char action) {
+    return (action == 'q' || action == 'Q' || action == 's' || action == 'S' || action == 'm' || action == 'M' || action == 'o' || action == 'O');
+ }
+
 
 //ask for inout and handle it 
 bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank, int size) {
@@ -149,7 +153,7 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
     char input[256];
     bool validInput = false;
     do {
-        mvprintw(LINES - 1, 0, "Enter action (o-open, m-mark, srn-save, qrn-quit) and position (e.g., oE4): ");
+        mvprintw(LINES - 1, 0, "Enter action (o-open, m-mark, sa0-save, qa0-quit) and position (e.g., oE4): ");
         echo();
         scanw("%s", input);
         noecho();
@@ -157,13 +161,21 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
         if (strlen(input) != 3) {
             printCentered(0, "Invalid input. Please try again.");
             refresh();
-            napms(1000); // Wait before asking for input again
+            napms(500); // Wait before asking for input again
             continue; // Skip the rest of the loop and ask for input again
         }
         action = input[0];
         ch = input[1];
         col = toupper(ch) - 'A';
         row = input[2] - '0';
+
+        if ((col < 0 || col > size-1 ) || (row < 0 || row > size-1 ) || !(isValidAction(action))){
+            printCentered(0, "Invalid input. Please try again.");
+            refresh();
+            napms(500); // Wait before asking for input again
+            continue; // Skip the rest of the loop and ask for input again
+        }
+
         if (action == 's' || action == 'S') {
             saveGame(board, gridblank, size);
             validInput = true;
@@ -171,7 +183,7 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
         } else if (action == 'q' || action == 'Q') {
             printCentered(0, "Quitting game. Goodbye!");
             refresh();
-            napms(1000); // Wait before exit
+            napms(500); // Wait before exit
             return false;
         }
 
@@ -183,7 +195,7 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
             printBoard(board, size);
             printCentered(0, "Game Over!");
             refresh();
-            napms(1000); // Display message before exit
+            napms(500); // Display message before exit
             return false;
         } else {
             gridblank[row][col] = board[row][col];
@@ -229,7 +241,7 @@ bool playGame(int size, bool newGame) {
         if (!loadGame(board, gridblank, size)) {
             printCentered(0, "No saved game found. Starting a new one.");
 	    refresh();
-            napms(1000);  // Pause for 2 seconds to show the message
+            napms(500);  // Pause for 2 seconds to show the message
             placeBombs(board, size);
         }
     }
@@ -240,18 +252,19 @@ bool playGame(int size, bool newGame) {
     bool gameContinue = true;
     while (gameContinue && !checkWin(board, gridblank, size)) {
         gameContinue = chooseAndOpen(board, gridblank, size);
+        refresh();
     }
 
     // After exiting the loop, check if the player has won
     if (checkWin(board, gridblank, size)) {
         printCentered(0, "Congratulations! You won!");
 	refresh();
-	napms(1000);  // Show winning message for 2 seconds
+	napms(500);  // Show winning message for 2 seconds
         return true;
     } else {
         printCentered(0, "Game Over! Try again.");
 	refresh();
-	napms(1000);  // Show game over message for 2 seconds
+	napms(500);  // Show game over message for 2 seconds
         return false;
     }
 }
@@ -268,7 +281,7 @@ bool startMinesweeper() {
 
     do {
         clear();
-	refresh();
+	    refresh();
         printCentered(5, "Minesweeper Menu");
         printCentered(7, "1. Start New Game");
         printCentered(8, "2. Resume Game");
@@ -276,22 +289,22 @@ bool startMinesweeper() {
         printCentered(10, "4. Exit");
         printCentered(12, "Enter your choice: ");
         refresh();
-	timeout(-1);
+	    timeout(-1);
         echo();
         move(13, (COLS - 3) / 2);  // Move cursor to correct position
         scanw("%d", &choice);
         noecho();
-	flushinp();
+	    flushinp();
 
         switch (choice) {
             case 1:
                 gameResult = playGame(gridSize, true);
-		reinitialiseCurses();
+		        reinitialiseCurses();
 		
                 break;
             case 2:
                 gameResult = playGame(gridSize, false);
-		reinitialiseCurses();
+		        reinitialiseCurses();
                 break;
             case 3:
                 printCentered(15, "Enter new grid size (4-10): ");
@@ -301,17 +314,18 @@ bool startMinesweeper() {
                 if (gridSize < 4 || gridSize > 10) {
                     gridSize = 5;
                     printCentered(16, "Invalid size! Grid size set to 5.");
-		    refresh();
-                    napms(1000);
+		            refresh();
+                    napms(500);
                 }
                 break;
             case 4:
                 printCentered(0, "Exiting game.");
-		refresh();
-                napms(1000);
+		        refresh();
+                napms(500);
                 break;
         }
-	clear();
+        reinitialiseCurses();
+	    clear();
     } while (choice != 4);
 
     finishCurses();
