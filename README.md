@@ -62,18 +62,20 @@
     
 * Data structures for storing game status
   - 
+  - Minesweeper: Uses vectors to store the board bombs and flags
 
 * Dynamic memory management
   - 
+  - Minesweeper: Uses vectors to store the biard bombs and flags
 
 * File input/output
   - Sliding Block Puzzle:
-  - Minesweeper:
+  - Minesweeper: The player can save their progress in a .txt file and load it later from it
   - Bokosan: The maps for each level of Bokosan is read from .txt files
   - Pacman: 
 
 * Program codes in multiple file
-  - Effective file organization makes it easy to edit functions and finding errorsc  
+  - Effective file organization makes it easy to edit functions and finding errors  
 
 * Proper indentation and naming styles
   - Proper indentation of 2 spaces is used
