@@ -38,7 +38,9 @@ void startGame(int actNumber){
 
             // Clear the screen and start playing
             clear();
-            slidingBlockGame();
+            if (slidingBlockGame() == 0){
+                break;
+            }
 
             // Display the outro story of Act One
             displayOutroOne();
@@ -48,13 +50,29 @@ void startGame(int actNumber){
             // Start of Act Two:
 
             // Show the relevant intro animations of Act Two
-            displayActTwo();
-            displayStoryTwo();
+            // displayActTwo();
+            // displayStoryTwo();
             displayIntroTwo();
 
             // Clear the screen and start playing
             clear();
-            playBokosan();
+            bool br;
+            while (true){
+                int bokosanStatus = playBokosan();
+                if (bokosanStatus == 0){
+                    br = true;
+                    break;
+                }else if(bokosanStatus == 2){
+                    continue;
+                }
+                else{
+                    br = false;
+                    break;
+                }
+            }
+            if (br){
+                break;
+            }
             sleep(3);
             
 
@@ -72,20 +90,8 @@ void startGame(int actNumber){
 
             // Clear the screen and start playing
             clear();
-            while(true){
-                if (startMinesweeper()){
-                    printw("Congratulations! You won!\n");
-                    refresh();
-                    sleep(2);
-                    break;
-                }else{
-                    printw("You Lost! Try again!\n");
-                    refresh();
-                    sleep(2);
-                    printw("Do you want to save and quit?\n");
-                    refresh();
-                    break;
-                }
+            if (!startMinesweeper()){
+                break;
             }
             
             // Display the outro story of Act Three

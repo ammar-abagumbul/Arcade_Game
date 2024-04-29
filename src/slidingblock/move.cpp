@@ -43,15 +43,15 @@ vector<string> possiblemovecheck(int board[3][3]){
 }
 
 
-string lowerString(string input){
-  // This function turns the input into lower-case characters for checking purposes
+// int lowerString(int input){
+//   // This function turns the input into lower-case characters for checking purposes
 
-  string lowerstring = input;
-  for (int i = 0; i < lowerstring.length(); i++){
-    lowerstring[i] = tolower(lowerstring[i]);
-  }
-  return lowerstring;
-}
+//   string lowerstring = input;
+//   for (int i = 0; i < lowerstring.length(); i++){
+//     lowerstring[i] = tolower(lowerstring[i]);
+//   }
+//   return lowerstring;
+// }
 
 
 bool checklegal(string input, vector <string> possiblemoves){

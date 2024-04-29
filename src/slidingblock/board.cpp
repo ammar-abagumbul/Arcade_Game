@@ -37,7 +37,7 @@ void saveBoard(int (&board)[3][3], bool solved){
 }
 
 
-void initSavedboard(int (&board)[3][3], bool solved){
+bool initSavedboard(int (&board)[3][3], bool solved){
   // This function loads in the saved board from a previous game save
 
   ifstream fin;
@@ -50,7 +50,9 @@ void initSavedboard(int (&board)[3][3], bool solved){
     }
     fin >> solved;
     fin.close();
+    return true;
   }
+  return false;
 }
 
 
@@ -88,11 +90,14 @@ void printboard(int board[3][3]){
   // This function prints the board array with each integer in the board surrounded by a box
 
   clear();
+  printw("\n\n\n\n");
   int spaces = (80 - (3 * 5 + 4)) / 2;
   for (int i = 0; i < 3; i++){
+    printw("\n");
     for (int l = 0; l < spaces; l ++){
       printw(" ");
     }
+    printw("              ");
   
     for (int k = 0; k < 3; k++){
       printw("+-----");
@@ -102,9 +107,15 @@ void printboard(int board[3][3]){
     for (int m = 0; m < spaces; m++){
       printw(" ");
     }
-
+    printw("              ");
     for (int j = 0 ; j < 3; j++){
-      string linePart = "|  " + std::to_string(board[i][j]) + "  ";
+      string linePart;
+      if (board[i][j] == 0){
+        linePart = "|     ";
+      }
+      else{
+        linePart = "|  " + std::to_string(board[i][j]) + "  ";
+      }
       printw(linePart.c_str()); 
     }
     printw("|\n");
@@ -112,6 +123,8 @@ void printboard(int board[3][3]){
     for (int n = 0; n < spaces; n++){
       printw(" ");
     }    
+
+    printw("              ");
     
     for (int k = 0; k < 3; k++){
       printw("+-----");

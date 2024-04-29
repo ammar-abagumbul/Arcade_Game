@@ -1452,7 +1452,7 @@ void displayOutroOne()
         printw("\n");
         printw(R"(                                            (   ressed to the cryptic "The Moth," hi  ()");
         printw("\n");
-        printw(R"(                                                %s)", width, s4.substr(0, i + 1).c_str());
+        printw(R"(                                                %-*s)", width, s4.substr(0, i + 1).c_str());
         printw("\n");
         printw(R"(                                             )                                        ))");
         printw("\n");
@@ -1497,7 +1497,7 @@ void displayOutroOne()
         printw("\n");
         printw(R"(                                                nt at an escape plan that remained u)");
         printw("\n");
-        printw(R"(                                             )  %s  ))", width, s5.substr(0, i + 1).c_str());
+        printw(R"(                                             )  %-*s  ))", width, s5.substr(0, i + 1).c_str());
         printw("\n");
         printw(R"(                                            (                                         ()");
         printw("\n");

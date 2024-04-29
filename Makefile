@@ -3,8 +3,11 @@ FLAGS = -pedantic-errors -std=c++11
 
 # Compilations for Sliding Block
 
-SLIDING_DEPS = src/slidingblock/board.h src/slidingblock/move.h src/slidingblock/game.h
-SLIDING_OBJ = sliding_game.o sliding_board.o sliding_move.o
+SLIDING_DEPS = src/slidingblock/board.h src/slidingblock/move.h src/slidingblock/game.h src/slidingblock/menu.h
+SLIDING_OBJ = sliding_game.o sliding_board.o sliding_move.o	sliding_menu.o
+
+sliding_menu.o: src/slidingblock/menu.cpp $(SLIDING_DEPS)
+	g++ $(FLAGS) -c src/slidingblock/menu.cpp -o sliding_menu.o
 
 sliding_game.o: src/slidingblock/game.cpp $(SLIDING_DEPS)
 	g++ $(FLAGS) -c src/slidingblock/game.cpp -o sliding_game.o
@@ -45,5 +48,5 @@ gameplay.o: include/gameplay.h include/animations.h src/gameplay.cpp
 main.o: include/animations.h include/menu_screen.h include/gameplay.h src/main.cpp
 	g++ $(FLAGS) -c src/main.cpp -o main.o
 
-game: animations.o invalid_input_screen.o menu_screen.o gameplay.o main.o sliding_game.o sliding_board.o sliding_move.o minesweeper_game.o bokosan_game.o
+game: animations.o invalid_input_screen.o menu_screen.o gameplay.o main.o sliding_menu.o sliding_game.o sliding_board.o sliding_move.o minesweeper_game.o bokosan_game.o
 	g++ $(FLAGS) $^ -o $@ -lncurses

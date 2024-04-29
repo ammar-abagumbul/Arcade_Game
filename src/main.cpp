@@ -24,7 +24,7 @@ int main()
     timeout(0);
 
     // Display the intro animations welcoming the user
-    introAnimations();
+    // introAnimations();
 
 
     // The user will always be redirected to the main menu
