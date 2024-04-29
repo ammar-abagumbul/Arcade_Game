@@ -2,6 +2,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <ctring>
 #include <fstream>
 #include "minesweeper.h"
 #include "ncurses.h"
@@ -145,37 +146,53 @@ bool checkWin(const vector<vector<char>>& board, const vector<vector<char>>& gri
 bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank, int size) {
     int row, col;
     char ch, action;
-    mvprintw(LINES - 1, 0, "Enter action (o-open, m-mark, s-save, q-quit) and position (e.g., oE4): ");
-    echo();
-    scanw("%c%c%d", &action, &ch, &row);
-    noecho();
-    col = toupper(ch) - 'A';
+    char input[256];
+    bool validInput = false;
+    do {
+        mvprintw(LINES - 1, 0, "Enter action (o-open, m-mark, srn-save, qrn-quit) and position (e.g., oE4): ");
+        echo();
+        scanw("%s", input);
+        noecho();
 
-    if (action == 's' || action == 'S') {
-        saveGame(board, gridblank, size);
-        return true;
-    } else if (action == 'q' || action == 'Q') {
-        printCentered(0, "Quitting game. Goodbye!");
-	refresh();
-        napms(1000); // Wait before exit
-        return false;
-    }
+        if (strlen(input) != 3) {
+            printCentered(0, "Invalid input. Please try again.");
+            refresh();
+            napms(1000); // Wait before asking for input again
+            continue; // Skip the rest of the loop and ask for input again
+        }
+        action = input[0];
+        ch = input[1];
+        col = toupper(ch) - 'A';
+        row = input[2] - '0';
+        if (action == 's' || action == 'S') {
+            saveGame(board, gridblank, size);
+            validInput = true;
+            return true;
+        } else if (action == 'q' || action == 'Q') {
+            printCentered(0, "Quitting game. Goodbye!");
+            refresh();
+            napms(1000); // Wait before exit
+            return false;
+        }
 
-    if (action == 'm' || action == 'M') {
-        gridblank[row][col] = 'F'; // Flag the cell
-        printBoard(gridblank, size);
-        return true;
-    } else if (board[row][col] == '*') {
-        printBoard(board, size);
-        printCentered(0, "Game Over!");
-	refresh();
-        napms(1000); // Display message before exit
-        return false;
-    } else {
-        gridblank[row][col] = board[row][col];
-        printBoard(gridblank, size);
-        return true;
-    }
+        if (action == 'm' || action == 'M') {
+            gridblank[row][col] = 'F'; // Flag the cell
+            printBoard(gridblank, size);
+            validInput = true;
+        } else if (board[row][col] == '*') {
+            printBoard(board, size);
+            printCentered(0, "Game Over!");
+            refresh();
+            napms(1000); // Display message before exit
+            return false;
+        } else {
+            gridblank[row][col] = board[row][col];
+            printBoard(gridblank, size);
+            validInput = true;
+        }
+    } while (!validInput);
+
+    return true;
 }
 
 //place the bombs randomly in the  empty cells of the grid
@@ -277,11 +294,11 @@ bool startMinesweeper() {
 		reinitialiseCurses();
                 break;
             case 3:
-                printCentered(15, "Enter new grid size (3-10): ");
+                printCentered(15, "Enter new grid size (4-10): ");
                 echo();
                 scanw("%d", &gridSize);
                 noecho();
-                if (gridSize < 3 || gridSize > 10) {
+                if (gridSize < 4 || gridSize > 10) {
                     gridSize = 5;
                     printCentered(16, "Invalid size! Grid size set to 5.");
 		    refresh();
