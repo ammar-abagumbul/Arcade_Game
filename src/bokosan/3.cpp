@@ -78,7 +78,8 @@ void EndGame(char** field, int h, int w){
 }
 
 void TracePath(char** field, int h, int w, Position i, Position d){
-	// draws laser on field. Detects if laser kills player
+	// Draws laser on field. Detects if laser kills player
+	
 	switch (field[i.y+d.y][i.x+d.x]){
 		case ' ':
 			if (d.y) field[i.y+d.y][i.x+d.x] = '|';
