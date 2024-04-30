@@ -63,14 +63,14 @@ One of the standout features of our game's design is its stunning aesthetics, wh
     - vector: for storing Nodes in the path finding implementation
     - arrays: 1D array to store Ghosts and 2D array to store maze representation
   - Minesweeper: Uses vectors to store the board bombs and flags
-  - Bokosan: map stored in a dynamic 2d char array. All objects stored in vectors of struts that represent the object's various properties.
+  - Bokosan: map stored in a dynamic 2D char array. All objects stored in vectors of struts that represent the object's various properties.
 
 * Dynamic memory management
   - Pacman:
     - Navigator uses dynamically allocated arrays of string types to pass information between game and menu window
-  - Minesweeper: Uses vectors to store the biard bombs and flags
+  - Minesweeper: Uses vectors to store the board bombs and flags
   - Sliding Block Puzzle: Uses vectors to store the possible moves a player can make. Check the possiblemovecheck() function in [move.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/move.cpp)
-  - Bokosan: Uses dynamically allocated 2d array to store map, and vectors of struts to store game objects.
+  - Bokosan: Uses dynamically allocated 2D array to store map, and vectors of struts to store game objects.
 
 * File input/output
   - Pacman: 
@@ -81,7 +81,7 @@ One of the standout features of our game's design is its stunning aesthetics, wh
 
 * Operator Overloading
   - Pacman:
-    - Overloading of the insertion, extraction and less than operator to for the Direction class and PowerBalls struct inorder to use ready-made solutions within the C++ library. Look [Direction.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Direction.h) and [Game.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Game.h) 
+    - Overloading of the insertion, extraction and less than operator to for the Direction class and PowerBalls struct in order to use ready-made solutions within the C++ library. Look [Direction.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Direction.h) and [Game.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Game.h) 
 
 * Recursion
   - Bokosan: Recursion used to trace the path of lasers as well as to check whether multiple objects can be pushed at once.
@@ -126,7 +126,10 @@ uncover the conspiracy that put him behind bars....
 ## Acknowledgements
   Our team would like to express our appreciation and gratitude to our professors, teaching assistants and above all, the players for making the development of this game not only possible but also immensely rewarding and worthwhile. 
   
+  <br>
+
   Sources for ASCII Art implemented throughout the game:
-  [https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)
+
+  [https://patorjk.com/software/taag/](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)
   
   [https://www.asciiart.eu/](https://www.asciiart.eu/)
