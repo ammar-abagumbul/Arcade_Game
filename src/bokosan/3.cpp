@@ -2,9 +2,9 @@
 #include <fstream>
 #include <vector>
 
-#include "ncurses.h"
-
 #include "3.h"
+
+#include "ncurses.h"
 
 using namespace std;
 
@@ -39,9 +39,11 @@ struct Gate{
 };
 
 void PrintMap(char** field, int h, int w){
-	// prints map
-	clear(); // clears the screen
+	// Prints the map
+
+	clear(); // Clears the screen
 	printw("\n\n\n\n\n");
+
 	for (int i=0; i<h; i++){
 		for (int j=0; j<w; j++){
 			if (j == 0){
@@ -50,6 +52,7 @@ void PrintMap(char** field, int h, int w){
 				printw("%c", field[i][j]);
 			}
 		}
+
 		switch(i){
 		case 1: printw(R"(  * = wall)"); break;
 		case 2: printw("  P = player (Objective: Enter Gate)"); break;
@@ -60,13 +63,15 @@ void PrintMap(char** field, int h, int w){
 		case 7: printw("  O = open gate"); break;
 		case 8: printw(R"(  # = button (light sensitive, opens gate))"); break;
 		}
+
 		printw("\n");
 	}
 	refresh();
 }
 
 void EndGame(char** field, int h, int w){
-	// clears arrays, ends game
+	// Clears arrays and ends game
+	
 	for (int i=0; i<h; i++)
         	delete[] field[i];
 	delete[] field;

@@ -1,5 +1,5 @@
 
-# Project Title
+# THE GREAT ESCAPE: Alacran's Shadow
 
 # Menu
     i. Team Members
@@ -50,7 +50,7 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
 * Generation of random game sets or events:
   - Sliding Block Puzzle: Shuffles the tiles in random order every game, so the board is random every time. Check the shuffleboard() function in [board.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/board.cpp)
   - Minesweeper: The positions of bombs are generated randomly, leading to a random game every time. Check the placeBombs() function in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
-  - Pacman: Ghost movement alternates between random behavior and path-tracking algorithm throughout the game. Check the PickRandomDirection() function in [Ghost.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/Pacman/src/Ghost.cpp)
+  - Pacman: Ghost movement alternates between random behavior and path-tracking algorithm throughout the game. Check the PickRandomDirection() function in [Ghost.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Ghost.cpp)
     
 * Data structures for storing game status
   - Pacman: 
@@ -67,7 +67,7 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
 
 * File input/output
   - Pacman: 
-    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/Pacman/src/Game.cpp)
+    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp)
   - Sliding Block Puzzle: 
   - Minesweeper: The player can save their progress in a .txt file and load it later from it. Check the functions saveGame() and loadGame() in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
   - Bokosan: The maps for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt)
@@ -83,7 +83,7 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   - Our code is well-organized with comments explaining each function, so that we can keep up with the code easily.
 
 ## Description
-  The Great Escape
+  The Great Escape:
   Alacran's Shadow
 
   Sam Riker, a former detective 🕵️, finds himself framed for a crime he didn't commit. Sentenced to life ⛓️ in Alacran Maximum Security Prison, he knows the only way to clear his name is to escape 🏃 and 
