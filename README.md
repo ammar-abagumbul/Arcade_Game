@@ -24,6 +24,7 @@
 
 # How to play
 
+Maximize the terminal window for a better experience!
 
 ```bash
   make game
@@ -54,7 +55,7 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
     
 * Data structures for storing game status
   - Pacman: 
-    - set: for storing pallets and for checking if player has eaten any pallets
+    - set: for storing pellets and for checking if player has eaten any pellets
     - vector: for storing Nodes in the path finding implementation
     - arrays: 1D array to store Ghosts and 2D array to store maze representation
   - Minesweeper: Uses vectors to store the board bombs and flags
@@ -76,7 +77,7 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.
 
 * Proper indentation and naming styles
-  - Proper indentation of 2 spaces is used
+  - Proper indentation is used with spaces instead of tabs
   - Functions are named appropriately and clearly in order to avoid misunderstanding and for easy location if changes are required 
 
 * In-code documentation
