@@ -540,15 +540,7 @@ int playBokosan(){
 	}
 
 	// Saving
-	ofstream fout;
-	fout.open("./user_cache/bokosan_save.txt");
-
-	if (fout.fail()){
-		printw("Error in file opening\n");
-		refresh();
-		napms(1500);
-		return 0;
-	}
+	ofstream fout("./user_cache/bokosan_save.txt");
 
 	// Saving process
 
