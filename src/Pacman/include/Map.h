@@ -6,8 +6,8 @@
 #define MAP_H
 
 #define BLUE 6
-#define GRAPE "🍇"
-#define RED_BALL "🔴"
+#define GRAPE "*"
+#define RED_BALL "@"
 
 /**
  * Represents a game map with a border and various elements on it.

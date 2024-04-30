@@ -40,14 +40,6 @@ class GameObject {
   void ResetState();
 
   /**
-   * Changes the position attribute of the game object after checking if path exists.
-   * Child classes have their own implementation
-   *
-   * @param map a 2d map representation that the Game object uses to track movement validity
-   */
-  virtual void Move(char **map);
-
-  /**
    * Changes the direction attribute of the game object after checking if path exists.
    *
    * @param direction the request to which the object is to change direction
@@ -98,7 +90,6 @@ class GameObject {
   char letter;
 };
 
-inline void GameObject::Move(char **map) {}
 inline void GameObject::ChangeDirection(Direction direction, char **map) {}
 
 inline void GameObject::ResetState() {

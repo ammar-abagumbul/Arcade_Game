@@ -293,7 +293,7 @@ void Game::PalletEaten() {
     for (auto it = powerBalls.begin(); it != powerBalls.end();) {
       if (it->y == player.getY() && it->x == player.getX() && it->type == c) {
         if (it->type == '$') {
-          player.addCharge(FPS * 6);
+          player.addCharge(FPS * 7);
           ShiftGhostMode(Ghost::Mode::RANDOM);
         }
         player.increaseScore(it->type);

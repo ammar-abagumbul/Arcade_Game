@@ -87,7 +87,7 @@ class Ghost : public GameObject {
    *
    * @param map The game map.
    */
-  void Move(char **map) override;
+  void Move(char **map);
 
   /**
    * Changes the direction of the ghost based on the player's and ghost's states.

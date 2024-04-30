@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <map>
 #include <queue>
+#include "ncurses.h"
 
 const int Rows = 32;
 const int Cols = 32;

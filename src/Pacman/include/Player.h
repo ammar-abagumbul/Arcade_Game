@@ -43,7 +43,7 @@ class Player : public GameObject {
    *
    * @param map The map array representing the game map.
    */
-  void Move(char **map) override;
+  void Move(char **map);
 
   /**
    * Changes the direction of the player.

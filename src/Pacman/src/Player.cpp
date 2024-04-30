@@ -23,7 +23,7 @@ void Player::Move(char **map) {
   if (map[tempY][tempX] == '#') {
     return;
   }
-
+  
   saveLastPos();
   setPos(tempY, tempX);
 }
