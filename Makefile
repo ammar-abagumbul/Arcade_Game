@@ -81,6 +81,6 @@ game: animations.o invalid_input_screen.o menu_screen.o gameplay.o main.o slidin
 .PHONY: clean
 
 clean:
-	echo "0" > user_cache/pacman_save.txt
+	rm ./user_cache/*
 	rm ./*.o
 	rm game
