@@ -70,10 +70,14 @@ One of the standout features of our game's design is its stunning aesthetics, wh
 
 * File input/output
   - Pacman: 
-    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp)
+    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [Game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp)
   - Sliding Block Puzzle: When the user presses 'esc', the file is saved in a .txt file under the user_cache directory. When the game loads up, it is checked whether a save file exists and if so it is loaded up accordingly. Check [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/game.cpp), the saveBoard() & initSavedboard() functions in [board.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/board.cpp)
   - Minesweeper: The player can save their progress in a .txt file and load it later from it. Check the functions saveGame() and loadGame() in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
   - Bokosan: The and objects for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt) Save states are written into a .txt file in the same format as the level files under the user_cache directory.
+
+* Operator Overloading
+  - Pacman:
+    - Overloading of the insertion, extraction and less than operator to for the Direction class and PowerBalls struct inorder to use ready-made solutions within the C++ library. Look [Direction.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Direction.h) and [Game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp) 
   
 * Program codes in multiple file
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.
