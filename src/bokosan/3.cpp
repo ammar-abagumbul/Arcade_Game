@@ -70,7 +70,7 @@ void PrintMap(char** field, int h, int w){
 }
 
 void EndGame(char** field, int h, int w){
-	// Clears arrays and ends game
+	// Frees memory from field** and ends game
 	
 	for (int i=0; i<h; i++)
         	delete[] field[i];
@@ -108,7 +108,7 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 }
 
 int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
-	// Checks if button is pressed by laser
+	// Checks if button is "pressed" by laser
 
 	bool prev = but.on;
 	but.on = field[but.pos.y-1][but.pos.x] == '|' || field[but.pos.y+1][but.pos.x] == '|' || field[but.pos.y][but.pos.x-1] == '-' || field[but.pos.y][but.pos.x+1] == '-';
@@ -130,8 +130,8 @@ int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
 }
 
 void UpdateField(char** field, int h, int w, Position p, vector<Position> box, vector<Mirror> mir, vector<Laser> &las, vector<Button> &but, Gate &gat){
-	// Clears the field into *** and adds objects again
-	// with their updated positions
+	// Clears the field into nothing but walls and iterates through
+	// all object vectors to add them again with their updated positions
 
 	// Clear field
 	for (int i=0; i<h; i++)
