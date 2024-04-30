@@ -75,3 +75,11 @@ main.o: include/animations.h include/menu_screen.h include/gameplay.h src/main.c
 
 game: sliding_menu.o sliding_game.o sliding_board.o sliding_move.o minesweeper_game.o bokosan_game.o pacman_game.o pacman_player.o pacman_ghost.o pacman_navigator.o pacman_map.o animations.o invalid_input_screen.o menu_screen.o gameplay.o main.o
 	$(CC) $(FLAGS) $^ -o $@ -lncurses
+
+
+.PHONY: clean
+
+clean:
+	echo "0" > user_cache/pacman_save.txt
+	rm ./*.o
+	rm game
