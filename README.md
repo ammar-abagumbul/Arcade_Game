@@ -37,9 +37,8 @@ To clear progress and start the game anew
   make clean
 ```
 - Press Enter to start
-- Press 1 to start a New Game
-- Press 2 to Load game
-- Press 3 to see Credits
+- Press 1 to Select Level
+- Press 2 to see Credits
 - Press 4 to Exit
 - Tip: Press enter to skip story lines and dont forget to save (select exit) after each game!
 
