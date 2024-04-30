@@ -6,7 +6,6 @@ void slidingDisplayMenu(int choice, bool resumeAvailable)
     printw("\n\n\n\n\n");
     printw("                                               THE CLUE IN THE CELL\n\n");
 
-
     printw("                                                   ");
     if (choice == 1)
         attron(A_REVERSE);
@@ -14,7 +13,6 @@ void slidingDisplayMenu(int choice, bool resumeAvailable)
     printw("\n");
     if (choice == 1)
         attroff(A_REVERSE);
-    
 
     if (resumeAvailable)
     {
@@ -26,7 +24,6 @@ void slidingDisplayMenu(int choice, bool resumeAvailable)
         if (choice == 2)
             attroff(A_REVERSE);
     }
-
 
     printw("                                                   ");
     if (choice == 3 || (!resumeAvailable && choice == 2))
@@ -47,40 +44,47 @@ int slidingShowMenuScreen(bool resumeAvailable)
     int optionChosen = 1;
     slidingDisplayMenu(optionChosen, resumeAvailable);
 
-    while(true)
+    while (true)
     {
-        bool br = false;	
+        bool br = false;
         int c = getch();
-        switch(c)
-        {	
-            case KEY_UP:
-                if(optionChosen == 1 && resumeAvailable){
-                    optionChosen = 3;
-                }
-                else if (optionChosen == 1){
-                    optionChosen = 2;
-                }
-                else{
-                    --optionChosen;
-                }
-                break;
-            case KEY_DOWN:
-                if(optionChosen == 3){
-                    optionChosen = 1;
-                }else if (optionChosen == 2 && !resumeAvailable){
-                    optionChosen = 1;
-                }
-                else {
-                    ++optionChosen;
-                }
-                break;
-            case 10:
-                return optionChosen;
-                break;
-            default:
-                continue;
+        switch (c)
+        {
+        case KEY_UP:
+            if (optionChosen == 1 && resumeAvailable)
+            {
+                optionChosen = 3;
+            }
+            else if (optionChosen == 1)
+            {
+                optionChosen = 2;
+            }
+            else
+            {
+                --optionChosen;
+            }
+            break;
+        case KEY_DOWN:
+            if (optionChosen == 3)
+            {
+                optionChosen = 1;
+            }
+            else if (optionChosen == 2 && !resumeAvailable)
+            {
+                optionChosen = 1;
+            }
+            else
+            {
+                ++optionChosen;
+            }
+            break;
+        case 10:
+            return optionChosen;
+            break;
+        default:
+            continue;
         }
-        slidingDisplayMenu(optionChosen, resumeAvailable);  
+        slidingDisplayMenu(optionChosen, resumeAvailable);
     }
 
     return optionChosen;
