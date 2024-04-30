@@ -14,6 +14,7 @@ using namespace std;
 
 int main()
 {
+    // Set up ncurses
     setlocale(LC_ALL, "");
     initscr();
     refresh();
@@ -25,7 +26,6 @@ int main()
 
     // Display the intro animations welcoming the user
     introAnimations();
-
 
     // The user will always be redirected to the main menu
     // unless the user quits
@@ -39,11 +39,13 @@ int main()
         {
             int levelOption = showLevelScreen();
 
-            if (levelOption == 5){
+            if (levelOption == 5)
+            {
                 // Return To main menu
                 continue;
             }
-            else{
+            else
+            {
                 // Play a game
                 startGame(levelOption);
             }

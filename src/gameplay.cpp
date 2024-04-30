@@ -16,7 +16,7 @@
 
 // Comment according to need
 // Library effective with Windows
-//#include <windows.h>
+// #include <windows.h>
 // Library effective with Linux
 #include <unistd.h>
 
@@ -24,11 +24,8 @@
 void startGame(int actNumber){
     switch (actNumber){
         case 1:
-            // Show the intro of the story line
-            // if this is a new game
-            
+            // Show the intro of the story line            
             storyLineIntro();
-
 
             // Start of Act One:
 
@@ -51,32 +48,37 @@ void startGame(int actNumber){
             // Start of Act Two:
 
             // Show the relevant intro animations of Act Two
-            // displayActTwo();
-            // displayStoryTwo();
+            displayActTwo();
+            displayStoryTwo();
             displayIntroTwo();
 
             // Clear the screen and start playing
             clear();
             bool br;
+
             while (true){
                 int bokosanStatus = playBokosan();
+
                 if (bokosanStatus == 0){
+                    // User has exited
                     br = true;
                     break;
                 }else if(bokosanStatus == 2){
+                    // Game over
                     continue;
                 }
                 else{
+                    // User has won
                     br = false;
                     break;
                 }
             }
+
             if (br){
                 break;
             }
             sleep(3);
             
-
             // Display the outro story of Act Two
             displayOutroTwo();
 
