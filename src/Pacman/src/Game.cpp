@@ -11,7 +11,7 @@
 #define MAP_HEIGHT ROWS
 #define MAP_WIDTH COLS * 2
 #define FPS 5
-#define SAVE_PATH "./savedGame.txt"
+#define SAVE_PATH "./user_cache/pacman_save.txt"
 #define PLAYER_SPAWN_STATE \
   ObjectState { 23, 16, Direction::Left }
 #define GHOST_SPAWN_STATE \

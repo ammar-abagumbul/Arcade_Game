@@ -17,7 +17,7 @@ void Navigator::Start() {
       if (currentGame.isNewGame) // New game means the game object hasn't been initialized, it's not referring to
                                  // being loaded from a saved file or not
       {
-        currentGame = Game("savedGame.txt", LOAD_SAVED);
+        currentGame = Game("./user_cache/pacman_save.txt", LOAD_SAVED);
         currentGame.Run();
       } else {
         currentGame.mapWindow.AddWalls(currentGame.map);
@@ -27,12 +27,12 @@ void Navigator::Start() {
       }
       break;
     case 1: // New Game
-      currentGame = Game("map.txt", LOAD_NEW);
+      currentGame = Game("./maps/pacman_map.txt", LOAD_NEW);
       currentGame.Run();
       break;
     case 2: // Exit Game
       if (!currentGame.isNewGame && !currentGame.isOver)
-        currentGame.Save("savedGame.txt");
+        currentGame.Save("./user_cache/pacman_save.txt");
       if (currentGame.isOver) // Can't resume a game that is already lost
         currentGame.ClearSavedFile();
       programExitRequest = true;
@@ -56,7 +56,7 @@ void Navigator::Start() {
 }
 
 std::string *Navigator::getMenuOptions() {
-  std::ifstream savedGame("savedGame.txt");
+  std::ifstream savedGame("./user_cache/pacman_save.txt");
   bool resumableGameExists = false;
   if (savedGame.fail()) {
     std::string *options = new std::string[3]{"New Game", "Exit", "0"};

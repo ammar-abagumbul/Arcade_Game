@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <vector>
 
 #ifndef GHOST_H
 #define GHOST_H

@@ -10,6 +10,7 @@
 #include "../src/slidingblock/game.h"
 #include "../src/minesweeper/minesweeper.h"
 #include "../src/bokosan/3.h"
+#include "../src/pacman/include/Navigator.h"
 
 #include "ncurses.h"
 
@@ -108,9 +109,9 @@ void startGame(int actNumber){
 
             // Clear the screen and start playing
             clear();
-            printw("PacMan\n");
-            refresh();
-            sleep(3);
+            Navigator navigator;
+            navigator.Start();
+            napms(1000);
 
             // Show the outro animations of the game
             displayDoorOutro();
