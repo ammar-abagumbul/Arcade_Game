@@ -48,10 +48,9 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
 ## Features Implemented
 
 * Generation of random game sets or events:
-  - Sliding Block Puzzle: Shuffles the tiles in random order every game, so the board is random every time. Check the shuffleboard() function in board.cpp
-  - Minesweeper: The positions of bombs are generated randomly, leading to a random game every time. Check the placeBombs() function in minesweeper.cpp
-  - Bokosan:
-  - Pacman: Ghost movement alternates between randomn behavior and path tracking algorithm throughout the game
+  - Sliding Block Puzzle: Shuffles the tiles in random order every game, so the board is random every time. Check the shuffleboard() function in [board.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/board.cpp)
+  - Minesweeper: The positions of bombs are generated randomly, leading to a random game every time. Check the placeBombs() function in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
+  - Pacman: Ghost movement alternates between random behavior and path-tracking algorithm throughout the game. Check the PickRandomDirection() function in [Ghost.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/Pacman/src/Ghost.cpp)
     
 * Data structures for storing game status
   - Pacman: 
@@ -64,15 +63,15 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   - Pacman:
     - Navigator uses dynamically allocated arrays of string types to pass information between game and menu window
   - Minesweeper: Uses vectors to store the biard bombs and flags
+  - Sliding Block Puzzle:
 
 * File input/output
   - Pacman: 
-    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress
-  - Sliding Block Puzzle:
-  - Minesweeper: The player can save their progress in a .txt file and load it later from it
-  - Bokosan: The maps for each level of Bokosan is read from .txt files
+    - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/Pacman/src/Game.cpp)
+  - Sliding Block Puzzle: 
+  - Minesweeper: The player can save their progress in a .txt file and load it later from it. Check the functions saveGame() and loadGame() in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
+  - Bokosan: The maps for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt)
   
-
 * Program codes in multiple file
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.
 
@@ -87,10 +86,13 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   The Great Escape
   Alacran's Shadow
 
-  Sam Riker, a former detective 🕵️, finds himself framed for a crime he didn't commit. Sentenced to life ⛓️ in Alacran Maximum Security Prison, he knows the only way to clear his name is to escape 🏃 and uncover the conspiracy that put him behind bars....
+  Sam Riker, a former detective 🕵️, finds himself framed for a crime he didn't commit. Sentenced to life ⛓️ in Alacran Maximum Security Prison, he knows the only way to clear his name is to escape 🏃 and 
+uncover the conspiracy that put him behind bars....
+  
   Can you help Sam escape and uncover the reason for the conspiracy?
 
   You have to complete 4 levels, each one having its own storyline and challenges.
 
   With your help, Sam successfully escapes the prison, but the journey is far from over. The truth he seeks lies beyond the walls of Alacran, and he now turns to you, the brave adventurer, to join him in unraveling the mystery that has ensnared his life. The story of Sam Riker will continue as you embark on a new chapter, where the stakes are higher, the challenges greater, and the truth more elusive than ever before. Are you ready to stand by his side and uncover the secrets that lie in the shadows?
 
+  NOTE: Each game has different input instructions, please follow the instructions on the screen for each game
