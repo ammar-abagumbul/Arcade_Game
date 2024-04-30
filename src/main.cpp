@@ -61,4 +61,6 @@ int main()
             break;
         }
     }
+  getch();
+  endwin();
 }
