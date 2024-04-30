@@ -116,9 +116,9 @@ void startGame(int actNumber){
             napms(1000);
 
             // Show the outro animations of the game
-            displayDoorOutro();
-            displayOutroStory();
-            displayToBeContinued();
+            // displayDoorOutro();
+            // displayOutroStory();
+            // displayToBeContinued();
             
             break;
     }
