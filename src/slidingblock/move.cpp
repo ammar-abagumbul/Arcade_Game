@@ -64,6 +64,7 @@ vector<string> possiblemovecheck(int board[3][3])
 bool checklegal(string input, vector<string> possiblemoves)
 {
     // This function checks whether the user input made is legal ("w", "a", "s", "d", "W", "A", "S", "D")
+    // The vector contains all legal moves
 
     vector<string>::iterator itr;
     for (itr = possiblemoves.begin(); itr != possiblemoves.end(); itr++)
@@ -90,6 +91,7 @@ void makemove(string input, int (&board)[3][3])
 
     int emptyrow = 0, emptycol = 0;
     vector<string> possiblemoves;
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -102,6 +104,7 @@ void makemove(string input, int (&board)[3][3])
             }
         }
     }
+    
     if (input == "w")
         tileSwap(board, emptyrow, emptycol, emptyrow + 1, emptycol);
     if (input == "s")

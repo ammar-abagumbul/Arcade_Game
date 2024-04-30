@@ -33,11 +33,15 @@ int slidingBlockGame()
 
     while (true)
     {
+        // Check if saved game exists
         bool fileexists = initSavedboard(board, solved);
+
+        // Show the menu screen and get option
         int currOption = slidingShowMenuScreen(fileexists);
 
         if (fileexists && currOption == 2)
         {
+            // Board was saved before
             initSavedboard(board, false);
         }
         if (currOption == 1)
@@ -45,8 +49,10 @@ int slidingBlockGame()
             // Initializes and shuffles the board
             initboard(board);
             shuffleboard(board);
+
             // Checks if shuffled board is solved or is solvable in one move, if so, reshuffles
             solved = checkwin(board, solved);
+
             if (solved || checkonemove(board))
             {
                 while ((solved != false) || (checkonemove(board) != false))
@@ -78,6 +84,7 @@ int slidingBlockGame()
                     input = tolower(input);
                 }
 
+                // Convert arrow keys to w, a, s, d
                 switch (input)
                 {
                 case KEY_UP:
@@ -96,9 +103,11 @@ int slidingBlockGame()
 
                 possiblemoves = possiblemovecheck(board);
                 string newinput;
-
+                
                 if (input == 27)
                 {
+                    // USer has pressed ESC
+
                     printw("\n\n                                Saving board...");
                     refresh();
                     saveBoard(board, false);
@@ -113,6 +122,7 @@ int slidingBlockGame()
                 {
                     continue;
                 }
+
                 // If move is legal, the move is made and the boolean solved is updated after every legal move
                 makemove(newinput, board);
                 printboard(board);
@@ -123,6 +133,7 @@ int slidingBlockGame()
                 {
                     return 1;
                 }
+
                 // If solved is still false after the input, ask the user for input again
                 printw("\n\n                                Press w, a, s, d or arrow keys to move\n                                Press ESC to return to main menu. \n");
                 refresh();
@@ -130,6 +141,7 @@ int slidingBlockGame()
         }
         else if (currOption = 3 || (!fileexists && currOption == 2))
         {
+            // User presses EXIT
             return 0;
         }
     }
