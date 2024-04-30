@@ -106,4 +106,4 @@ uncover the conspiracy that put him behind bars....
 
   With your help, Sam successfully escapes the prison, but the journey is far from over. The truth he seeks lies beyond the walls of Alacran, and he now turns to you, the brave adventurer, to join him in unraveling the mystery that has ensnared his life. The story of Sam Riker will continue as you embark on a new chapter, where the stakes are higher, the challenges greater, and the truth more elusive than ever before. Are you ready to stand by his side and uncover the secrets that lie in the shadows?
 
-  NOTE: Each game has different input instructions, please follow the instructions on the screen for each game
+  NOTE: Each game has different input instructions, please follow the instructions on the screen for each game.
