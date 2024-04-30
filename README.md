@@ -4,10 +4,10 @@
 # Menu
     i. Team Members
     ii. How to Play
-    iii. Features Implemented
-    iv. Description
-    v. Non-standard Libraries
-
+    iii. External/Non-standard Libraries
+    iv. Features Implemented
+    v. Description
+    
 # Team Members
 
 
@@ -40,11 +40,12 @@ Maximize the terminal window for a better experience!
 - Tip: Dont forget to save after each game!
 
 
-
-## External Libraries
+## External/Non-standard Libraries
 
 Our terminal game incorporates the ncurses library to elevate the visual experience for players. By leveraging the capabilities of ncurses, we enhance the aesthetics and user interface within the terminal environment. The library enables us to create interactive gameplay with visually appealing elements, such as colorful and dynamic graphics, smooth animations, and intuitive user controls. With the help of ncurses, we strive to deliver an immersive and enjoyable gaming experience right in the command line interface.
-    
+
+One of the standout features of our game's design is its stunning aesthetics, which were achieved using the help of the ncurses library. This library played a key role in implementing the main menu of our game and enabling the use of arrow keys as input. Some of the functions from the library we used are the mvprintw() function, which helps to align texts and graphics, and the refresh() function, which ensures that game updates are displayed promptly in real-time on the player's screen. Ncurses was also crucial in sprucing up the whole user interface, allowing us to implement vibrant colours to the otherwise plain-looking terminal. This can mostly be seen in the implementation of Pacman. These aesthetic improvements are not only easy on the player's eye but just overall contribute to a more polished and clean user interface, captivating gamers' interest in our game.
+
 ## Features Implemented
 
 * Generation of random game sets or events:
@@ -63,14 +64,14 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   - Pacman:
     - Navigator uses dynamically allocated arrays of string types to pass information between game and menu window
   - Minesweeper: Uses vectors to store the biard bombs and flags
-  - Sliding Block Puzzle:
+  - Sliding Block Puzzle: Uses vectors to store the possible moves a player can make. Check the possiblemovecheck() function in [move.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/move.cpp)
 
 * File input/output
   - Pacman: 
     - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp)
-  - Sliding Block Puzzle: 
+  - Sliding Block Puzzle: When the user presses 'esc', the file is saved in a .txt file under the user_cache directory. When the game loads up, it is checked whether a save file exists and if so it is loaded up accordingly. Check [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/game.cpp), the saveBoard() & initSavedboard() functions in [board.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/board.cpp)
   - Minesweeper: The player can save their progress in a .txt file and load it later from it. Check the functions saveGame() and loadGame() in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
-  - Bokosan: The maps for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt)
+  - Bokosan: The maps for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt) The files are saved in a .txt file under the user_cache directory.
   
 * Program codes in multiple file
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.
