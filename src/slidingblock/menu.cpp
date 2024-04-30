@@ -1,11 +1,21 @@
+// This file contains functions which handle
+// the main menu once the sliding block has been selected
+
 #include "ncurses.h"
 
 void slidingDisplayMenu(int choice, bool resumeAvailable)
 {
+    // This function outputs the entire main menu as well as the options available
+
+    // Terminal cleared to improve user experience
     clear();
+
+    // Header message
     printw("\n\n\n\n\n");
     printw("                                               THE CLUE IN THE CELL\n\n");
+    // End of header message
 
+    // First choice is highlighted if it is the current option
     printw("                                                   ");
     if (choice == 1)
         attron(A_REVERSE);
@@ -14,8 +24,10 @@ void slidingDisplayMenu(int choice, bool resumeAvailable)
     if (choice == 1)
         attroff(A_REVERSE);
 
+    // First checks if saved file exists
     if (resumeAvailable)
     {
+        // Choice is highlighted if it is the current option
         printw("                                                   ");
         if (choice == 2)
             attron(A_REVERSE);
@@ -25,6 +37,7 @@ void slidingDisplayMenu(int choice, bool resumeAvailable)
             attroff(A_REVERSE);
     }
 
+    // Choice is highlighted if it is the current option
     printw("                                                   ");
     if (choice == 3 || (!resumeAvailable && choice == 2))
         attron(A_REVERSE);
@@ -41,6 +54,7 @@ int slidingShowMenuScreen(bool resumeAvailable)
 
     using namespace std;
 
+    // Initially, first option is chosen
     int optionChosen = 1;
     slidingDisplayMenu(optionChosen, resumeAvailable);
 
@@ -48,11 +62,15 @@ int slidingShowMenuScreen(bool resumeAvailable)
     {
         bool br = false;
         int c = getch();
+
         switch (c)
         {
         case KEY_UP:
             if (optionChosen == 1 && resumeAvailable)
             {
+                // If RESUME GAME is available and current
+                // option is first option
+
                 optionChosen = 3;
             }
             else if (optionChosen == 1)
@@ -79,11 +97,13 @@ int slidingShowMenuScreen(bool resumeAvailable)
             }
             break;
         case 10:
+            // ENTER
             return optionChosen;
             break;
         default:
             continue;
         }
+        
         slidingDisplayMenu(optionChosen, resumeAvailable);
     }
 

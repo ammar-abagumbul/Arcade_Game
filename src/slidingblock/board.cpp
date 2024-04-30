@@ -1,5 +1,5 @@
-// This file contains the program related to the board
-// , which initializes the board, shuffles it (after checks for solved puzzle
+// This file contains the program related to the board.
+// It initializes the board, shuffles it (after checks for solved puzzle
 // and one-move solve), prints it and checks
 // the board for different cases after each input by the user.
 
@@ -19,10 +19,12 @@ using namespace std;
 
 void saveBoard(int (&board)[3][3], bool solved)
 {
-    // This function saves the board if the player wants to save the current board before quitting
+    // This function saves the board if the player 
+    // wants to save the current board before quitting
 
     ofstream fout;
     fout.open("./user_cache/sliding_block_save.txt");
+
     if (fout.is_open())
     {
         for (int i = 0; i < 3; i++)
@@ -45,6 +47,7 @@ bool initSavedboard(int (&board)[3][3], bool solved)
 
     ifstream fin;
     fin.open("./user_cache/sliding_block_save.txt");
+
     if (fin.is_open())
     {
         for (int i = 0; i < 3; i++)
@@ -78,6 +81,7 @@ void initboard(int (&board)[3][3])
     // This function initializes the board as a 2d array = {{1,2,3},{4,5,6},{7,8,0}}
 
     int num = 1;
+    
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -100,6 +104,7 @@ void printboard(int board[3][3])
     clear();
     printw("\n\n\n\n");
     int spaces = (80 - (3 * 5 + 4)) / 2;
+
     for (int i = 0; i < 3; i++)
     {
         printw("\n");
@@ -120,6 +125,7 @@ void printboard(int board[3][3])
             printw(" ");
         }
         printw("              ");
+
         for (int j = 0; j < 3; j++)
         {
             string linePart;
@@ -139,7 +145,6 @@ void printboard(int board[3][3])
         {
             printw(" ");
         }
-
         printw("              ");
 
         for (int k = 0; k < 3; k++)
@@ -172,6 +177,7 @@ bool checkonemove(int (&board)[3][3])
 
     int onedboard[9];
     int oneind = 0;
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -190,6 +196,7 @@ bool checkonemove(int (&board)[3][3])
                 inversioncount += 1;
         }
     }
+
     if (inversioncount == 1)
         return true;
     else
@@ -202,6 +209,7 @@ bool checkwin(int (&board)[3][3], bool solved)
     // and after each move by the user.
 
     int solvedboard[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -213,6 +221,7 @@ bool checkwin(int (&board)[3][3], bool solved)
             }
         }
     }
+    
     solved = true;
     return solved;
 }
