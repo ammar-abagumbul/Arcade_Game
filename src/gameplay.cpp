@@ -9,7 +9,7 @@
 #include "../include/animations.h"
 #include "../src/slidingblock/game.h"
 #include "../src/minesweeper/minesweeper.h"
-#include "../src/bokosan/3.h"
+#include "../src/bokosan/bokosan.h"
 #include "../src/pacman/include/Navigator.h"
 
 #include "ncurses.h"

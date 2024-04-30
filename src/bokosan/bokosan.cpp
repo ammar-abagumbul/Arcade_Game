@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 
-#include "3.h"
+#include "bokosan.h"
 
 #include "ncurses.h"
 
@@ -40,6 +40,11 @@ struct Gate{
 
 void PrintMap(char** field, int h, int w){
 	// Prints the map
+	
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// int h: height of map
+	// int w: width of map
 
 	clear(); // Clears the screen
 	printw("\n\n\n\n\n");
@@ -72,6 +77,11 @@ void PrintMap(char** field, int h, int w){
 void EndGame(char** field, int h, int w){
 	// Frees memory from field** and ends game
 	
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// int h: height of map
+	// int w: width of map
+	
 	for (int i=0; i<h; i++)
         	delete[] field[i];
 	delete[] field;
@@ -79,6 +89,13 @@ void EndGame(char** field, int h, int w){
 
 void TracePath(char** field, int h, int w, Position i, Position d){
 	// Draws laser on field. Detects if laser kills player
+	
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// int h: height of map
+	// int w: width of map
+	// Position i: Position of the current section of laser
+	// Position d: The direction the laser is heading
 
 	switch (field[i.y+d.y][i.x+d.x]){
 		case ' ':
@@ -109,6 +126,14 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 
 int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
 	// Checks if button is "pressed" by laser
+	
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// Button &but: Reference pass of the single button being called in this function
+	// vector<Laser> &las: Reference pass of lasers in the map
+	// Gate &gat: Reference pass of the single gate in the map
+	
+	// Output: int used to update map if the button is activated so the gate opens ast the same time as the button's activation. 
 
 	bool prev = but.on;
 	but.on = field[but.pos.y-1][but.pos.x] == '|' || field[but.pos.y+1][but.pos.x] == '|' || field[but.pos.y][but.pos.x-1] == '-' || field[but.pos.y][but.pos.x+1] == '-';
@@ -132,6 +157,17 @@ int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
 void UpdateField(char** field, int h, int w, Position p, vector<Position> box, vector<Mirror> mir, vector<Laser> &las, vector<Button> &but, Gate &gat){
 	// Clears the field into nothing but walls and iterates through
 	// all object vectors to add them again with their updated positions
+	
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// int h: height of map
+	// int w: width of map
+	// Position p: position of the player
+	// vector<Position> box: vector of all boxes
+	// vector<Mirror> mir: vector of all mirrors
+	// vector<Laser> &las: reference pass of vector of all lasers
+	// vector <Button> &but: reference pass of vector of all buttons
+	// Gate &gat: Reference pass of the single gate in the map
 
 	// Clear field
 	for (int i=0; i<h; i++)
@@ -174,6 +210,13 @@ void UpdateField(char** field, int h, int w, Position p, vector<Position> box, v
 bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<Mirror> &mir){
 	// Checks the block ahead and decides if it's possible to push
 
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// Position p: position of the player
+	// Position d: proposed direction of movement
+	// vector<Position> &box: reference pass of vector of all boxes
+	// vector<Mirror> &mir: reference pass of vector of all mirrors
+
 	switch (field[p.y+d.y][p.x+d.x]){
 		case '*': case '>': case '<': case '#':
 			return 0;
@@ -207,11 +250,17 @@ bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<M
 }
 
 int abs(int v){
+  // takes an integer and returns its absolute value
   return v * ((v>0) - (v<0));
 }
 
 void Rotate(char** field, Position p, vector<Mirror> &mir){
 	// Allows user to rotate a mirror
+
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map=
+	// Position p: position of the player=
+	// vector<Mirror> &mir: reference pass of vector of all mirrors=
 
 	for (int i=0; i<mir.size(); i++){
 		if ((abs(mir[i].pos.y-p.y) == 1 && mir[i].pos.x-p.x == 0) || (mir[i].pos.y-p.y == 0 && abs(mir[i].pos.x-p.x) == 1)){
@@ -229,6 +278,15 @@ void Rotate(char** field, Position p, vector<Mirror> &mir){
 
 int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<Mirror> &mir){
 	// Takes an input and calls other functions based on input
+
+	// Inputs:
+	// char** field: 2d array with symbols representing objects in the map
+	// int h: height of map
+	// int w: width of map
+	// Position &p: reference pass of position of the player
+	// vector<Position> &box: reference pass of vector of all boxes
+
+	// Output: int that stops the game if 0
 
 	printw("                                [w][a][s][d] Travel  [r] Rotate\n");
 	printw("                                [1] Quit             [2] Save & Quit\n");
