@@ -32,13 +32,17 @@ Maximize the terminal window for a better experience!
 ```bash
   ./game
 ```
+To clear progress and start the game anew
+```bash
+  make clean
+```
 - Press Enter to start
 - Press 1 to start a New Game
 - Press 2 to Load game
 - Press 3 to see Credits
 - Press 4 to Exit
-- Tip: Dont forget to save after each game!
-
+- Tip: Press enter to skip story lines and dont forget to save (select exit) after each game!
+       
 
 ## External/Non-standard Libraries
 
