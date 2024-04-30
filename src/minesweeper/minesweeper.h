@@ -6,4 +6,5 @@
 
 bool startMinesweeper();
 std::vector<std::string> checkSaved();
+
 #endif

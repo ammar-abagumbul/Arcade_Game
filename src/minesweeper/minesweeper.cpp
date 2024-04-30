@@ -11,8 +11,10 @@
 
 using namespace std;
 
-// Initialisisng ncurses for standalone testing
+
 void initCurses() {
+    // Initialisisng ncurses for standalone testing
+
     initscr();              // Start curses mode
     raw();                  // Line buffering disabled, Pass on every char to me
     noecho();               // Don't echo input values
@@ -20,8 +22,10 @@ void initCurses() {
     curs_set(0);            // Hide cursor
 }
 
-// Reinitialise ncurses after every game loop
+
 void reinitialiseCurses() {
+    // Reinitialise ncurses after every game loop
+
     endwin();
     refresh();
     clear();
@@ -29,22 +33,28 @@ void reinitialiseCurses() {
 }
 
 void finishCurses() {
-    endwin(); // End curses mode to revert back to normal terminal mode
+    // End curses mode to revert back to normal terminal mode
+    endwin();
 }
 
-//delete the saved file
+
 void clearFile(const string& filename){
+    // Delete the saved file
     remove(filename.c_str());
 }
 
-//printing to center align
+
 void printCentered(int row, const string& text) {
+    // Printing to center align
+
     int xPos = (COLS - text.length()) / 2; // Center text horizontally
     mvprintw(row, xPos, "%s", text.c_str());
 }
 
-//print the board
+
 void printBoard(const vector<vector<char>>& board, int size) {
+    // Print the board
+
     clear(); // Clear the screen
     int start_row = (LINES - size * 2) / 2;
     int start_col = (COLS - size * 4) / 2;
@@ -55,57 +65,69 @@ void printBoard(const vector<vector<char>>& board, int size) {
         printw("%4c", 'A' + i);
     }
     printw("\n");
+
     mvprintw(start_row + 1 * 2 + 2, start_col + 4, "   +");
     for (int i =0; i < size; i++){
 	printw("---+");
     }
     printw("\n");
+
     // Print rows
     for (int r = 0; r < size; r++) {
         mvprintw(start_row + r * 2 + 1, start_col + 4, "%2d |", r);
+
         for (int c = 0; c < size; c++) {
             printw("%3c|", board[r][c]);
         }
+
         printw("\n");
         mvprintw(start_row + r * 2 + 2, start_col + 4, "   +");
+
         for (int i = 0; i < size; i++) {
             printw("---+");
         }
+
         printw("\n");
     }
     refresh();
 }
 
 
-//save the game in a text file
 void saveGame(const vector<vector<char>>& board, const vector<vector<char>>& gridblank, int size) {
+    // Save the game in a text file
+
     ofstream saveFile("./user_cache/minesweeper_save.txt");
     saveFile << size << '\n';
+
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             saveFile << board[i][j];
         }
         saveFile << '\n';
     }
+
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             saveFile << gridblank[i][j];
         }
         saveFile << '\n';
     }
+
     saveFile.close();
     printCentered(0, "Game saved successfully.");
     refresh();
-    napms(500); // Pause for 2 seconds
+    napms(500); // Pause for 0.5 seconds
 }
 
 
-// load the saved game 
 bool loadGame(vector<vector<char>>& board, vector<vector<char>>& gridblank, int& size) {
+    // Load the saved game 
     ifstream saveFile("./user_cache/minesweeper_save.txt");
+
     if (!saveFile.is_open()) {
         return false;
     }
+
     saveFile >> size; // Read the size of the board
     board.resize(size, vector<char>(size, '0'));
     gridblank.resize(size, vector<char>(size, ' '));
@@ -131,8 +153,9 @@ bool loadGame(vector<vector<char>>& board, vector<vector<char>>& gridblank, int&
     return true;
 }
 
-//check if the user wins or not
+
 bool checkWin(const vector<vector<char>>& board, const vector<vector<char>>& gridblank, int size) {
+    // Check if the user has won
     for (int r = 0; r < size; r++) {
         for (int c = 0; c < size; c++) {
             if (board[r][c] != '*' && gridblank[r][c] == ' ') {
@@ -140,20 +163,24 @@ bool checkWin(const vector<vector<char>>& board, const vector<vector<char>>& gri
             }
         }
     }
+
     return true;
 }
 
 int isValidAction(char action) {
+    // Checks if the action is valid
     return (action == 'q' || action == 'Q' || action == 's' || action == 'S' || action == 'm' || action == 'M' || action == 'o' || action == 'O');
  }
 
 
-//ask for inout and handle it 
 bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank, int size) {
+    // Asks for input and handles accordingly
+
     int row, col;
     char ch, action;
     char input[256];
     bool validInput = false;
+
     do {
         mvprintw(LINES - 1, 0, "Enter action (o-open, m-mark, sa0-save, qa0-quit) and position (e.g., oE4): ");
         echo();
@@ -166,6 +193,7 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
             napms(500); // Wait before asking for input again
             continue; // Skip the rest of the loop and ask for input again
         }
+
         action = input[0];
         ch = input[1];
         col = toupper(ch) - 'A';
@@ -209,10 +237,13 @@ bool chooseAndOpen(vector<vector<char>>& board, vector<vector<char>>& gridblank,
     return true;
 }
 
-//place the bombs randomly in the  empty cells of the grid
+
 void placeBombs(vector<vector<char>>& board, int size) {
+    // Place the bombs randomly in the  empty cells of the grid
+
     srand(time(NULL));
     int bombs = size; // Number of bombs is equal to the grid size
+
     while (bombs > 0) {
         int r = rand() % size;
         int c = rand() % size;
@@ -231,11 +262,14 @@ void placeBombs(vector<vector<char>>& board, int size) {
     }
 }
 
-//the game logic
+
 bool playGame(int size, bool newGame) {
-    // If it's a new game, initialize the board and place bombs
+    // Main game logic
+
+    // If it is a new game, initialize the board and place bombs
     vector<vector<char>> board(size, vector<char>(size, '0'));
     vector<vector<char>> gridblank(size, vector<char>(size, ' '));
+
     if (newGame) {
         placeBombs(board, size);  // Place bombs equivalent to the size of the board for simplicity
     } else {
@@ -272,8 +306,9 @@ bool playGame(int size, bool newGame) {
 }
 
 
-//to setuo the game and main menu
 bool startMinesweeper() {
+    // Sets up the game
+
     // initCurses();
 
     int choice, gridSize = 5;  // Default grid size
@@ -326,6 +361,7 @@ bool startMinesweeper() {
                 napms(500);
                 break;
         }
+
         reinitialiseCurses();
 	    clear();
     } while (choice != 4);
@@ -334,10 +370,13 @@ bool startMinesweeper() {
     return gameResult;
 }
 
-//to return if user has saved game or not
+
 std::vector<std::string> checkSaved(){
+    // Returns if user has saved game
+
     vector<string> options;
     ifstream saveFile("./user_cache/minesweeper_save.txt");
+    
     if (!saveFile.is_open()) {
         options.push_back("New Game");
         options.push_back("Exit");
