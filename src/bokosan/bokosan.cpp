@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 
-#include "3.h"
+#include "bokosan.h"
 
 #include "ncurses.h"
 

@@ -29,8 +29,8 @@ minesweeper_game.o: src/minesweeper/minesweeper.cpp src/minesweeper/minesweeper.
 
 # Compilation of bokosan
 
-bokosan_game.o: src/bokosan/3.cpp src/bokosan/3.h
-	$(CC) $(FLAGS) -c src/bokosan/3.cpp -o bokosan_game.o
+bokosan_game.o: src/bokosan/bokosan.cpp src/bokosan/bokosan.h
+	$(CC) $(FLAGS) -c src/bokosan/bokosan.cpp -o bokosan_game.o
 
 
 # Compilation of pacman
@@ -80,6 +80,5 @@ game: sliding_menu.o sliding_game.o sliding_board.o sliding_move.o minesweeper_g
 .PHONY: clean
 
 clean:
-	rm ./user_cache/*
 	rm ./*.o
 	rm game
