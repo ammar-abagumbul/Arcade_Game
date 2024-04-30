@@ -80,6 +80,6 @@ game: sliding_menu.o sliding_game.o sliding_board.o sliding_move.o minesweeper_g
 .PHONY: clean
 
 clean:
-	echo "0" > user_cache/pacman_save.txt
+	rm ./user_cache/*
 	rm ./*.o
 	rm game

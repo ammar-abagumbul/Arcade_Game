@@ -70,7 +70,7 @@ void PrintMap(char** field, int h, int w){
 }
 
 void EndGame(char** field, int h, int w){
-	// Clears arrays and ends game
+	// Frees memory from field** and ends game
 	
 	for (int i=0; i<h; i++)
         	delete[] field[i];
@@ -78,7 +78,8 @@ void EndGame(char** field, int h, int w){
 }
 
 void TracePath(char** field, int h, int w, Position i, Position d){
-	// draws laser on field. Detects if laser kills player
+	// Draws laser on field. Detects if laser kills player
+
 	switch (field[i.y+d.y][i.x+d.x]){
 		case ' ':
 			if (d.y) field[i.y+d.y][i.x+d.x] = '|';
@@ -107,9 +108,11 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 }
 
 int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
-	// checks if button is pressed by laser
+	// Checks if button is "pressed" by laser
+
 	bool prev = but.on;
 	but.on = field[but.pos.y-1][but.pos.x] == '|' || field[but.pos.y+1][but.pos.x] == '|' || field[but.pos.y][but.pos.x-1] == '-' || field[but.pos.y][but.pos.x+1] == '-';
+	
 	if (but.on != prev){
 		switch (but.func){
 			case 'g':
@@ -127,32 +130,41 @@ int CheckButton(char** field, Button &but, vector<Laser> &las, Gate &gat){
 }
 
 void UpdateField(char** field, int h, int w, Position p, vector<Position> box, vector<Mirror> mir, vector<Laser> &las, vector<Button> &but, Gate &gat){
-	// clear field
+	// Clears the field into nothing but walls and iterates through
+	// all object vectors to add them again with their updated positions
+
+	// Clear field
 	for (int i=0; i<h; i++)
 		for (int j=0; j<w; j++)
 			if (field[i][j] != '*') field[i][j] = ' ';
 
-	// redraw elements from positions and other status
+	// Redraw elements from positions and other status
 	field[gat.pos.y][gat.pos.x] = (gat.on) ? 'O':'X';
 	field[p.y][p.x] = 'P';
+
 	for (const Position& i : box)
 		field[i.y][i.x] = 'B';
+	
 	for (const Mirror& i : mir){
 		field[i.pos.y][i.pos.x] = i.dir;
 	}
+
 	for (const Laser& i : las){
 		char sym[][4] = {" ^ ", "< >", " v "};
 		field[i.pos.y][i.pos.x] = sym[i.dir.y+1][i.dir.x+1];
 	}
+
 	for (const Button& i : but){
-                field[i.pos.y][i.pos.x] = '#';
-        }
+        field[i.pos.y][i.pos.x] = '#';
+    }
+
 	for (const Laser& i : las){
 		if (i.on) TracePath(field, h,w, i.pos, i.dir);
 		if (bokosanGameOver){
 			return;
 		}
 	}
+
 	for (int i=0; i<but.size(); i++){
 		if (CheckButton(field, but[i], las, gat))
 			UpdateField(field, h, w, p, box, mir, las, but, gat);
@@ -160,7 +172,8 @@ void UpdateField(char** field, int h, int w, Position p, vector<Position> box, v
 }
 
 bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<Mirror> &mir){
-	// checks the block ahead and decides if it's possible to push
+	// Checks the block ahead and decides if it's possible to push
+
 	switch (field[p.y+d.y][p.x+d.x]){
 		case '*': case '>': case '<': case '#':
 			return 0;
@@ -189,6 +202,7 @@ bool Push(char** field, Position &p, Position d, vector<Position> &box, vector<M
 			return 1;
 			break;
 	}
+
 	return 0;
 }
 
@@ -197,6 +211,8 @@ int abs(int v){
 }
 
 void Rotate(char** field, Position p, vector<Mirror> &mir){
+	// Allows user to rotate a mirror
+
 	for (int i=0; i<mir.size(); i++){
 		if ((abs(mir[i].pos.y-p.y) == 1 && mir[i].pos.x-p.x == 0) || (mir[i].pos.y-p.y == 0 && abs(mir[i].pos.x-p.x) == 1)){
 			switch (mir[i].dir){
@@ -212,15 +228,20 @@ void Rotate(char** field, Position p, vector<Mirror> &mir){
 }
 
 int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<Mirror> &mir){
-	int input;
+	// Takes an input and calls other functions based on input
+
 	printw("                                [w][a][s][d] Travel  [r] Rotate\n");
 	printw("                                [1] Quit             [2] Save & Quit\n");
 	refresh();
+	
+	int input;
 	bool br = false;
 	Position d;
+
 	while (!br){
 		input = getch();
 		br = true;
+
 		switch (input){
 			case 'w': case 'W':
 				d = {-1,0};
@@ -250,16 +271,22 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 				br = false;
 		}
 	}
+
 	return 1;
 }
 
 void BokosanDisplayMenu(int choice, bool resumeAvailable)
 {
+	// This function outputs the entire main menu as well as the options available
+
+    // Terminal cleared to improve user experience
     clear();
+
+	// Header message
     printw("\n\n\n\n\n");
     printw("                                               THE ARMORY ARSENAL\n\n");
 
-
+	// First choice is highlighted if it is the current option
     printw("                                                   ");
     if (choice == 1)
         attron(A_REVERSE);
@@ -268,9 +295,10 @@ void BokosanDisplayMenu(int choice, bool resumeAvailable)
     if (choice == 1)
         attroff(A_REVERSE);
     
-
+	// First checks if saved file exists
     if (resumeAvailable)
     {
+		// Choice is highlighted if it is the current option
         printw("                                                   ");
         if (choice == 2)
             attron(A_REVERSE);
@@ -280,7 +308,7 @@ void BokosanDisplayMenu(int choice, bool resumeAvailable)
             attroff(A_REVERSE);
     }
 
-
+    // Choice is highlighted if it is the current option
     printw("                                                   ");
     if (choice == 3 || (!resumeAvailable && choice == 2))
         attron(A_REVERSE);
@@ -297,6 +325,7 @@ int BokosanShowMenuScreen(bool resumeAvailable)
 
     using namespace std;
 
+	// Initially first option is chosen
     int optionChosen = 1;
     BokosanDisplayMenu(optionChosen, resumeAvailable);
 
@@ -304,10 +333,14 @@ int BokosanShowMenuScreen(bool resumeAvailable)
     {
         bool br = false;	
         int c = getch();
+
         switch(c)
         {	
             case KEY_UP:
                 if(optionChosen == 1 && resumeAvailable){
+					// If RESUME GAME is available and current
+	                // option is first option
+
                     optionChosen = 3;
                 }
                 else if (optionChosen == 1){
@@ -328,11 +361,13 @@ int BokosanShowMenuScreen(bool resumeAvailable)
                 }
                 break;
             case 10:
+				// ENTER
                 return optionChosen;
                 break;
             default:
                 continue;
         }
+
         BokosanDisplayMenu(optionChosen, resumeAvailable);  
     }
 
@@ -340,14 +375,18 @@ int BokosanShowMenuScreen(bool resumeAvailable)
 }
 
 int playBokosan(){
+	// Main function setting up the game
+	// and handling the main game flow
+
 	bokosanGameOver = false;
 	clear();
 
-	// checks if there is a savefile and makes main  menu based on it
+	// Checks if there is a savefile and makes main  menu based on it
 	ifstream testSave;
 	int menu;
 	string filename;
 	testSave.open("./user_cache/bokosan_save.txt");
+
 	if (testSave.fail()){
 		menu = BokosanShowMenuScreen(false);
 		switch (menu){
@@ -376,11 +415,12 @@ int playBokosan(){
 	}
 	testSave.close();
 
-	// open file
+	// Open the file accordingly
 	printw("loading %s\n", filename.c_str());
 	refresh();
 	ifstream fin;
 	fin.open(filename);
+
 	if (fin.fail()){
 		printw("Error in file opening\n");
 		refresh();
@@ -388,7 +428,7 @@ int playBokosan(){
 		return 0;
 	}
 
-	// initiate map
+	// Initiate map
 	int height;
 	int width;
 	char** field;
@@ -408,14 +448,14 @@ int playBokosan(){
 		}
 	}
 
-	// spawn player
+	// Spawn player
 	fin.ignore(100,'\n');
 	Position p;
 	fin >> p.y >> p.x;
 	fin.ignore(100,'\n');
 	field[p.y][p.x] = 'P';
 
-	// spawn boxes
+	// Spawn boxes
 	fin.ignore(100,'\n');
 	int n;
 	fin >> n;
@@ -428,7 +468,8 @@ int playBokosan(){
 		field[temp.y][temp.x] = 'B';
 		fin.ignore(100,'\n');
 	}
-	// spawn mirrors
+
+	// Spawn mirrors
 	fin.ignore(100,'\n');
 	fin >> n;
 	fin.ignore(100,'\n');
@@ -440,7 +481,7 @@ int playBokosan(){
 		fin.ignore(100,'\n');
 	}
 
-	// spawn lasers
+	// Spawn lasers
 	fin.ignore(100,'\n');
 	fin >> n;
 	fin.ignore(100,'\n');
@@ -452,7 +493,7 @@ int playBokosan(){
 		fin.ignore(100,'\n');
 	}
 
-	// spawn buttons
+	// Spawn buttons
 	fin.ignore(100,'\n');
 	fin >> n;
 	fin.ignore(100,'\n');
@@ -465,26 +506,30 @@ int playBokosan(){
 		fin.ignore(100,'\n');
 	}
 
-	// spawn gate
+	// Spawn gate
 	fin.ignore(100,'\n');
 	Gate gat;
 	fin >> gat.pos.y >> gat.pos.x >> gat.on;
 	
 	fin.close();
-	// initial print
+
+	// Initial print of the field
 	UpdateField(field, height, width, p, box, mir, las, but, gat);
 	PrintMap(field, height, width);
-	// game
+
+	// Main game
 	while (Move(field, height, width, p, box, mir)){
 		if (bokosanGameOver){
 			EndGame(field, height, width);
 			return 2;
 		}
+
 		UpdateField(field, height, width, p, box, mir, las, but, gat);
 		if (bokosanGameOver){
 			EndGame(field, height, width);
 			return 2;
 		}
+
 		PrintMap(field, height, width);
 		if (p.y == gat.pos.y && p.x == gat.pos.x && gat.on){
 			printw("you win!\n");
@@ -494,43 +539,49 @@ int playBokosan(){
 		}
 	}
 
-	// saving
-	ofstream fout;
-	fout.open("./user_cache/bokosan_save.txt");
-	if (fout.fail()){
-		printw("Error in file opening\n");
-		refresh();
-		napms(1500);
-		return 0;
-	}
+	// Saving
+	ofstream fout("./user_cache/bokosan_save.txt");
+
+	// Saving process
 
 	fout << "size" << endl;
 	fout << height << ' ' << width << endl;
 	fout << "map" << endl;
+
 	for (int i=0; i<height; i++){
 		fout << field[i] << endl;
 	}
+
 	fout << "player (y, x)" << endl;
 	fout << p.y << ' ' << p.x << endl;
 	fout << "boxes (y, x)" << endl;
 	fout << box.size() << endl;
+
 	for (int i=0; i<box.size(); i++)
 		fout << box[i].y << ' ' << box[i].x << endl;
+	
 	fout << "mirrors (y, x, initial direction)" << endl;
 	fout << mir.size() << endl;
+
 	for (int i=0; i<mir.size(); i++)
 		fout << mir[i].pos.y << ' ' << mir[i].pos.x << ' ' << mir[i].dir << endl;
+	
 	fout << "lasers (y, x, direction (y,x), status)" << endl;
 	fout << las.size() << endl;
+
 	for (int i=0; i<las.size(); i++)
 		fout << las[i].pos.y << ' ' << las[i].pos.x << ' ' << las[i].dir.y << ' ' << las[i].dir.x << ' ' << las[i].on << endl;
+	
 	fout << "button (y, x, function, at y, x)" << endl;
 	fout << but.size() << endl;
+	
 	for (int i=0; i<but.size(); i++)
 		fout << but[i].pos.y << ' ' << but[i].pos.x << ' ' << but[i].func << ' ' << but[i].targ.y << ' ' << but[i].targ.x << endl;
+	
 	fout << "gate (y, x, status)" << endl;
 	fout << gat.pos.y << ' ' << gat.pos.x << ' ' << gat.on << endl;
 
+	// Saving complete, close the file
 	fout.close();
 
 	// cleanup
