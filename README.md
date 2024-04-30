@@ -77,7 +77,7 @@ One of the standout features of our game's design is its stunning aesthetics, wh
 
 * Operator Overloading
   - Pacman:
-    - Overloading of the insertion, extraction and less than operator to for the Direction class and PowerBalls struct inorder to use ready-made solutions within the C++ library. Look [Direction.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Direction.h) and [Game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp) 
+    - Overloading of the insertion, extraction and less than operator to for the Direction class and PowerBalls struct inorder to use ready-made solutions within the C++ library. Look [Direction.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Direction.h) and [Game.h](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/include/Game.h) 
   
 * Program codes in multiple file
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.

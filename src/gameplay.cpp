@@ -118,7 +118,7 @@ void startGame(int actNumber){
             // Clear the screen and start playing
             // nodelay was turned on by animations
             clear();
-            nodelay(stdscr, FALSE);
+            // nodelay(stdscr, FALSE);
             Navigator navigator;
             navigator.Start();
             napms(1000);
