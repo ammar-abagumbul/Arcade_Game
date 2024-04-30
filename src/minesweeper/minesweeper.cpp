@@ -77,7 +77,7 @@ void printBoard(const vector<vector<char>>& board, int size) {
 
 //save the game in a text file
 void saveGame(const vector<vector<char>>& board, const vector<vector<char>>& gridblank, int size) {
-    ofstream saveFile("minesweeper_save.txt");
+    ofstream saveFile("./user_cache/minesweeper_save.txt");
     saveFile << size << '\n';
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -100,7 +100,7 @@ void saveGame(const vector<vector<char>>& board, const vector<vector<char>>& gri
 
 // load the saved game 
 bool loadGame(vector<vector<char>>& board, vector<vector<char>>& gridblank, int& size) {
-    ifstream saveFile("minesweeper_save.txt");
+    ifstream saveFile("./user_cache/minesweeper_save.txt");
     if (!saveFile.is_open()) {
         return false;
     }
@@ -335,7 +335,7 @@ bool startMinesweeper() {
 //to return if user has saved game or not
 std::vector<std::string> checkSaved(){
     vector<string> options;
-    ifstream saveFile("minesweeper_save.txt");
+    ifstream saveFile("./user_cache/minesweeper_save.txt");
     if (!saveFile.is_open()) {
         options.push_back("New Game");
         options.push_back("Exit");

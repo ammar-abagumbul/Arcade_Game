@@ -22,7 +22,7 @@ void saveBoard(int (&board)[3][3], bool solved){
   // This function saves the board if the player wants to save the current board before quitting
   
   ofstream fout;
-  fout.open("saveslidingblock.txt");
+  fout.open("./user_cache/sliding_block_save.txt");
   if (fout.is_open()){
     for (int i = 0; i < 3; i++){
       for (int j = 0; j < 3; j++){
@@ -41,7 +41,7 @@ bool initSavedboard(int (&board)[3][3], bool solved){
   // This function loads in the saved board from a previous game save
 
   ifstream fin;
-  fin.open("saveslidingblock.txt");
+  fin.open("./user_cache/sliding_block_save.txt");
   if (fin.is_open()){
     for (int i = 0; i < 3; i++){
       for (int j = 0; j < 3; j++){

@@ -41,29 +41,28 @@ struct Gate{
 void PrintMap(char** field, int h, int w){
 	// prints map
 	clear(); // clears the screen
-	refresh();
 	printw("\n\n\n\n\n");
 	for (int i=0; i<h; i++){
 		for (int j=0; j<w; j++){
 			if (j == 0){
 				printw("                                             %c", field[i][j]);
 			}else{
-			printw("%c", field[i][j]);
+				printw("%c", field[i][j]);
 			}
 		}
 		switch(i){
-		case 1: printw("  * = wall"); break;
-		case 2: printw("  P = player"); break;
+		case 1: printw(R"(  * = wall)"); break;
+		case 2: printw("  P = player (Objective: Enter Gate)"); break;
 		case 3: printw("  B = box"); break;
 		case 4: printw("  / \\ = mirror"); break;
-		case 5: printw("  - | + = laser (DANGER)"); break;
-		case 6: printw("  X = closed gate"); break;
+		case 5: printw(R"(  - | + = laser (DANGER))"); break;
+		case 6: printw("  X = closed gate "); break;
 		case 7: printw("  O = open gate"); break;
-		case 8: printw("  # = button (light sensitive, opens gate)"); break;
+		case 8: printw(R"(  # = button (light sensitive, opens gate))"); break;
 		}
 		printw("\n");
-		refresh();
 	}
+	refresh();
 }
 
 void EndGame(char** field, int h, int w){
@@ -97,7 +96,7 @@ void TracePath(char** field, int h, int w, Position i, Position d){
 			refresh();
 			napms(1500);
 			bokosanGameOver = true;
-			//EndGame(field, h, w);
+			break;
 	}
 	return;
 }
@@ -145,6 +144,9 @@ void UpdateField(char** field, int h, int w, Position p, vector<Position> box, v
         }
 	for (const Laser& i : las){
 		if (i.on) TracePath(field, h,w, i.pos, i.dir);
+		if (bokosanGameOver){
+			return;
+		}
 	}
 	for (int i=0; i<but.size(); i++){
 		if (CheckButton(field, but[i], las, gat))
@@ -205,17 +207,15 @@ void Rotate(char** field, Position p, vector<Mirror> &mir){
 }
 
 int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<Mirror> &mir){
-	char input;
+	int input;
 	printw("                                [w][a][s][d] Travel  [r] Rotate\n");
 	printw("                                [1] Quit             [2] Save & Quit\n");
 	refresh();
-	bool br = true;
-	do{
-		// char input = getch();
-		cin>>input;
-		printw("%c", input);
-		refresh();
-		Position d;
+	bool br = false;
+	Position d;
+	while (!br){
+		input = getch();
+		br = true;
 		switch (input){
 			case 'w': case 'W':
 				d = {-1,0};
@@ -238,14 +238,13 @@ int Move(char** field, int h, int w, Position &p, vector<Position> &box, vector<
 				break;
 			case '1':
 				bokosanGameOver = true;
-				EndGame(field,h,w);
 				break;
 			case '2':
 				return 0;
 			default:
 				br = false;
 		}
-	}while(!br);
+	}
 	return 1;
 }
 
@@ -336,18 +335,19 @@ int BokosanShowMenuScreen(bool resumeAvailable)
 }
 
 int playBokosan(){
+	bokosanGameOver = false;
 	clear();
 
 	// checks if there is a savefile and makes main  menu based on it
 	ifstream testSave;
 	int menu;
 	string filename;
-	testSave.open("s.txt");
+	testSave.open("./user_cache/bokosan_save.txt");
 	if (testSave.fail()){
 		menu = BokosanShowMenuScreen(false);
 		switch (menu){
 			case 1:
-				filename = "1.txt";
+				filename = "./maps/1.txt";
 				break;
 			case 2:
 				printw("Bye bye \n");
@@ -358,10 +358,10 @@ int playBokosan(){
 		menu = BokosanShowMenuScreen(true);
 		switch (menu){
 			case 2:
-				filename = "s.txt";
+				filename = "./user_cache/bokosan_save.txt";
 				break;
 			case 1:
-				filename = "1.txt";
+				filename = "./maps/1.txt";
 				break;
 			case 3:
 				printw("Bye bye \n");
@@ -369,6 +369,7 @@ int playBokosan(){
 				return 0;
 		}
 	}
+	testSave.close();
 
 	// open file
 	printw("loading %s\n", filename.c_str());
@@ -463,11 +464,17 @@ int playBokosan(){
 	fin.ignore(100,'\n');
 	Gate gat;
 	fin >> gat.pos.y >> gat.pos.x >> gat.on;
+	
+	fin.close();
 	// initial print
 	UpdateField(field, height, width, p, box, mir, las, but, gat);
 	PrintMap(field, height, width);
 	// game
 	while (Move(field, height, width, p, box, mir)){
+		if (bokosanGameOver){
+			EndGame(field, height, width);
+			return 2;
+		}
 		UpdateField(field, height, width, p, box, mir, las, but, gat);
 		if (bokosanGameOver){
 			EndGame(field, height, width);
@@ -477,17 +484,19 @@ int playBokosan(){
 		if (p.y == gat.pos.y && p.x == gat.pos.x && gat.on){
 			printw("you win!\n");
 			refresh();
-			break;
+			napms(2000);
+			return 1;
 		}
 	}
 
 	// saving
 	ofstream fout;
-	fout.open("save.txt");
+	fout.open("./user_cache/bokosan_save.txt");
 	if (fout.fail()){
 		printw("Error in file opening\n");
 		refresh();
-		exit(1);
+		napms(1500);
+		return 0;
 	}
 
 	fout << "size" << endl;
@@ -517,8 +526,9 @@ int playBokosan(){
 	fout << "gate (y, x, status)" << endl;
 	fout << gat.pos.y << ' ' << gat.pos.x << ' ' << gat.on << endl;
 
+	fout.close();
 
 	// cleanup
 	EndGame(field, height, width);
-	return 0;
+	return 2;
 }
