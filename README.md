@@ -32,6 +32,10 @@ Maximize the terminal window for a better experience!
 ```bash
   ./game
 ```
+
+
+
+
 - Press Enter to start
 - Press 1 to start a New Game
 - Press 2 to Load game
