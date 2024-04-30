@@ -84,3 +84,13 @@ Our terminal game incorporates the ncurses library to elevate the visual experie
   - Our code is well-organized with comments explaining each function, so that we can keep up with the code easily.
 
 ## Description
+  The Great Escape
+  Alacran's Shadow
+
+  Sam Riker, a former detective 🕵️, finds himself framed for a crime he didn't commit. Sentenced to life ⛓️ in Alacran Maximum Security Prison, he knows the only way to clear his name is to escape 🏃 and uncover the conspiracy that put him behind bars....
+  Can you help Sam escape and uncover the reason for the conspiracy?
+
+  You have to complete 4 levels, each one having its own storyline and challenges.
+
+  With your help, Sam successfully escapes the prison, but the journey is far from over. The truth he seeks lies beyond the walls of Alacran, and he now turns to you, the brave adventurer, to join him in unraveling the mystery that has ensnared his life. The story of Sam Riker will continue as you embark on a new chapter, where the stakes are higher, the challenges greater, and the truth more elusive than ever before. Are you ready to stand by his side and uncover the secrets that lie in the shadows?
+
