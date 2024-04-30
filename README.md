@@ -59,19 +59,21 @@ One of the standout features of our game's design is its stunning aesthetics, wh
     - vector: for storing Nodes in the path finding implementation
     - arrays: 1D array to store Ghosts and 2D array to store maze representation
   - Minesweeper: Uses vectors to store the board bombs and flags
+  - Bokosan: map stored in a dynamic 2d char array. All objects stored in vectors of struts that represent the object's various properties.
 
 * Dynamic memory management
   - Pacman:
     - Navigator uses dynamically allocated arrays of string types to pass information between game and menu window
   - Minesweeper: Uses vectors to store the biard bombs and flags
   - Sliding Block Puzzle: Uses vectors to store the possible moves a player can make. Check the possiblemovecheck() function in [move.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/move.cpp)
+  - Bokosan: Uses dynamically allocated 2d array to store map, and vectors of struts to store game objects.
 
 * File input/output
   - Pacman: 
     - Reads map.txt to initialize game map and writes to savedGame.txt to save player's progress. Check the class Game, which has 3 functions LoadNewGame(), LoadOldGame() and Save() in [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/pacman/src/Game.cpp)
   - Sliding Block Puzzle: When the user presses 'esc', the file is saved in a .txt file under the user_cache directory. When the game loads up, it is checked whether a save file exists and if so it is loaded up accordingly. Check [game.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/game.cpp), the saveBoard() & initSavedboard() functions in [board.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/slidingblock/board.cpp)
   - Minesweeper: The player can save their progress in a .txt file and load it later from it. Check the functions saveGame() and loadGame() in [minesweeper.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/minesweeper/minesweeper.cpp)
-  - Bokosan: The maps for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt) The files are saved in a .txt file under the user_cache directory.
+  - Bokosan: The and objects for each level of Bokosan is read from .txt files. Check playBokosan() in [3.cpp](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/src/bokosan/3.cpp) and [1.txt](https://github.com/ammar-abagumbul/ENGG1340_Hitman/blob/main/maps/1.txt) Save states are written into a .txt file in the same format as the level files under the user_cache directory.
   
 * Program codes in multiple file
   - The header files are located in the "include" directory, while the corresponding implementation files (cpp files) are placed in the "src" directory. Each sub game has its own dedicated set of files. As for Pacman, its functionality and logic are distributed across multiple classes that collectively define its behavior and features.
