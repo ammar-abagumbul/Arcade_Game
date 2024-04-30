@@ -422,6 +422,10 @@ void storyLineIntro()
 
     int width = 42;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "Sam Riker, a former detective, finds himse";
     for (int i = 0; i < 42; i++)
     {
@@ -456,7 +460,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "lf framed for a crime he didn't commit. Se";
@@ -493,7 +501,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "ntenced to life in Alacran Maximum Securit";
@@ -530,7 +542,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "y Prison, he knows the only way to clear h";
@@ -567,7 +583,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "is name is to escape and uncover the consp";
@@ -604,7 +624,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "iracy that put him behind bars.....       ";
@@ -641,7 +665,11 @@ void storyLineIntro()
         printw(R"(                                | |                                            | |)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break
@@ -789,6 +817,10 @@ void displayStoryOne()
 
     int width = 47;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "In his cell's dimness, Sam takes comfort in Mr.";
     for (int i = 0; i < 47; i++)
     {
@@ -839,7 +871,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "Finch's  tales. The old man reminisces about hi";
@@ -892,7 +928,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "s lively home and inquisitive grandkids, partic";
@@ -945,7 +985,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "ularly drawn to the gleaming fireplace tiles. T";
@@ -998,7 +1042,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "hese stories prompt Sam to inspect his cell, le";
@@ -1051,7 +1099,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "ading to a surprising discovery - a loose tile.";
@@ -1104,7 +1156,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s7 = "Further investigations leads to finding that it";
@@ -1157,7 +1213,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s8 = "conceals a sliding puzzle......";
@@ -1210,7 +1270,11 @@ void displayStoryOne()
         printw(R"(                            `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -1301,6 +1365,10 @@ void displayOutroOne()
 
     int width = 36;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "The sliding puzzle revealed a hidden";
     for (int i = 0; i < 36; i++)
     {
@@ -1341,7 +1409,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "cache of letters. These letters, add";
@@ -1384,7 +1456,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "ressed to the cryptic \"The Moth,\" hi";
@@ -1427,7 +1503,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "nt at an escape plan that remained u";
@@ -1470,7 +1550,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "nfulfilled. Sam realizes that he's n";
@@ -1513,7 +1597,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "ot the first innocent person to be t";
@@ -1556,7 +1644,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s7 = "rapped....                          ";
@@ -1599,7 +1691,11 @@ void displayOutroOne()
         printw(R"(                                            \/___________________________________________/)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -1701,6 +1797,10 @@ void displayStoryTwo()
 
     int width = 40;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "Sam discovers an the guard's armory. The";
     for (int i = 0; i < 40; i++)
     {
@@ -1727,7 +1827,11 @@ void displayStoryTwo()
         printw("\n");
         printw("                                          | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "armory, usually a mundane storage room f";
@@ -1756,7 +1860,11 @@ void displayStoryTwo()
         printw("\n");
         printw("                                          | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "or weapons, turns out to be a facade for";
@@ -1785,7 +1893,11 @@ void displayStoryTwo()
         printw("\n");
         printw("                                          | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "         a secret research lab...       ";
@@ -1814,7 +1926,11 @@ void displayStoryTwo()
         printw("\n");
         printw("                                          | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -1903,6 +2019,10 @@ void displayOutroTwo()
 
     int width = 39;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "Solving the puzzle, Sam discovers the b";
     for (int i = 0; i < 39; i++)
     {
@@ -1939,7 +2059,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "lueprint, which reveals that Alacran Ma";
@@ -1978,7 +2102,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "ximum Security Prison is part of a larg";
@@ -2017,7 +2145,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "er, sinister design. The prison's layou";
@@ -2056,7 +2188,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "t isn't random-it's purposefully design";
@@ -2095,7 +2231,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "ed to keep certain areas inaccessible. ";
@@ -2134,7 +2274,11 @@ void displayOutroTwo()
         printw(R"(                                          \\//  \\//  \\//  \\//  \\//  \\//  \\//  \\//)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -2223,6 +2367,10 @@ void displayStoryThree()
 
     int width = 41;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "Sam overhears guards talking about a mine";
     for (int i = 0; i < 41; i++)
     {
@@ -2246,7 +2394,11 @@ void displayStoryThree()
         printw("\n");
         printw("                              | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "sweeper game they play during their break";
@@ -2272,7 +2424,11 @@ void displayStoryThree()
         printw("\n");
         printw("                              | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "s. Curious, he investigates further....  ";
@@ -2298,7 +2454,11 @@ void displayStoryThree()
         printw("\n");
         printw("                              | |                                            | |\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -2388,6 +2548,10 @@ void displayOutroThree()
 
     int width = 72;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "To Sam's surprise, the minesweeper game is revealed to be a cover for an";
     for (int i = 0; i < 72; i++)
     {
@@ -2438,7 +2602,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "illegal betting ring run by the guards. They wager on the outcomes, dist";
@@ -2491,7 +2659,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "racting themselves from the monotony of prison duty....                 ";
@@ -2544,7 +2716,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "Sam uses his detective skills to manipulate the game's outcome, creating";
@@ -2597,7 +2773,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "a distraction that allows him to access restricted areas of the prison u";
@@ -2650,7 +2830,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "nnoticed. He discovers hidden compartments, secret tunnels, and coded me";
@@ -2703,7 +2887,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s7 = "ssages left by other inmates who were part of The Moth's failed escape p";
@@ -2756,7 +2944,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s8 = "lan............                                                         ";
@@ -2809,7 +3001,11 @@ void displayOutroThree()
         printw(R"(                                                      `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -2995,6 +3191,10 @@ void displayStoryFour()
 
     int width = 61;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "As Sam collects evidence, he also finds pieces of his own pas";
     for (int i = 0; i < 61; i++)
     {
@@ -3031,7 +3231,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "t scattered throughout the prison. Old case files, personal b";
@@ -3070,7 +3274,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "elongings, and a letter from someone he thought was lost - al";
@@ -3109,7 +3317,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "l these items help him evade the guards. The maze of prison c";
@@ -3148,7 +3360,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "orridors becomes a metaphorical labyrinth of memories and sec";
@@ -3187,7 +3403,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "rets........                                                 ";
@@ -3226,7 +3446,11 @@ void displayStoryFour()
         printw(R"(                        `-._.-'                                                                 `-._.-')");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and
@@ -3369,6 +3593,10 @@ void displayOutroStory()
 
     int width = 25;
 
+    // For ENTER to skip
+    nodelay(stdscr, TRUE);
+    int sleepTime = 100;
+
     string s1 = "Having narrowly escaped A";
     for (int i = 0; i < 25; i++)
     {
@@ -3413,7 +3641,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s2 = "lacran, Sam's heart raced";
@@ -3460,7 +3692,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s3 = "as he made his way to fre";
@@ -3507,7 +3743,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s4 = "edom. But as he emerged f";
@@ -3554,7 +3794,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s5 = "rom the prison's depths a";
@@ -3601,7 +3845,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s6 = "nd stepped into sunlight,";
@@ -3648,7 +3896,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s7 = "he stumbled upon somethin";
@@ -3695,7 +3947,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     string s8 = "g spine-chilling.........";
@@ -3742,7 +3998,11 @@ void displayOutroStory()
         printw(R"(                                                      \_/____________________________/.)");
         printw("\n");
         refresh();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        int ch = getch();
+        if (ch == '\n') {
+            sleepTime = 0;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
     }
 
     // Add line break and

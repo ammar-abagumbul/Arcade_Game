@@ -35,7 +35,9 @@ void startGame(int actNumber){
             displayIntroOne();
 
             // Clear the screen and start playing
+            // nodelay was turned on by animations
             clear();
+            nodelay(stdscr, FALSE);
             if (slidingBlockGame() == 0){
                 break;
             }
@@ -53,7 +55,9 @@ void startGame(int actNumber){
             displayIntroTwo();
 
             // Clear the screen and start playing
+            // nodelay was turned on by animations
             clear();
+            nodelay(stdscr, FALSE);
             bool br;
 
             while (true){
@@ -92,7 +96,9 @@ void startGame(int actNumber){
             displayIntroThree();
 
             // Clear the screen and start playing
+            // nodelay was turned on by animations
             clear();
+            nodelay(stdscr, FALSE);
             if (!startMinesweeper()){
                 break;
             }
@@ -110,15 +116,17 @@ void startGame(int actNumber){
             displayIntroFour();
 
             // Clear the screen and start playing
+            // nodelay was turned on by animations
             clear();
+            nodelay(stdscr, FALSE);
             Navigator navigator;
             navigator.Start();
             napms(1000);
 
             // Show the outro animations of the game
-            displayDoorOutro();
-            displayOutroStory();
-            displayToBeContinued();
+            // displayDoorOutro();
+            // displayOutroStory();
+            // displayToBeContinued();
             
             break;
     }
