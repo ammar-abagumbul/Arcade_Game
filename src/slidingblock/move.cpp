@@ -17,6 +17,7 @@ vector<string> possiblemovecheck(int board[3][3]){
 
   int emptyrow = 0, emptycol = 0;
   vector <string> possiblemoves;
+
   for (int i = 0; i < 3; i++){
     for (int j = 0; j < 3; j++){
       if (board[i][j] == 0){
@@ -26,15 +27,19 @@ vector<string> possiblemovecheck(int board[3][3]){
       }
     }
   }
+
   // Up check
   if (emptyrow < 2)
     possiblemoves.push_back("w");
+  
   // Down check
   if (emptyrow > 0)
     possiblemoves.push_back("s");
+
   // Left check
   if (emptycol < 2 )
     possiblemoves.push_back("a");
+  
   // Right check
   if (emptycol > 0)
     possiblemoves.push_back("d");

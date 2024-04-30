@@ -4,26 +4,28 @@
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
+
 #include "minesweeper.h"
+
 #include "ncurses.h"
+
 using namespace std;
 
-//initialisisng ncurses
+// Initialisisng ncurses for standalone testing
 void initCurses() {
     initscr();              // Start curses mode
-    raw();               // Line buffering disabled, Pass on every char to me
+    raw();                  // Line buffering disabled, Pass on every char to me
     noecho();               // Don't echo input values
     keypad(stdscr, TRUE);   // Get special keys like arrows
     curs_set(0);            // Hide cursor
 }
 
-//to reinitialise ncurses after every game loop
+// Reinitialise ncurses after every game loop
 void reinitialiseCurses() {
     endwin();
     refresh();
     clear();
     initCurses();
-	
 }
 
 void finishCurses() {
@@ -272,7 +274,7 @@ bool playGame(int size, bool newGame) {
 
 //to setuo the game and main menu
 bool startMinesweeper() {
-    initCurses();
+    // initCurses();
 
     int choice, gridSize = 5;  // Default grid size
     vector<vector<char>> board(gridSize, vector<char>(gridSize, '0'));
@@ -328,7 +330,7 @@ bool startMinesweeper() {
 	    clear();
     } while (choice != 4);
 
-    finishCurses();
+    // finishCurses();
     return gameResult;
 }
 
