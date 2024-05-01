@@ -24,7 +24,8 @@
 
 # How to play 🎮
 
-Maximize the terminal window for a better experience!
+Maximize the terminal window for a better experience! 
+*Disclaimer: Maximize if Pacman map is not visible in mini window*
 
 ```bash
   make game
