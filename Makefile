@@ -67,7 +67,7 @@ invalid_input_screen.o: include/invalid_input_screen.h src/invalid_input_screen.
 menu_screen.o: include/menu_screen.h include/invalid_input_screen.h src/menu_screen.cpp
 	$(CC) $(FLAGS) -c src/menu_screen.cpp -o menu_screen.o
 
-gameplay.o: include/gameplay.h include/animations.h src/gameplay.cpp src/slidingblock/game.h src/minesweeper/minesweeper.h src/bokosan/3.h src/pacman/include/Navigator.h
+gameplay.o: include/gameplay.h include/animations.h src/gameplay.cpp src/slidingblock/game.h src/minesweeper/minesweeper.h src/bokosan/bokosan.h src/pacman/include/Navigator.h
 	$(CC) $(FLAGS) -c src/gameplay.cpp -o gameplay.o
 
 main.o: include/animations.h include/menu_screen.h include/gameplay.h src/main.cpp
